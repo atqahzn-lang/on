@@ -194,6 +194,9 @@ function closeArchive() {
 document.getElementById("openArchive")
   .addEventListener("click", () => openArchive());
 
+document.getElementById("exploreWork")
+  .addEventListener("click", () => openArchive());
+
 document.getElementById("moreButton")
   .addEventListener("click", () => openArchive());
 

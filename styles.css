@@ -14,7 +14,7 @@
   --line: #343744;
   --soft-line: #D8D9DE;
 
-  --post-width: 460px;
+  --post-width: 560px;
   --post-ratio: 4 / 5;
 }
 
@@ -50,7 +50,7 @@ input:focus-visible {
 .page {
   min-height: 100vh;
   width: 100%;
-  padding: 48px 20px;
+  padding: 32px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +126,7 @@ input:focus-visible {
 }
 
 .username {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: -.02em;
 }
@@ -155,7 +155,7 @@ input:focus-visible {
 .post-picture {
   position: relative;
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: 220px;
   margin: 0 13px;
   border: 1px solid var(--line);
   background: var(--pink);
@@ -357,7 +357,7 @@ input:focus-visible {
 
 .caption {
   margin: 0;
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.5;
   letter-spacing: -.012em;
 }
@@ -367,7 +367,7 @@ input:focus-visible {
 .caption-instruction {
   margin: 0;
   color: var(--muted);
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -380,7 +380,7 @@ input:focus-visible {
 
 .hashtags a {
   color: var(--ink);
-  font-size: 10.5px;
+  font-size: 12px;
   font-weight: 600;
   text-decoration: none;
 }
@@ -396,11 +396,26 @@ input:focus-visible {
   border: none;
   background: transparent;
   color: var(--light-muted);
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
 }
 
 .comment-open:hover { color: var(--ink); }
+
+.explore-work {
+  align-self: flex-start;
+  min-height: 44px;
+  margin-top: 5px;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.explore-work:hover { background: #4D5162; }
 
 /* =====================================================
    07. COMMENT PANEL

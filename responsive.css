@@ -23,10 +23,10 @@
     gap: 3px;
   }
 
-  .caption { font-size: 10px; }
+  .caption { font-size: 14px; }
 
   .caption-instruction,
-  .hashtags a { font-size: 9px; }
+  .hashtags a { font-size: 12px; }
 
   .comment-panel {
     left: 10px;
