@@ -209,6 +209,7 @@ archiveOverlay.addEventListener("click", event => {
 /* Hashtag navigation */
 
 document.querySelectorAll(".hashtags a").forEach(tag => {
+  if (!tag.getAttribute("href").startsWith("#")) return;
   tag.addEventListener("click", event => {
     event.preventDefault();
     openArchive(tag.dataset.category);
