@@ -9,7 +9,8 @@ The X button and Escape close the dialog. Native dialog behavior traps focus and
 Edit `META_CONFIG.cases` in `cases.js`. The existing fields provide the challenge, solution, objectives, dot comparison, execution stages, results, and optional weekly data. Both gameplay and reports use these case records. Text is inserted as text, not executable HTML.
 
 - Objective comparisons show the baseline and target with the appropriate currency/suffix. A missing baseline is labeled unavailable and is never drawn as zero.
-- Missing dot comparisons or execution stages omit their section. Pending cases retain their supplied placeholder text.
+- The date follows the country in the metadata line; there is no separate date banner.
+- The solution overview appears in Execution, above the dial. Missing stages hide the dial and process disclosure while preserving any supplied solution. Missing dot comparisons omit their section. Pending cases retain their supplied placeholder text.
 - Execution supports numbered SVG buttons, previous/next controls, swipe/drag, and a complete-process disclosure. The process length follows the case's actual stage count.
 - Weekly graphs appear only when two or more verified values exist. With no values, the reporting note is shown instead. Do not invent weekly figures.
 - Results display the supplied values unless explicit report conclusions are provided. The template does not infer that a target was met.

@@ -12,14 +12,12 @@
     <div class="popup-scroll">
       <nav class="case-picker" aria-label="Choose a Meta case study"></nav>
       <article class="case-report" hidden>
-        <div class="report-date" data-field="date"></div>
         <p class="case-context" data-field="context"></p>
         <p class="case-name" data-field="title"></p>
         <section class="report-header">
           <div class="report-narrative">
             <h1 data-field="challenge"></h1>
             <p data-field="problem"></p>
-            <div class="solution-box"><h2><em>Solution:</em></h2><p data-field="solution"></p></div>
           </div>
           <div class="chart-panel"></div>
         </section>
@@ -30,6 +28,7 @@
         <section class="execution-section">
           <span class="execution-eyebrow">Execution</span>
           <h2 class="execution-heading" data-field="execution-heading"></h2>
+          <div class="solution-box"><h3>Solution</h3><p data-field="solution"></p></div>
           <div class="execution-board">
             <div class="dial-viewport" aria-label="Swipe horizontally to navigate execution stages">
               <svg id="mr-execution-dial" viewBox="0 0 340 320" role="group" aria-label="Interactive execution timeline"></svg>
@@ -219,9 +218,11 @@
     dialog.removeAttribute('style');
     const tokens=['page','text','soft-pink','purple','pink','border','muted','report-padding','section-gap'];
     tokens.forEach(key=>{if(options.theme?.[key])dialog.style.setProperty(`--${key}`,options.theme[key]);});
-    field('date',options.date??data.duration);field('context',`${data.industry} · ${data.market}`);
+    field('context',[data.industry, data.market, options.date ?? data.duration].filter(Boolean).join(' · '));
     field('title',data.title);field('challenge',options.challengeTitle??data.challengeTitle);
-    field('problem',options.intro??data.problem);field('solution',options.solution??data.solution);
+    field('problem',options.intro??data.problem);
+    const solution=options.solution??data.solution;field('solution',solution);
+    q('.solution-box').hidden=!solution;
     field('nda',data.nda);field('outcome',data.outcome);field('execution-heading',options.executionHeading??'The decisions behind the results.');
     const hidden=new Set(options.hiddenSections??[]);
     const objectiveItems=data.objectives??[];objectives(objectiveItems);
@@ -229,7 +230,9 @@
     q('.report-header').classList.toggle('narrative-only',q('.chart-panel').hidden);
     dots(data.dots);q('.dot-section').hidden=!data.dots||hidden.has('dots');
     steps=data.execution??[];stage=0;dragX=null;q('.dial-viewport').classList.remove('dragging');execution();
-    q('.execution-section').hidden=!steps.length||hidden.has('execution');
+    q('.execution-board').hidden=!steps.length;
+    q('.process-disclosure').hidden=!steps.length;
+    q('.execution-section').hidden=(!steps.length&&!solution)||hidden.has('execution');
     field('outcome-heading',options.outcomeHeading??'What changed?');field('footnote',options.footnote??'');
     const grid=q('.conclusion-grid');grid.replaceChildren();
     const results=options.conclusions??(data.results??[]).map(r=>({label:r.label,status:r.value,description:r.description}));

@@ -27,14 +27,6 @@
   padding: 26px 50px 80px;
   background: var(--page);
 }
-.meta-report .report-date {
-  display: flex;
-  align-items: center;
-  min-height: 66px;
-  padding: 0 24px;
-  background: var(--soft-pink);
-  font-size: 16px;
-}
 .meta-report .report-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,19 +53,14 @@
   font-weight: 600;
 }
 .meta-report .solution-box {
-  margin-top: auto;
-  padding: 15px 12px 28px;
+  margin: 0 0 24px;
+  padding: 20px 24px;
   background: var(--soft-pink);
 }
-.meta-report .solution-box h2 {
+.meta-report .solution-box h3 {
   margin: 0 0 10px;
   font-size: 21px;
   font-weight: 600;
-}
-.meta-report .solution-box h2 em {
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 .meta-report .solution-box p {
   margin: 0;
@@ -434,11 +421,6 @@
 }
 @media (max-width: 520px) {
 .meta-report .case-report { padding: 14px 15px 50px; }
-.meta-report .report-date {
-    min-height: 56px;
-    padding: 0 16px;
-    font-size: 13px;
-  }
 .meta-report .report-narrative h1 { font-size: 33px; }
 .meta-report .report-narrative > p { font-size: 14px; }
 .meta-report .solution-box p { font-size: 17px; }
