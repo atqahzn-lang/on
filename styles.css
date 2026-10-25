@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* =====================================================
+   01. DESIGN SYSTEM
+===================================================== */
+
+:root {
+  --pink: #F0C9D7;
+  --white: #FFFFFF;
+  --off-white: #F6F7F5;
+  --ink: #343744;
+  --muted: #777985;
+  --light-muted: #9999A0;
+  --line: #343744;
+  --soft-line: #D8D9DE;
+
+  --post-width: 460px;
+  --post-ratio: 4 / 5;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--pink);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+[hidden] { display: none !important; }
+
+/* =====================================================
+   02. PAGE AND POST
+===================================================== */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 48px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pink-frame {
+  width: min(100%, var(--post-width));
+}
+
+.post {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--post-ratio);
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* Subtle paper texture */
+
+.post::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+}
+
+/* =====================================================
+   03. PROFILE HEADER
+===================================================== */
+
+.post-header {
+  height: 49px;
+  flex: 0 0 49px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+}
+
+.profile-trigger:hover .username {
+  text-decoration: underline;
+}
+
+.avatar {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--off-white);
+}
+
+.avatar svg {
+  width: 17px;
+  height: 17px;
+}
+
+.username {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.icon-button {
+  width: 29px;
+  height: 29px;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+}
+
+.icon-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* =====================================================
+   04. IMAGE CAROUSEL
+   Replaces the original single GIF area
+===================================================== */
+
+.post-picture {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 13px;
+  border: 1px solid var(--line);
+  background: var(--pink);
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .35s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--pink);
+}
+
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #866575;
+  font-size: 11px;
+  text-align: center;
+}
+
+.slide-placeholder svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Previous / next arrows */
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(52,55,68,.15);
+  border-radius: 50%;
+  background: rgba(255,255,255,.82);
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.post-picture:hover .carousel-arrow,
+.carousel-arrow:focus-visible {
+  opacity: 1;
+}
+
+.carousel-arrow.prev { left: 9px; }
+.carousel-arrow.next { right: 9px; }
+
+.carousel-arrow svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-arrow:disabled {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* Slide counter */
+
+.carousel-counter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  padding: 5px 8px;
+  background: rgba(52,55,68,.65);
+  color: white;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   05. ACTION ICONS AND PAGINATION
+===================================================== */
+
+.post-actions {
+  position: relative;
+  height: 45px;
+  flex: 0 0 45px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.action {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+}
+
+.action svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.action.liked svg,
+.action.saved svg {
+  fill: var(--ink);
+}
+
+/* Instagram-style pagination dots */
+
+.carousel-dots {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #D8D9DE;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.carousel-dot.active {
+  background: var(--ink);
+  transform: scale(1.15);
+}
+
+/* =====================================================
+   06. CAPTION / HASHTAGS
+===================================================== */
+
+.post-footer {
+  min-height: 118px;
+  flex: 0 0 auto;
+  padding: 0 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.caption {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  letter-spacing: -.012em;
+}
+
+.caption strong { font-weight: 700; }
+
+.caption-instruction {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+  padding-top: 2px;
+}
+
+.hashtags a {
+  color: var(--ink);
+  font-size: 10.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hashtags a:hover {
+  opacity: .65;
+  text-decoration: underline;
+}
+
+.comment-open {
+  align-self: flex-start;
+  padding: 2px 0;
+  border: none;
+  background: transparent;
+  color: var(--light-muted);
+  font-size: 10px;
+  text-align: left;
+}
+
+.comment-open:hover { color: var(--ink); }
+
+/* =====================================================
+   07. COMMENT PANEL
+===================================================== */
+
+.comment-panel {
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 12px;
+  z-index: 10;
+  padding: 12px;
+  display: none;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.comment-panel.open { display: block; }
+
+.comment-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-heading strong { font-size: 11px; }
+
+.small-close {
+  padding: 0 4px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.small-close:hover { color: var(--ink); }
+
+.comment-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.comment-input {
+  width: 100%;
+  min-width: 0;
+  padding: 5px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.comment-input::placeholder {
+  color: var(--light-muted);
+}
+
+.post-comment {
+  padding: 5px 0;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.post-comment:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+/* Preset questions */
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 9px 0 0;
+}
+
+.suggestion {
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 12px;
+  text-align: left;
+}
+
+.suggestion:hover { background: #E9EBE8; }
+
+/* Preset answers */
+
+.comment-thread {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--soft-line);
+}
+
+.comment-thread.visible { display: block; }
+
+.thread-entry {
+  margin-bottom: 7px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.thread-entry strong {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.thread-reply {
+  padding-left: 14px;
+  color: #555866;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Guestbook */
+
+.guestbook-name {
+  margin-top: 9px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.guestbook-status {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.guestbook-status:empty { display: none; }
+
+.guestbook-feed {
+  max-height: 140px;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--soft-line);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.guestbook-entry {
+  margin-bottom: 10px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.guestbook-entry strong {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.guestbook-entry time {
+  margin-left: 5px;
+  color: var(--light-muted);
+  font-size: 9px;
+}
+
+/* =====================================================
+   08. ARCHIVE OVERLAY
+===================================================== */
+
+.archive-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(52,55,68,.45);
+}
+
+.archive-overlay.open { display: flex; }
+
+.archive {
+  width: min(100%, 500px);
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.archive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.archive-header strong { font-size: 16px; }
+
+.archive-intro {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.archive-tile {
+  aspect-ratio: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-align: center;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+.archive-tile:hover { opacity: .7; }
+.archive-tile strong { font-size: 11px; }
+
+.archive-tile span {
+  color: #706F79;
+  font-size: 9px;
+}

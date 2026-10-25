@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>atiqah.is</title>
+
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./responsive.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     10. MAIN HOMEPAGE
+===================================================== -->
+
+<main class="page">
+  <div class="pink-frame">
+
+    <article class="post" aria-label="Portfolio homepage">
+
+      <!-- PROFILE HEADER -->
+
+      <header class="post-header">
+
+        <button class="profile-trigger"
+                id="openArchive"
+                type="button"
+                aria-label="Open portfolio archive">
+
+          <span class="avatar">
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.7"
+                 stroke-linecap="round">
+              <circle cx="12" cy="8" r="3.5"/>
+              <path d="M5 20c0-4 3-6 7-6s7 2 7 6"/>
+            </svg>
+          </span>
+
+          <span class="username">atiqah.is</span>
+        </button>
+
+        <button class="icon-button"
+                id="moreButton"
+                type="button"
+                aria-label="More options">
+          <svg viewBox="0 0 24 24">
+            <circle cx="5" cy="12" r="1.4" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+            <circle cx="19" cy="12" r="1.4" fill="currentColor"/>
+          </svg>
+        </button>
+
+      </header>
+
+      <!-- IMAGE CAROUSEL -->
+
+      <div class="post-picture"
+           id="carousel"
+           tabindex="0"
+           role="region"
+           aria-roledescription="carousel"
+           aria-label="Personal photo carousel">
+
+        <div class="carousel-track" id="carouselTrack"></div>
+
+        <button class="carousel-arrow prev"
+                id="carouselPrev"
+                type="button"
+                aria-label="Previous photo">
+          <svg viewBox="0 0 24 24">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <button class="carousel-arrow next"
+                id="carouselNext"
+                type="button"
+                aria-label="Next photo">
+          <svg viewBox="0 0 24 24">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+
+        <span class="carousel-counter"
+              id="carouselCounter"></span>
+
+      </div>
+
+      <!-- ACTIONS -->
+
+      <div class="post-actions">
+
+        <div class="actions-left">
+
+          <button class="action liked"
+                  id="likeButton"
+                  type="button"
+                  aria-label="Like"
+                  aria-pressed="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.8 4.8a5.5 5.5 0 0 0-7.8 0L12 5.9l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.4a5.5 5.5 0 0 0 0-7.8Z"/>
+            </svg>
+          </button>
+
+          <button class="action"
+                  id="commentButton"
+                  type="button"
+                  aria-label="Open comments">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.5-5.3A8.5 8.5 0 1 1 21 11.5Z"/>
+            </svg>
+          </button>
+
+          <button class="action"
+                  id="shareButton"
+                  type="button"
+                  aria-label="Share portfolio">
+            <svg viewBox="0 0 24 24">
+              <path d="m22 2-7.5 20-3.8-8.7L2 9.5 22 2Z"/>
+              <path d="M22 2 10.7 13.3"/>
+            </svg>
+          </button>
+
+        </div>
+
+        <div class="carousel-dots"
+             id="carouselDots"
+             aria-label="Choose photo"></div>
+
+        <button class="action"
+                id="saveButton"
+                type="button"
+                aria-label="Save"
+                aria-pressed="false">
+          <svg viewBox="0 0 24 24">
+            <path d="M5 3h14v18l-7-5-7 5V3Z"/>
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- CAPTION -->
+
+      <footer class="post-footer">
+
+        <p class="caption">
+          <strong>atiqah.is</strong>
+          I do a bit of everything, but there's a system to it.
+          Probably.
+        </p>
+
+        <p class="caption-instruction">
+          Click a hashtag to see what I've been working on.
+        </p>
+
+        <nav class="hashtags" aria-label="Portfolio categories">
+          <a href="#paidmedia" data-category="paidmedia">#paidmedia</a>
+          <a href="#creative" data-category="creative">#creative</a>
+          <a href="#customerjourneys" data-category="customerjourneys">#customerjourneys</a>
+          <a href="#automation" data-category="automation">#automation</a>
+          <a href="#experiments" data-category="experiments">#experiments</a>
+        </nav>
+
+        <button class="comment-open"
+                id="viewComments"
+                type="button">
+          View all comments
+        </button>
+
+      </footer>
+
+      <!-- COMMENT PANEL -->
+
+      <section class="comment-panel"
+               id="commentPanel"
+               aria-label="Comments">
+
+        <div class="comment-heading">
+          <strong>Comments</strong>
+          <button class="small-close"
+                  id="closeComments"
+                  type="button"
+                  aria-label="Close comments">×</button>
+        </div>
+
+        <div class="comment-input-row">
+          <input class="comment-input"
+                 id="commentInput"
+                 type="text"
+                 maxlength="280"
+                 placeholder="Ask something or leave a comment..."
+                 autocomplete="off">
+
+          <button class="post-comment"
+                  id="submitComment"
+                  type="button"
+                  disabled>Post</button>
+        </div>
+
+        <!-- PREDICTIVE QUESTIONS -->
+
+        <div class="suggestions" id="suggestions"></div>
+
+        <!-- USERNAME FOR REAL COMMENTS -->
+
+        <div class="guestbook-name"
+             id="guestbookNameWrap"
+             hidden>
+          <input class="comment-input"
+                 id="guestbookUsername"
+                 type="text"
+                 maxlength="24"
+                 placeholder="Your username (2–24 characters)"
+                 autocomplete="off">
+        </div>
+
+        <p class="guestbook-status"
+           id="guestbookStatus"
+           role="status"
+           aria-live="polite"></p>
+
+        <!-- PRESET QUESTION AND REPLY -->
+
+        <div class="comment-thread"
+             id="commentThread"
+             aria-live="polite">
+          <div class="thread-entry"
+               id="visitorComment"></div>
+          <div class="thread-entry thread-reply"
+               id="presetReply"></div>
+        </div>
+
+        <!-- SAVED GUESTBOOK COMMENTS -->
+
+        <div class="guestbook-feed"
+             id="guestbookFeed"
+             aria-live="polite"></div>
+
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<!-- =====================================================
+     11. PORTFOLIO ARCHIVE
+===================================================== -->
+
+<div class="archive-overlay" id="archiveOverlay">
+
+  <section class="archive"
+           role="dialog"
+           aria-modal="true"
+           aria-label="Portfolio archive">
+
+    <div class="archive-header">
+      <strong>atiqah.is / archive</strong>
+
+      <button class="small-close"
+              id="closeArchive"
+              type="button"
+              aria-label="Close archive">×</button>
+    </div>
+
+    <p class="archive-intro">
+      A collection of things I've worked on, figured out,
+      redesigned and occasionally made more complicated
+      than necessary.
+    </p>
+
+    <div class="archive-grid">
+
+      <a class="archive-tile"
+         data-category="customerjourneys"
+         data-page="kreditRakyat"
+         href="#kredit-rakyat"
+         style="background:#EAF4D8">
+        <strong>Kredit Rakyat</strong>
+        <span>UX / CRM</span>
+      </a>
+
+      <a class="archive-tile"
+         data-category="paidmedia"
+         data-page="paidMedia"
+         href="./so-meta/"
+         style="background:#E8E2F5">
+        <strong>Paid Media</strong>
+        <span>Campaigns</span>
+      </a>
+
+      <a class="archive-tile"
+         data-category="creative"
+         data-page="ugcMarketing"
+         href="./ugc-marketing/"
+         style="background:#F9EAF0">
+        <strong>UGC Marketing</strong>
+        <span>Creator campaigns</span>
+      </a>
+
+      <a class="archive-tile"
+         data-category="creative"
+         data-page="creative"
+         href="#creative-work"
+         style="background:#F6DCE3">
+        <strong>Creative R&D</strong>
+        <span>Design</span>
+      </a>
+
+      <a class="archive-tile"
+         data-category="automation"
+         data-page="automation"
+         href="#workflows"
+         style="background:#DBEAF5">
+        <strong>Automation</strong>
+        <span>Workflows</span>
+      </a>
+
+      <a class="archive-tile"
+         data-category="paidmedia"
+         data-page="reporting"
+         href="#reporting"
+         style="background:#F5E8D4">
+        <strong>Reporting</strong>
+        <span>Systems</span>
+      </a>
+
+      <a class="archive-tile"
+         data-category="experiments"
+         data-page="experiments"
+         href="#experiments"
+         style="background:#E2EBD9">
+        <strong>Experiments</strong>
+        <span>Code / Figma</span>
+      </a>
+
+    </div>
+  </section>
+</div>
+
+<script src="./config.js" defer></script>
+<script src="./app.js" defer></script>
+</body>
+</html>
+
+

@@ -1,0 +1,46 @@
+/* =====================================================
+   09. RESPONSIVE
+===================================================== */
+
+@media (max-width: 520px) {
+  .page { padding: 20px 12px; }
+
+  .post-header {
+    height: 43px;
+    flex-basis: 43px;
+  }
+
+  .post-actions {
+    height: 39px;
+    flex-basis: 39px;
+  }
+
+  .post-picture { margin: 0 10px; }
+
+  .post-footer {
+    min-height: 108px;
+    padding: 0 12px 8px;
+    gap: 3px;
+  }
+
+  .caption { font-size: 10px; }
+
+  .caption-instruction,
+  .hashtags a { font-size: 9px; }
+
+  .comment-panel {
+    left: 10px;
+    right: 10px;
+  }
+
+  .carousel-arrow { opacity: .8; }
+}
+
+@media (max-width: 360px) {
+  .post-footer { min-height: 116px; }
+  .hashtags { gap: 4px 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { transition: none; }
+}
