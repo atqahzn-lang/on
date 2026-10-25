@@ -402,20 +402,6 @@ input:focus-visible {
 
 .comment-open:hover { color: var(--ink); }
 
-.explore-work {
-  align-self: flex-start;
-  min-height: 44px;
-  margin-top: 5px;
-  padding: 10px 16px;
-  border: 1px solid var(--ink);
-  border-radius: 6px;
-  background: var(--ink);
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.explore-work:hover { background: #4D5162; }
 
 /* =====================================================
    07. COMMENT PANEL

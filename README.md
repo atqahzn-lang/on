@@ -8,7 +8,7 @@ Static GitHub Pages site adapted from the supplied Wix HTML embeds. No build ste
 - `/on/so-meta/`: So Meta case studies.
 - `/on/ugc-marketing/`: UGC campaigns.
 
-Each page has its own styles and scripts. The homepage archive links Paid Media to So Meta and includes a UGC Marketing tile under Creative. Other archive destinations remain unconfigured until their pages are available. The UGC portfolio button returns to this homepage.
+Each page has its own styles and scripts. The homepage archive links Paid Media to So Meta and includes a UGC Marketing tile. Homepage hashtags filter Meta case studies, UGC Marketing, Kredit Rakyat, and other projects. Other archive destinations remain unconfigured until their pages are available. The UGC portfolio button returns to this homepage.
 
 ## Edit the homepage
 
