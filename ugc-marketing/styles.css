@@ -1,0 +1,782 @@
+/* =========================================================
+   01. COLOURS
+   Change the pink here to update all former blue accents.
+========================================================= */
+
+:root {
+  --pink: #F0C9D7;
+  --pink-light: #F9EAF0;
+  --pink-dark: #A44D70;
+
+  --white: #FFFFFF;
+  --black: #222222;
+  --grey-1: #F4F4F4;
+  --grey-2: #E8E8E8;
+  --grey-3: #CCCCCC;
+  --grey-4: #888888;
+
+  --firefox-grey: #E8E7E5;
+  --firefox-border: #9C9C9C;
+
+  --window-width: 1050px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--pink);
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+button,
+input,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--pink-dark);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--pink-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   02. PAGE / FIREFOX WINDOW
+========================================================= */
+
+.page {
+  padding: 38px 18px 65px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.browser {
+  width: min(100%, var(--window-width));
+  border: 1px solid #777;
+  background: var(--white);
+  box-shadow: 5px 5px 0 rgba(52,55,68,.14);
+  overflow: hidden;
+}
+
+/* =========================================================
+   03. FIREFOX TITLE BAR
+========================================================= */
+
+.browser-titlebar {
+  height: 31px;
+  background: var(--pink);
+  border-bottom: 1px solid #B28E9E;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 0 8px;
+}
+
+.browser-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.firefox-icon {
+  font-size: 15px;
+  flex: none;
+}
+
+.browser-title-text {
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window-buttons {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: none;
+}
+
+.window-button {
+  width: 21px;
+  height: 19px;
+  background: linear-gradient(#FFFFFF, #D6C1CA);
+  border: 1px solid #9B8390;
+  color: #333;
+  padding: 0;
+  line-height: 1;
+  font-size: 12px;
+}
+
+.window-button:hover {
+  background: var(--white);
+}
+
+/* =========================================================
+   04. FIREFOX MENU
+========================================================= */
+
+.firefox-menu {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  background: var(--firefox-grey);
+  border-bottom: 1px solid #BDBDBD;
+
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.firefox-menu span {
+  white-space: nowrap;
+}
+
+/* =========================================================
+   05. FIREFOX ADDRESS BAR
+========================================================= */
+
+.browser-toolbar {
+  background: #F5F5F4;
+  border-bottom: 1px solid #BDBDBD;
+  padding: 7px 9px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.browser-nav {
+  display: flex;
+  gap: 5px;
+}
+
+.browser-nav button {
+  width: 27px;
+  height: 26px;
+  border: 1px solid #C4C4C4;
+  background: #EEEEEE;
+  color: #555;
+  padding: 0;
+  font-size: 16px;
+}
+
+.browser-nav button:hover {
+  background: var(--pink-light);
+}
+
+.address-field {
+  flex: 1;
+  min-width: 0;
+  height: 27px;
+  border: 1px solid #B7B7B7;
+  background: var(--white);
+
+  display: flex;
+  align-items: center;
+  padding: 0 9px;
+  overflow: hidden;
+
+  font-size: 11px;
+  color: #555;
+}
+
+.address-field span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.browser-search {
+  width: 125px;
+  height: 27px;
+  background: #FFFFFF;
+  border: 1px solid #B7B7B7;
+  padding: 0 7px;
+  font-size: 11px;
+}
+
+/* =========================================================
+   06. YOUTUBE PAGE
+========================================================= */
+
+.youtube-page {
+  background: var(--white);
+  padding: 18px 28px 26px;
+}
+
+/* =========================================================
+   07. YOUTUBE HEADER
+========================================================= */
+
+.youtube-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 9px;
+}
+
+.youtube-logo {
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: -2px;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  color: #111;
+}
+
+.youtube-logo .tube {
+  background: #CC2424;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 4px 5px 5px;
+  letter-spacing: -2px;
+  margin-left: 1px;
+}
+
+.youtube-tagline {
+  font-size: 10px;
+  color: #777;
+  margin-top: 3px;
+  letter-spacing: -.2px;
+}
+
+.youtube-account {
+  text-align: right;
+  font-size: 11px;
+  color: var(--pink-dark);
+  padding-top: 4px;
+  line-height: 1.7;
+}
+
+.youtube-account span {
+  color: #999;
+  margin: 0 4px;
+}
+
+/* =========================================================
+   08. YOUTUBE NAVIGATION
+========================================================= */
+
+.youtube-nav {
+  display: flex;
+  gap: 3px;
+  margin-top: 12px;
+  border-bottom: 1px solid #D6D6D6;
+}
+
+.youtube-nav a {
+  display: block;
+  min-width: 105px;
+  text-align: center;
+
+  padding: 10px 12px 9px;
+
+  background: linear-gradient(#F8F8F8, #E5E5E5);
+  border: 1px solid #D5D5D5;
+  border-bottom: none;
+
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+}
+
+.youtube-nav a.active {
+  background: linear-gradient(var(--pink-light), var(--pink));
+  color: #7D3655;
+}
+
+.youtube-nav a:hover {
+  background: var(--pink-light);
+  text-decoration: none;
+}
+
+/* =========================================================
+   09. YOUTUBE SEARCH
+========================================================= */
+
+.youtube-search-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background: #F0F0F0;
+  padding: 9px 12px;
+  margin-bottom: 20px;
+}
+
+.youtube-search-row input {
+  width: min(100%, 330px);
+  height: 28px;
+  border: 1px solid #BDBDBD;
+  background: #FFFFFF;
+  padding: 0 9px;
+  font-size: 12px;
+}
+
+.youtube-search-row button {
+  height: 28px;
+  padding: 0 13px;
+  border: 1px solid #BDBDBD;
+  background: linear-gradient(#FFFFFF, #DDDDDD);
+  font-size: 11px;
+}
+
+.youtube-search-row button:hover {
+  background: var(--pink-light);
+}
+
+.search-hint {
+  color: var(--pink-dark);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   10. WATCH PAGE GRID
+========================================================= */
+
+.watch-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.video-title {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   11. VIDEO PLAYER
+========================================================= */
+
+.video-player {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #111;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #999;
+}
+
+.video-player video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #000;
+}
+
+.player-placeholder {
+  position: absolute;
+  inset: 0;
+  background: #151515;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  text-align: center;
+  padding: 20px;
+}
+
+.player-placeholder .play-icon {
+  font-size: 48px;
+  color: #FFFFFF;
+}
+
+.player-placeholder p {
+  color: #D0D0D0;
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 250px;
+  margin: 0;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-height: 33px;
+  padding: 5px 8px;
+
+  border: 1px solid #BEBEBE;
+  border-top: none;
+  background: linear-gradient(#F8F8F8, #DEDEDE);
+}
+
+.player-control {
+  background: transparent;
+  border: none;
+  color: #333;
+  padding: 0 2px;
+  font-size: 13px;
+}
+
+.player-control:hover {
+  color: var(--pink-dark);
+}
+
+.player-progress {
+  height: 8px;
+  background: #C9C9C9;
+  border: 1px solid #AAA;
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+}
+
+.player-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--pink-dark);
+}
+
+.player-time {
+  font-size: 10px;
+  white-space: nowrap;
+  color: #444;
+}
+
+/* =========================================================
+   12. RATINGS / ACTIONS
+========================================================= */
+
+.video-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  padding: 12px 2px 10px;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.rating {
+  color: #C83232;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.video-views {
+  font-size: 12px;
+  color: #555;
+}
+
+.video-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 11px 3px;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.video-action-row button {
+  background: transparent;
+  border: none;
+  color: var(--pink-dark);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0;
+}
+
+.video-action-row button:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   13. VIDEO DESCRIPTION
+========================================================= */
+
+.description-box {
+  padding: 18px 2px;
+}
+
+.description-heading {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 0 12px;
+}
+
+.description-text {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.description-subheading {
+  margin: 17px 0 7px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.description-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.metric {
+  background: var(--pink-light);
+  border: 1px solid #E1C6D1;
+  padding: 12px;
+}
+
+.metric strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.metric span {
+  font-size: 10px;
+  color: #666;
+}
+
+/* =========================================================
+   14. RIGHT SIDEBAR / CHANNEL INFO
+========================================================= */
+
+.channel-card {
+  background: #EEEEEE;
+  border: 1px solid #CCCCCC;
+  margin-bottom: 13px;
+}
+
+.channel-banner {
+  background: var(--pink);
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 1px solid #D6B1C0;
+}
+
+.channel-body {
+  display: flex;
+  gap: 11px;
+  padding: 11px;
+}
+
+.channel-avatar {
+  width: 45px;
+  height: 45px;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: bold;
+  flex: none;
+}
+
+.channel-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.channel-info p {
+  margin: 0 0 5px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.channel-info strong {
+  color: var(--pink-dark);
+}
+
+.subscribe-button {
+  border: 1px solid #D2A837;
+  background: linear-gradient(#FFF2A6, #F5D65E);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 6px 10px;
+  margin-top: 5px;
+}
+
+.channel-extra {
+  border-top: 1px solid #CCCCCC;
+  padding: 9px 11px;
+  font-size: 10px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   15. RELATED CAMPAIGN VIDEOS
+========================================================= */
+
+.related-heading {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 13px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.related-list {
+  display: grid;
+  gap: 2px;
+}
+
+.related-item {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  gap: 9px;
+
+  width: 100%;
+  padding: 7px 5px;
+
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.related-item:hover {
+  background: var(--pink-light);
+}
+
+.related-item.active {
+  background: var(--pink);
+  border-color: #D6B1C0;
+}
+
+.related-thumb {
+  aspect-ratio: 4 / 3;
+  background: #E7E7E7;
+  border: 1px solid #BDBDBD;
+  overflow: hidden;
+  position: relative;
+}
+
+.related-thumb img,
+.related-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.related-thumb video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.related-thumb.previewing video {
+  opacity: 1;
+}
+
+.related-thumb.previewing img {
+  opacity: 0;
+}
+
+.thumb-placeholder {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--pink-light);
+  color: #9D6480;
+  font-size: 21px;
+}
+
+.thumb-duration {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0,0,0,.8);
+  color: #FFFFFF;
+  padding: 2px 4px;
+  font-size: 10px;
+  z-index: 2;
+}
+
+.related-info {
+  min-width: 0;
+}
+
+.related-title {
+  color: var(--pink-dark);
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.35;
+  margin-bottom: 5px;
+}
+
+.related-meta {
+  color: #777;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.no-results {
+  padding: 18px 8px;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   16. FOOTER
+========================================================= */
+
+.youtube-footer {
+  border-top: 1px solid #DDDDDD;
+  margin-top: 25px;
+  padding-top: 15px;
+  color: #777;
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.youtube-footer a {
+  margin: 0 5px;
+}

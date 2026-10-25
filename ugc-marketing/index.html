@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YouTube - UGC Marketing - Mozilla Firefox</title>
+
+
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./responsive.css">
+</head>
+
+<body>
+
+<div class="page">
+
+  <main class="browser">
+
+    <!-- =====================================================
+         18. MOZILLA FIREFOX BROWSER
+    ====================================================== -->
+
+    <div class="browser-titlebar">
+
+      <div class="browser-title">
+        <span class="firefox-icon">🌐</span>
+        <span class="browser-title-text">
+          YouTube - UGC Marketing - Mozilla Firefox
+        </span>
+      </div>
+
+      <div class="window-buttons">
+        <button class="window-button"
+                type="button"
+                title="Back to portfolio"
+                data-action="portfolio">−</button>
+
+        <button class="window-button"
+                type="button"
+                title="Fullscreen browser"
+                data-action="fullscreen">□</button>
+
+        <button class="window-button"
+                type="button"
+                title="Back to portfolio"
+                data-action="portfolio">×</button>
+      </div>
+
+    </div>
+
+    <div class="firefox-menu">
+      <span>File</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>History</span>
+      <span>Bookmarks</span>
+      <span>Tools</span>
+      <span>Help</span>
+    </div>
+
+    <div class="browser-toolbar">
+
+      <div class="browser-nav">
+        <button type="button"
+                title="Previous campaign"
+                data-action="previous">◀</button>
+
+        <button type="button"
+                title="Next campaign"
+                data-action="next">▶</button>
+
+        <button type="button"
+                title="Reload current campaign"
+                data-action="reload">↻</button>
+      </div>
+
+      <div class="address-field">
+        <span id="browser-url">
+          http://www.youtube.com/watch?v=ugc01
+        </span>
+      </div>
+
+      <input class="browser-search"
+             type="search"
+             id="browser-search"
+             placeholder="Search campaigns..."
+             aria-label="Search campaigns">
+
+    </div>
+
+    <!-- =====================================================
+         19. YOUTUBE HEADER
+    ====================================================== -->
+
+    <div class="youtube-page">
+
+      <header class="youtube-header">
+
+        <div>
+          <div class="youtube-logo" aria-label="YouTube">
+            <span>You</span><span class="tube">Tube</span>
+          </div>
+
+          <div class="youtube-tagline">
+            Broadcast Yourself™
+          </div>
+        </div>
+
+        <div class="youtube-account">
+          <a href="#" data-action="portfolio">atiqah.is</a>
+          <span>|</span>
+          <a href="#" data-action="portfolio">Help</a>
+          <span>|</span>
+          <a href="#" data-action="portfolio">Sign In</a>
+        </div>
+
+      </header>
+
+      <!-- ===================================================
+           20. YOUTUBE NAVIGATION
+      ==================================================== -->
+
+      <nav class="youtube-nav" aria-label="YouTube navigation">
+        <a href="#" data-action="portfolio">Home</a>
+        <a href="#" class="active" data-action="all">Videos</a>
+        <a href="#" data-action="all">Channels</a>
+        <a href="#" data-action="all">Community</a>
+      </nav>
+
+      <!-- ===================================================
+           21. SEARCH
+      ==================================================== -->
+
+      <form class="youtube-search-row" id="search-form">
+
+        <input
+          id="campaign-search"
+          type="search"
+          placeholder="Search UGC campaigns..."
+          aria-label="Search UGC campaigns"
+        >
+
+        <button type="submit">Search</button>
+
+        <span class="search-hint">UGC Marketing Archive</span>
+
+      </form>
+
+      <!-- ===================================================
+           22. MAIN WATCH PAGE
+      ==================================================== -->
+
+      <div class="watch-layout">
+
+        <!-- LEFT: VIDEO & CASE STUDY -->
+
+        <section class="watch-main">
+
+          <h1 class="video-title" id="video-title">
+            UGC Marketing — Campaign 01
+          </h1>
+
+          <!-- VIDEO PLAYER -->
+
+          <div class="video-player" id="video-player">
+
+            <video
+              id="main-video"
+              playsinline
+              preload="metadata"
+              aria-label="Campaign video">
+            </video>
+
+            <div class="player-placeholder" id="player-placeholder">
+              <span class="play-icon">▶</span>
+              <p>
+                Campaign video preview
+                <br>
+                Add your video URL in CONFIG.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- CUSTOM Y2K PLAYER CONTROLS -->
+
+          <div class="player-controls">
+
+            <button class="player-control"
+                    type="button"
+                    id="play-button"
+                    aria-label="Play or pause video">▶</button>
+
+            <button class="player-control"
+                    type="button"
+                    id="mute-button"
+                    aria-label="Mute or unmute video">♪</button>
+
+            <div class="player-progress"
+                 id="player-progress"
+                 role="slider"
+                 tabindex="0"
+                 aria-label="Video progress"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-valuenow="0">
+
+              <div class="player-progress-fill"
+                   id="player-progress-fill"></div>
+
+            </div>
+
+            <span class="player-time" id="player-time">
+              0:00 / 0:00
+            </span>
+
+            <button class="player-control"
+                    type="button"
+                    id="fullscreen-button"
+                    aria-label="Fullscreen video">□</button>
+
+          </div>
+
+          <!-- VIDEO STATS -->
+
+          <div class="video-stat-row">
+
+            <div>
+              <span style="font-weight:bold">Rate:</span>
+              <span class="rating">★★★★★</span>
+            </div>
+
+            <div class="video-views" id="video-views">
+              Campaign metrics
+            </div>
+
+          </div>
+
+          <!-- VIDEO ACTIONS -->
+
+          <div class="video-action-row">
+            <button type="button" data-action="share">
+              ↗ Share
+            </button>
+
+            <button type="button" data-action="favorite">
+              ♥ Favorite
+            </button>
+
+            <button type="button" data-action="all">
+              ▤ Playlists
+            </button>
+
+            <button type="button" data-action="portfolio">
+              ↩ Back to portfolio
+            </button>
+          </div>
+
+          <!-- CAMPAIGN DESCRIPTION -->
+
+          <div class="description-box">
+
+            <h2 class="description-heading">
+              About this campaign
+            </h2>
+
+            <div class="description-text" id="campaign-description"></div>
+
+            <h3 class="description-subheading">
+              My responsibilities
+            </h3>
+
+            <div class="description-text" id="campaign-role"></div>
+
+            <h3 class="description-subheading">
+              Results
+            </h3>
+
+            <div class="description-metrics" id="campaign-metrics"></div>
+
+          </div>
+
+        </section>
+
+        <!-- RIGHT: CHANNEL + CAMPAIGN THUMBNAILS -->
+
+        <aside class="watch-sidebar">
+
+          <!-- CHANNEL CARD -->
+
+          <div class="channel-card">
+
+            <div class="channel-banner">
+              UGC Marketing Archive
+            </div>
+
+            <div class="channel-body">
+
+              <div class="channel-avatar">ATQ</div>
+
+              <div class="channel-info">
+
+                <p>
+                  From:
+                  <strong>atiqah.is</strong>
+                </p>
+
+                <p>
+                  A collection of UGC marketing
+                  campaigns I've worked on.
+                </p>
+
+                <button class="subscribe-button"
+                        type="button"
+                        data-action="portfolio">
+                  View Portfolio
+                </button>
+
+              </div>
+
+            </div>
+
+            <div class="channel-extra">
+              Category: Marketing / UGC
+              <br>
+              Browse campaigns using the thumbnails below.
+            </div>
+
+          </div>
+
+          <!-- CAMPAIGN LIST -->
+
+          <h2 class="related-heading">
+            ▼ More From: UGC Marketing
+          </h2>
+
+          <div class="related-list" id="related-list">
+            <!-- Populated from CONFIG.campaigns -->
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- ===================================================
+           23. YOUTUBE FOOTER
+      ==================================================== -->
+
+      <footer class="youtube-footer">
+        <a href="#" data-action="portfolio">About</a>
+        |
+        <a href="#" data-action="portfolio">Portfolio</a>
+        |
+        <a href="#" data-action="all">Videos</a>
+        |
+        <a href="#" data-action="portfolio">Contact</a>
+
+        <div style="margin-top:7px">
+          atiqah.is · UGC Marketing Portfolio
+        </div>
+      </footer>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="./campaigns.js" defer></script>
+<script src="./app.js" defer></script>
+
+</body>
+</html>

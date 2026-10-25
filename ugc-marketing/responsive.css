@@ -1,0 +1,88 @@
+/* =========================================================
+   17. RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .page {
+    padding: 10px 8px 35px;
+  }
+
+  .youtube-page {
+    padding: 13px 13px 20px;
+  }
+
+  .watch-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .youtube-logo {
+    font-size: 28px;
+  }
+
+  .youtube-nav {
+    overflow-x: auto;
+  }
+
+  .youtube-nav a {
+    min-width: 85px;
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+
+  .browser-search {
+    display: none;
+  }
+
+  .search-hint {
+    display: none;
+  }
+
+  .related-item {
+    grid-template-columns: 125px 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .firefox-menu {
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .browser-toolbar {
+    gap: 4px;
+  }
+
+  .browser-nav button {
+    width: 23px;
+  }
+
+  .youtube-account {
+    font-size: 9px;
+  }
+
+  .youtube-search-row {
+    padding: 8px;
+  }
+
+  .youtube-search-row input {
+    min-width: 0;
+  }
+
+  .channel-body {
+    flex-wrap: wrap;
+  }
+
+  .description-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
