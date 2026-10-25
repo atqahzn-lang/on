@@ -11,7 +11,7 @@
    PLAY GAME and READ CASE STUDY use this same database.
 ========================================================== */
 
-const CONFIG = {
+const META_CONFIG = {
 
   catSprite:
     "https://raw.githubusercontent.com/atqahzn-lang/atiqahis/main/Frame%208%20%281%29.png",
@@ -133,6 +133,18 @@ const CONFIG = {
 
     {
       id: "02",
+      report: {
+        date: "February – March 2026",
+        challengeTitle: "Demand slowed after the holiday peak.",
+        outcomeHeading: "Were the objectives met?",
+        conclusions: [
+          { label: "ROAS target · 6.00×", status: "MET*", tone: "met",
+            description: "ROAS exceeded 6.00× during individual weeks of the campaign." },
+          { label: "CPP target · ₱1,500", status: "MET*", tone: "met",
+            description: "The lowest recorded cost per purchase reached ₱1,300." }
+        ],
+        footnote: "*Targets were reached at individual points, not established as campaign-period averages. Complete period-level reporting is unavailable, so sustained achievement cannot be verified."
+      },
 
       title:
         "Achieving Weekly ROAS Above 6",

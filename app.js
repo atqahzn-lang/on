@@ -627,6 +627,13 @@ archiveTiles.forEach(tile => {
   const destination = CONFIG.pages[key];
 
   tile.addEventListener("click", event => {
+    if (key === "paidMedia") {
+      event.preventDefault();
+      closeArchive();
+      document.getElementById("openArchive").focus();
+      MetaReports.openMenu();
+      return;
+    }
     if (!destination) {
       event.preventDefault();
       return;

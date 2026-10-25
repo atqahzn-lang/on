@@ -8,7 +8,7 @@ Static GitHub Pages site adapted from the supplied Wix HTML embeds. No build ste
 - `/on/so-meta/`: So Meta case studies.
 - `/on/ugc-marketing/`: UGC campaigns.
 
-Each page has its own styles and scripts. The homepage archive links Paid Media to So Meta and includes a UGC Marketing tile. Homepage hashtags filter Meta case studies, UGC Marketing, Kredit Rakyat, and other projects. Other archive destinations remain unconfigured until their pages are available. The UGC portfolio button returns to this homepage.
+Each page has its own styles and scripts. The homepage archive opens Meta case studies in a closable popup using the shared So Meta report template and includes a UGC Marketing tile. Homepage hashtags filter Meta case studies, UGC Marketing, Kredit Rakyat, and other projects. Other archive destinations remain unconfigured until their pages are available. The UGC portfolio button returns to this homepage.
 
 ## Edit the homepage
 
@@ -41,3 +41,5 @@ Push these files to `main`. GitHub Pages must publish the branch from `/(root)`.
 Homepage: https://atqahzn-lang.github.io/on/
 
 Project links use relative paths so the `/on/` repository prefix is preserved. Google Fonts (DM Sans) and the guestbook are external services; the stylesheet includes fallback fonts.
+
+Meta report customization: see `so-meta/REPORT-TEMPLATE.md`. The X button or Escape returns to the homepage without navigating to another page.
