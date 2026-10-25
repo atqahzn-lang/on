@@ -1,0 +1,567 @@
+/* ==========================================================
+   05 — FULL-SCREEN REPORT OVERLAY
+   Completely separate from the Nintendo shell.
+========================================================== */
+
+.report-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background: var(--report-bg);
+  color: var(--report-ink);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.report-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px max(20px, calc((100vw - 1120px)/2));
+  border-bottom: 1px solid var(--report-line);
+  background: #FFFEFCF2;
+  backdrop-filter: blur(12px);
+}
+
+.report-toolbar strong {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.toolbar-button {
+  border: 1px solid var(--report-line);
+  border-radius: 7px;
+  background: white;
+  padding: 10px 13px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.report-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+.report-section { margin-bottom: 20px; }
+
+.report-card {
+  background: var(--report-paper);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.report-eyebrow {
+  color: var(--report-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.report-header-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.report-title {
+  max-width: 850px;
+  margin: 24px 0 18px;
+  font-size: clamp(38px, 5.6vw, 68px);
+  font-weight: 600;
+  letter-spacing: -2.8px;
+  line-height: 1.08;
+}
+
+.report-metadata {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--report-body);
+}
+
+.report-achievement {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 18px 24px;
+  background: #E7F1DA;
+  border-radius: 11px;
+}
+
+.report-achievement strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 29px;
+  color: #293E2C;
+  letter-spacing: -1px;
+}
+
+.report-nda {
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--report-muted);
+}
+
+/* ==========================================================
+   06 — CHALLENGE + SOLUTION / OBJECTIVES
+========================================================== */
+
+.report-analysis {
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: 16px;
+}
+
+.report-narrative h2 {
+  font-size: clamp(23px, 3vw, 33px);
+  line-height: 1.2;
+  letter-spacing: -.8px;
+  margin: 12px 0;
+}
+
+.report-narrative p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--report-body);
+  white-space: pre-line;
+}
+
+.report-divider {
+  height: 1px;
+  margin: 25px 0;
+  background: var(--report-line);
+}
+
+.objective-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.objective-card {
+  padding: 25px;
+  border-radius: 16px;
+  background: var(--purple-light);
+}
+
+.objective-card:nth-child(even) {
+  background: var(--pink-light);
+}
+
+.objective-card h3 {
+  margin: 0 0 8px;
+  color: var(--purple);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.objective-card p {
+  margin: 0 0 18px;
+  color: #776A89;
+  font-size: 12px;
+}
+
+.objective-bars {
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  border-bottom: 1px solid #D4C6DA;
+}
+
+.objective-bar-wrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.objective-bar {
+  width: 100%;
+  min-height: 32px;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.objective-bar.baseline {
+  background: var(--purple);
+  color: white;
+}
+
+.objective-bar.target {
+  background: var(--pink);
+  color: var(--purple);
+}
+
+.objective-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 10px;
+  text-align: center;
+  color: var(--purple);
+  font-size: 11px;
+}
+
+.report-empty {
+  border: 1px dashed #D7CBD1;
+  border-radius: 10px;
+  padding: 24px;
+  color: var(--report-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   07 — DOT VISUALISATION
+========================================================== */
+
+.dot-card {
+  background: #EEE8F7;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.dot-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dot-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--purple);
+}
+
+.dot-header small {
+  color: #776A89;
+}
+
+.dot-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  margin-top: 30px;
+}
+
+.dot-pile {
+  display: grid;
+  grid-template-columns: repeat(10, 11px);
+  grid-auto-rows: 11px;
+  gap: 6px;
+  align-content: end;
+  min-height: 120px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--purple);
+}
+
+.dot-pile.pink .dot {
+  background: var(--pink);
+}
+
+.dot-number {
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--purple);
+  margin-top: 18px;
+}
+
+.dot-caption,
+.dot-footnote {
+  font-size: 12px;
+  color: #776A89;
+  line-height: 1.7;
+}
+
+.dot-footnote { margin-top: 22px; }
+
+/* ==========================================================
+   08 — INTERACTIVE EXECUTION DIAL
+========================================================== */
+
+.execution-card {
+  background: var(--report-paper);
+  border-radius: 16px;
+  padding: 36px;
+}
+
+.execution-title {
+  margin: 12px 0 28px;
+  font-size: clamp(29px, 4vw, 43px);
+  font-weight: 600;
+  letter-spacing: -1.4px;
+}
+
+.execution-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.dial-panel {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #F1EEED;
+}
+
+.dial-viewport {
+  height: 315px;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.dial-viewport.dragging { cursor: grabbing; }
+
+#execution-dial {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dial-footer {
+  padding: 10px 25px 25px;
+}
+
+.dial-footer strong {
+  display: block;
+  margin: 8px 0;
+  font-size: 43px;
+  letter-spacing: -2px;
+}
+
+.dial-footer p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.stage-index {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.stage-button {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--report-line);
+  border-radius: 10px;
+  background: white;
+  text-align: left;
+}
+
+.stage-button.active {
+  background: #EADCE8;
+  border-color: #B991AC;
+}
+
+.stage-button span {
+  color: var(--report-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stage-button strong { font-size: 13px; }
+
+.stage-detail {
+  min-height: 150px;
+  margin-top: 20px;
+  padding: 26px;
+  background: #F7F4F3;
+  border-radius: 12px;
+}
+
+.stage-detail h3 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+.stage-detail p {
+  margin: 0;
+  color: var(--report-body);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.stage-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stage-navigation button {
+  border: 1px solid #DAD2D7;
+  border-radius: 8px;
+  padding: 11px 17px;
+  background: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   09 — RESULTS / EDITORIAL METRICS
+========================================================== */
+
+.results-card {
+  background: var(--report-paper);
+  border-radius: 16px;
+  padding: 42px;
+}
+
+.results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--report-line);
+}
+
+.results-heading h2 {
+  font-size: clamp(30px, 4vw, 45px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin: 0;
+}
+
+.results-intro {
+  max-width: 570px;
+  margin: 26px 0 35px auto;
+  color: var(--report-body);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.results-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  margin-bottom: 42px;
+}
+
+.result-metric {
+  border-top: 1px solid var(--report-line);
+  padding-top: 20px;
+}
+
+.result-value {
+  font-size: clamp(40px, 5vw, 70px);
+  letter-spacing: -2px;
+  font-weight: 650;
+}
+
+.result-label {
+  margin-top: 5px;
+  color: var(--report-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.result-description {
+  max-width: 330px;
+  color: var(--report-body);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   10 — WEEKLY PERFORMANCE LINE CHART
+   Rendered with native SVG, no external chart library.
+========================================================== */
+
+.timeline-card {
+  padding: 28px;
+  border-radius: 14px;
+  background: #F5F3F1;
+}
+
+.timeline-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timeline-heading h3 {
+  font-size: 21px;
+  margin: 0;
+}
+
+.timeline-legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 18px 0 10px;
+  font-size: 11px;
+  color: var(--report-body);
+}
+
+.legend-line {
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+  background: var(--purple);
+}
+
+.legend-line.target {
+  background: var(--report-accent);
+}
+
+#weekly-chart {
+  width: 100%;
+  display: block;
+}
+
+.chart-note {
+  font-size: 11px;
+  color: var(--report-muted);
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   11 — REPORT NAVIGATION
+========================================================== */
+
+.report-bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.report-bottom-nav button {
+  padding: 13px 18px;
+  border: 1px solid #DAD2D7;
+  border-radius: 8px;
+  background: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.report-bottom-nav button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}

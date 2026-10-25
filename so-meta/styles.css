@@ -1,0 +1,462 @@
+/* ==========================================================
+   01 — GLOBAL DESIGN TOKENS
+   Nintendo and report colours are kept separate.
+========================================================== */
+
+:root {
+  --shell: #E9B5C7;
+  --shell-light: #F8DFE8;
+  --shell-dark: #D7A1B5;
+  --shell-ink: #343744;
+
+  --report-bg: #F6F3F1;
+  --report-paper: #FFFEFC;
+  --report-ink: #29272D;
+  --report-body: #64616B;
+  --report-muted: #89818A;
+  --report-accent: #A47693;
+  --report-line: #E7E0E3;
+
+  --purple: #35116F;
+  --purple-light: #F0EAF7;
+  --pink: #FFA0AB;
+  --pink-light: #F6E8EE;
+  --green: #B8DDA8;
+  --mint: #B5E9DF;
+
+  --cat-image:
+    url("https://raw.githubusercontent.com/atqahzn-lang/atiqahis/main/Frame%208%20%281%29.png");
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #F1CAD8;
+  color: var(--shell-ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button { font: inherit; cursor: pointer; }
+
+button:focus-visible {
+  outline: 3px solid #8149ED;
+  outline-offset: 3px;
+}
+
+[hidden] { display: none !important; }
+
+/* ==========================================================
+   02 — NINTENDO 3DS CONSOLE
+========================================================== */
+
+.portfolio-page {
+  min-height: 100vh;
+  padding: 40px 16px 70px;
+}
+
+.page-caption {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 11px;
+}
+
+.page-caption strong { letter-spacing: 2px; }
+
+.console {
+  width: min(100%, 660px);
+  margin: auto;
+  filter: drop-shadow(0 24px 24px #5B29402B);
+}
+
+.console-top {
+  padding: 22px 35px 27px;
+  border: 3px solid #B9869B;
+  border-radius: 35px 35px 15px 15px;
+  background: var(--shell);
+}
+
+.top-speakers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.speaker {
+  display: flex;
+  gap: 4px;
+}
+
+.speaker i {
+  display: block;
+  width: 3px;
+  height: 3px;
+  background: #A7798D;
+  border-radius: 50%;
+}
+
+.top-screen-frame {
+  padding: 13px;
+  border: 3px solid #343744;
+  border-radius: 15px;
+  background: #30313D;
+}
+
+.top-screen {
+  height: 285px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      #8679A8 0%,
+      #E2A5A6 48%,
+      #F8CC9A 72%,
+      #8C9B8E 73%,
+      #576C65 100%
+    );
+}
+
+.screen-state {
+  position: absolute;
+  inset: 0;
+}
+
+.title-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 26px 12px;
+}
+
+.title-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #342C45;
+}
+
+.game-title {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(45px, 9vw, 74px);
+  letter-spacing: -4px;
+  line-height: 1;
+  margin: 18px 0 0;
+  color: #352943;
+  text-shadow: 2px 3px #F4D8CD;
+}
+
+.title-subtitle {
+  margin-top: 7px;
+  font-size: 14px;
+  font-style: italic;
+  color: #352943;
+}
+
+.cat-sprite {
+  width: 90px;
+  height: 85.43px;
+  background-image: var(--cat-image);
+  background-size: 720px 85.43px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.title-cat {
+  position: absolute;
+  bottom: 15px;
+  left: calc(50% - 45px);
+  animation: cat-walk 850ms steps(8) infinite;
+}
+
+@keyframes cat-walk {
+  from { background-position: 0 0; }
+  to { background-position: -720px 0; }
+}
+
+.console-hinge {
+  height: 17px;
+  margin: 0 13px;
+  border: 2px solid #B9869B;
+  background: #D79EB4;
+  border-radius: 4px;
+}
+
+.console-bottom {
+  min-height: 300px;
+  display: grid;
+  grid-template-columns: 70px minmax(0,1fr) 70px;
+  gap: 12px;
+  padding: 24px 17px;
+  border: 3px solid #B9869B;
+  border-radius: 15px 15px 35px 35px;
+  background: var(--shell);
+}
+
+.left-controls,
+.right-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+  padding-top: 15px;
+}
+
+.circle-pad {
+  width: 52px;
+  height: 52px;
+  border: 4px solid #BD899E;
+  border-radius: 50%;
+  background: #F4D3E0;
+  box-shadow: inset 0 3px 6px #B9899B;
+}
+
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 16px);
+  grid-template-rows: repeat(3, 16px);
+}
+
+.dpad button {
+  border: 0;
+  padding: 0;
+  background: #9B778B;
+  color: white;
+  font-size: 9px;
+}
+
+.dpad .up { grid-column: 2; }
+.dpad .left { grid-column: 1; grid-row: 2; }
+.dpad .center { grid-column: 2; grid-row: 2; }
+.dpad .right { grid-column: 3; grid-row: 2; }
+.dpad .down { grid-column: 2; grid-row: 3; }
+
+.abxy {
+  position: relative;
+  width: 65px;
+  height: 70px;
+}
+
+.abxy button {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #AA7990;
+  border-radius: 50%;
+  background: #F7DDE6;
+  font-size: 10px;
+  font-weight: 700;
+  color: #6A455B;
+}
+
+.abxy .x { top: 0; left: 20px; }
+.abxy .y { top: 22px; left: 0; }
+.abxy .a { top: 22px; right: 0; }
+.abxy .b { bottom: 0; left: 20px; }
+
+.touchscreen-frame {
+  min-width: 0;
+  border: 3px solid #343744;
+  border-radius: 10px;
+  padding: 6px;
+  background: #343744;
+}
+
+.touchscreen {
+  min-height: 240px;
+  background: #FFF5E9;
+  display: flex;
+  flex-direction: column;
+}
+
+.touchscreen-header,
+.touchscreen-footer {
+  padding: 9px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  background: #F1E5D8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.touchscreen-body {
+  flex: 1;
+  padding: 14px;
+}
+
+.touch-heading {
+  margin: 0 0 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.touch-description {
+  margin: 0 0 16px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.touch-button {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 8px;
+  border: 1.5px solid #343744;
+  background: #F8DFE8;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.touch-button.secondary { background: #E9EEDB; }
+.touch-button:hover { background: white; }
+
+/* ==========================================================
+   03 — CASE SELECTION MENU
+========================================================== */
+
+.case-menu {
+  padding: 15px;
+  background: #F7E8D7;
+  overflow-y: auto;
+}
+
+.case-menu h2 {
+  font-size: 15px;
+  margin: 0 0 5px;
+}
+
+.case-menu p {
+  font-size: 10px;
+  margin: 0 0 12px;
+}
+
+.case-menu-item {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  padding: 11px;
+  margin-bottom: 6px;
+  border: 1px solid #AFA4A4;
+  background: #FFF8F0;
+}
+
+.case-menu-item:hover { background: #F5DDE8; }
+
+.case-menu-number {
+  font-size: 19px;
+  font-weight: 700;
+  color: #B96E92;
+}
+
+.case-menu-item strong {
+  display: block;
+  font-size: 10px;
+}
+
+.case-menu-item small {
+  display: block;
+  margin-top: 4px;
+  color: #77717B;
+  font-size: 9px;
+}
+
+/* ==========================================================
+   04 — GAMEPLAY
+   Each execution step becomes a checkpoint.
+========================================================== */
+
+.quest-screen {
+  background:
+    linear-gradient(
+      180deg,
+      #8579AB 0%,
+      #E4A2A9 50%,
+      #F4CA9A 75%,
+      #7C9388 76%,
+      #536D65 100%
+    );
+}
+
+.quest-hud {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #302A3B;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.quest-track {
+  position: absolute;
+  inset: 65px 0 50px;
+}
+
+.quest-checkpoint {
+  position: absolute;
+  top: 35px;
+  width: 120px;
+  padding: 10px;
+  transform: translateX(-50%);
+  background: #FFF3E3;
+  border: 2px solid #514456;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.quest-checkpoint.reached {
+  background: #DCEACB;
+}
+
+.quest-cat {
+  position: absolute;
+  bottom: 16px;
+  left: 16%;
+  transition: left 500ms linear;
+}
+
+.quest-cat.walking {
+  animation: cat-walk 850ms steps(8) infinite;
+}
+
+.quest-notes h2 {
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.quest-notes p {
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.quest-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.quest-progress span {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #B8A7AD;
+  font-size: 9px;
+}
+
+.quest-progress span.done {
+  background: #DCEACB;
+}

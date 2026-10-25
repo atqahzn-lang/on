@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Meta (a case study) — Atiqah.is</title>
+
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./report.css">
+<link rel="stylesheet" href="./responsive.css">
+</head>
+
+<body>
+
+<!-- ==========================================================
+     13 — NINTENDO HTML
+========================================================== -->
+
+<main class="portfolio-page">
+
+  <div class="page-caption">
+    <strong>ATIQAH.IS</strong>
+    <span>A portfolio experiment.</span>
+  </div>
+
+  <div class="console">
+
+    <div class="console-top">
+
+      <div class="top-speakers">
+        <div class="speaker"><i></i><i></i><i></i></div>
+        <div class="speaker"><i></i><i></i><i></i></div>
+      </div>
+
+      <div class="top-screen-frame">
+        <div class="top-screen">
+
+          <!-- Title screen -->
+          <div id="title-screen"
+               class="screen-state title-screen">
+            <div class="title-eyebrow">
+              ATIQAH.IS PRESENTS
+            </div>
+            <h1 class="game-title">So Meta</h1>
+            <div class="title-subtitle">
+              (a case study)
+            </div>
+            <div class="cat-sprite title-cat"></div>
+          </div>
+
+          <!-- Case selection screen -->
+          <div id="case-menu-screen"
+               class="screen-state case-menu"
+               hidden>
+            <h2>SELECT A CASE</h2>
+            <p id="case-menu-mode"></p>
+            <div id="case-menu-list"></div>
+          </div>
+
+          <!-- Gameplay screen -->
+          <div id="quest-screen"
+               class="screen-state quest-screen"
+               hidden>
+
+            <div class="quest-hud">
+              <span id="quest-title">CASE STUDY</span>
+              <span id="quest-counter">0 / 0</span>
+            </div>
+
+            <div class="quest-track"
+                 id="quest-track"></div>
+
+            <div class="cat-sprite quest-cat"
+                 id="quest-cat"></div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="console-hinge"></div>
+
+    <div class="console-bottom">
+
+      <div class="left-controls">
+        <div class="circle-pad"></div>
+        <div class="dpad">
+          <button class="up" aria-label="Up">▲</button>
+          <button class="left" aria-label="Left">◀</button>
+          <button class="center" aria-label="Center">·</button>
+          <button class="right" aria-label="Right">▶</button>
+          <button class="down" aria-label="Down">▼</button>
+        </div>
+      </div>
+
+      <div class="touchscreen-frame">
+        <div class="touchscreen">
+
+          <div class="touchscreen-header">
+            <span>SO META</span>
+            <span>ATIQAH.IS</span>
+          </div>
+
+          <div class="touchscreen-body">
+
+            <div id="home-controls">
+              <h2 class="touch-heading">
+                CHOOSE YOUR EXPERIENCE
+              </h2>
+              <p class="touch-description">
+                Explore the decisions or read the
+                complete campaign reports.
+              </p>
+
+              <button id="play-game"
+                      class="touch-button">
+                PLAY GAME
+              </button>
+
+              <button id="read-case-study"
+                      class="touch-button secondary">
+                READ CASE STUDY
+              </button>
+            </div>
+
+            <div id="menu-controls" hidden>
+              <h2 class="touch-heading">
+                CASE ARCHIVE
+              </h2>
+              <p class="touch-description">
+                Select a case from the upper screen.
+              </p>
+              <button id="menu-back"
+                      class="touch-button">
+                BACK
+              </button>
+            </div>
+
+            <div id="quest-controls" hidden>
+              <div class="quest-notes">
+                <span id="quest-step-label"
+                      class="report-eyebrow">
+                  CHECKPOINT
+                </span>
+
+                <h2 id="quest-step-title"></h2>
+                <p id="quest-step-description"></p>
+
+                <div id="quest-progress"
+                     class="quest-progress"></div>
+
+                <button id="quest-advance"
+                        class="touch-button">
+                  ADVANCE (A)
+                </button>
+
+                <button id="quest-read"
+                        class="touch-button secondary">
+                  READ FULL CASE STUDY
+                </button>
+
+                <button id="quest-back"
+                        class="touch-button">
+                  BACK TO MENU
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="touchscreen-footer">
+            <span>SELECT · EXPLORE · READ</span>
+            <span>© ATIQAH.IS</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="right-controls">
+        <div class="abxy">
+          <button class="x" aria-label="X">X</button>
+          <button class="y" aria-label="Y">Y</button>
+          <button class="a" id="button-a"
+                  aria-label="A">A</button>
+          <button class="b" id="button-b"
+                  aria-label="B">B</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ==========================================================
+     14 — REUSABLE FULL-SCREEN CASE STUDY READER
+========================================================== -->
+
+<div id="report-overlay"
+     class="report-overlay"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Case study report"
+     hidden>
+
+  <div class="report-toolbar">
+    <strong>SO META / CASE STUDIES</strong>
+    <button class="toolbar-button"
+            id="close-report">
+      ✕ CLOSE
+    </button>
+  </div>
+
+  <div class="report-content">
+
+    <!-- 14A — Overview -->
+    <section class="report-section report-card">
+      <div class="report-header-meta">
+        <span id="report-kicker"
+              class="report-eyebrow"></span>
+        <span id="report-duration"
+              class="report-metadata"></span>
+      </div>
+
+      <h1 id="report-title"
+          class="report-title"></h1>
+
+      <div id="report-metadata"
+           class="report-metadata"></div>
+
+      <div id="report-achievement"
+           class="report-achievement">
+        <span class="report-eyebrow">
+          KEY ACHIEVEMENT
+        </span>
+        <strong id="report-achievement-value"></strong>
+      </div>
+
+      <div id="report-nda"
+           class="report-nda"></div>
+    </section>
+
+    <!-- 14B — Challenge / Solution / Objectives -->
+    <section class="report-section report-analysis">
+
+      <div class="report-card report-narrative">
+
+        <div class="report-eyebrow">
+          THE CHALLENGE
+        </div>
+
+        <h2 id="report-challenge-title"></h2>
+        <p id="report-challenge"></p>
+
+        <div class="report-divider"></div>
+
+        <div class="report-eyebrow">
+          THE SOLUTION
+        </div>
+
+        <p id="report-solution"></p>
+
+      </div>
+
+      <div id="report-objectives"
+           class="objective-stack"></div>
+
+    </section>
+
+    <!-- 14C — Dots -->
+    <section id="dot-section"
+             class="report-section dot-card"
+             hidden>
+
+      <div class="dot-header">
+        <h2 id="dot-title"></h2>
+        <small id="dot-scale"></small>
+      </div>
+
+      <div class="dot-columns">
+
+        <div>
+          <div id="dot-left"
+               class="dot-pile"></div>
+          <div id="dot-left-value"
+               class="dot-number"></div>
+          <div id="dot-left-label"
+               class="dot-caption"></div>
+        </div>
+
+        <div>
+          <div id="dot-right"
+               class="dot-pile pink"></div>
+          <div id="dot-right-value"
+               class="dot-number"></div>
+          <div id="dot-right-label"
+               class="dot-caption"></div>
+        </div>
+
+      </div>
+
+      <div id="dot-note"
+           class="dot-footnote"></div>
+
+    </section>
+
+    <!-- 14D — Execution -->
+    <section class="report-section execution-card">
+
+      <div class="report-eyebrow">
+        EXECUTION
+      </div>
+
+      <h2 class="execution-title">
+        The process behind the numbers.
+      </h2>
+
+      <div class="execution-layout">
+
+        <div class="dial-panel">
+
+          <div class="dial-viewport"
+               id="dial-viewport"
+               aria-label="Drag to change execution stage">
+
+            <svg id="execution-dial"
+                 viewBox="0 0 360 315"
+                 role="img"
+                 aria-label="Execution stages"></svg>
+
+          </div>
+
+          <div class="dial-footer">
+            <div class="report-eyebrow">
+              SELECTED STAGE
+            </div>
+            <strong id="dial-active-number"></strong>
+            <p id="dial-active-title"></p>
+          </div>
+
+        </div>
+
+        <div>
+          <div class="report-eyebrow"
+               style="margin-bottom:15px">
+            JUMP TO A STAGE
+          </div>
+
+          <div id="stage-index"
+               class="stage-index"></div>
+        </div>
+
+      </div>
+
+      <div class="stage-detail">
+        <div id="stage-detail-label"
+             class="report-eyebrow"></div>
+        <h3 id="stage-detail-title"></h3>
+        <p id="stage-detail-description"></p>
+      </div>
+
+      <div class="stage-navigation">
+        <button id="stage-prev">← PREVIOUS</button>
+        <span id="stage-counter"
+              class="report-metadata"></span>
+        <button id="stage-next">NEXT →</button>
+      </div>
+
+    </section>
+
+    <!-- 14E — Results -->
+    <section class="report-section results-card">
+
+      <div class="results-heading">
+        <h2>Campaign Results</h2>
+        <span class="report-eyebrow">
+          OUTCOME
+        </span>
+      </div>
+
+      <p id="results-intro"
+         class="results-intro"></p>
+
+      <div id="results-metrics"
+           class="results-metrics"></div>
+
+      <!-- Weekly ROAS timeline -->
+      <div id="timeline-section"
+           class="timeline-card"
+           hidden>
+
+        <div class="timeline-heading">
+          <h3 id="timeline-title">
+            Weekly ROAS
+          </h3>
+          <span class="report-eyebrow">
+            PERFORMANCE OVER TIME
+          </span>
+        </div>
+
+        <div class="timeline-legend">
+          <span>
+            <i class="legend-line"></i>
+            Actual weekly ROAS
+          </span>
+          <span>
+            <i class="legend-line target"></i>
+            Target
+          </span>
+        </div>
+
+        <svg id="weekly-chart"
+             viewBox="0 0 900 350"
+             role="img"
+             aria-label="Weekly ROAS chart"></svg>
+
+        <div id="chart-empty"
+             class="report-empty"
+             hidden>
+          Weekly ROAS data pending.
+          Add actual weekly figures in CONFIG.cases.
+        </div>
+
+        <p id="chart-note"
+           class="chart-note"></p>
+
+      </div>
+
+    </section>
+
+    <!-- 14F — Case navigation -->
+    <div class="report-bottom-nav">
+      <button id="report-prev">
+        ← PREVIOUS CASE
+      </button>
+
+      <button id="report-menu">
+        BACK TO MENU
+      </button>
+
+      <button id="report-next">
+        NEXT CASE →
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script src="./cases.js" defer></script>
+<script src="./app.js" defer></script>
+</body>
+</html>
