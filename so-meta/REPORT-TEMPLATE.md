@@ -66,3 +66,9 @@ Load `cases.js`, then `report-template.js`, then the page's app script (all with
 The homepage intercepts its Paid Media archive link to open the selector. That anchor retains `./so-meta/` as its fallback destination. The Nintendo reader's `openReader` calls the same popup component.
 
 The Philippines dot chart now uses separate purple budget and pink revenue grids from the latest supplied design. Both grids use the same dot value; the target is not presented as actual revenue or profit. Solution text sits on the white Execution background.
+
+## Case 03 — swim school
+
+Case 03 uses `case-03.js` and `case-03.css` to preserve the supplied swim-school report layout inside the shared popup. The markup includes the three goal metrics, consulting role, four interactive flip cards, a five-step quick-read timeline and November creative-fatigue adjustment, monthly CPL range chart, results table, and measurement caveats. Edit that case-specific markup for report changes; the case record in `cases.js` supplies the picker and gameplay text. Keep these descriptions consistent. Load `case-03.js` before `report-template.js` on both entry pages. Case styles are scoped to `.meta-report .swim-report` and do not affect other cases.
+
+The latest case 03 reference defines leads as online sharing-session registrations, not lesson enrolments. Its conclusion uses the shared Philippines-style outcome heading, MET / NOT MET results, and supporting qualification. Case-specific card initialization runs each time its popup is opened, including after switching cases.

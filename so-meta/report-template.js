@@ -70,6 +70,9 @@
         </nav>
       </article>
     </div>`;
+  const customReport=document.createElement('div');
+  customReport.className='custom-report';customReport.hidden=true;
+  dialog.querySelector('.popup-scroll').append(customReport);
   document.body.append(dialog);
   const q = selector => dialog.querySelector(selector);
   const field = (name, value) => { q(`[data-field="${name}"]`).textContent = value ?? ''; };
@@ -107,6 +110,7 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
 
   function menu() {
+    customReport.hidden=true;
     q('.case-report').hidden = true;
     q('.case-picker').hidden = false;
     fieldTitle('Meta case studies');
@@ -249,6 +253,21 @@
   }
   function open(index=0) {
     current=Math.max(0,Math.min(index,cases.length-1)); const data=cases[current], options=data.report??{};
+    customReport.hidden=true;
+    const custom=window.MetaCaseTemplates?.[data.id];
+    if(custom) {
+      q('.case-report').hidden=true;q('.case-picker').hidden=true;
+      dialog.removeAttribute('style');
+      fieldTitle(`CASE ${data.id} / ${pad(cases.length)} — ${data.niche}`);
+      // Templates are trusted, repository-owned markup, never remote or visitor content.
+      customReport.innerHTML=custom;customReport.hidden=false;
+      const nav=make('nav','case-navigation');nav.setAttribute('aria-label','Report navigation');
+      [['← Previous case',()=>open(current-1),current===0],['All case studies',menu,false],['Next case →',()=>open(current+1),current===cases.length-1]].forEach(([label,action,disabled])=>{
+        const button=make('button','',label);button.type='button';button.disabled=disabled;button.addEventListener('click',action);nav.append(button);
+      });
+      window.MetaCaseInitializers?.[data.id]?.(customReport);
+      (customReport.querySelector(".case-ending")??customReport.firstElementChild).append(nav);show();return;
+    }
     const report=q('.case-report'); report.hidden=false; q('.case-picker').hidden=true;
     fieldTitle(`CASE ${data.id} / ${pad(cases.length)} — ${data.niche}`);
     report.dataset.case=data.id; report.classList.toggle('wide-narrative',options.layout==='wide-narrative');

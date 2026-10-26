@@ -315,28 +315,64 @@ const META_CONFIG = {
     },
 
     /* ------------------------------------------------------
-       CASES 03–05 — CONTENT PENDING
+       CASE 03 — SWIM SCHOOL; CASES 04–05 — CONTENT PENDING
     ------------------------------------------------------ */
 
     {
-      id: "03",
-      title: "Case Study 03",
-      niche: "Campaign pending",
-      industry: "Meta Advertising",
-      market: "To be added",
-      duration: "To be added",
-      budget: null,
-      nda: "",
-      achievement: null,
-      challengeTitle: "Campaign details pending",
-      problem: "Challenge to be added.",
-      solution: "Solution to be added.",
-      objectives: [],
-      dots: null,
-      execution: [],
-      outcome: "Results to be added.",
-      results: [],
-      weekly: null
+      "id": "03",
+      "title": "100 Daily Session Registrations, With CPL as Low as RM5",
+      "niche": "Swim School · Lead Generation",
+      "industry": "Meta Advertising · Lead Generation",
+      "market": "Malaysia",
+      "duration": "October–December 2025",
+      "budget": {
+        "amount": 100,
+        "currency": "MYR",
+        "period": "daily per campaign"
+      },
+      "nda": "",
+      "achievement": "100 session registrations/day across all centres",
+      "challengeTitle": "Growing registrations while keeping lead costs within target.",
+      "problem": "A swim school with centres in Penang, Kedah, Johor Bahru, Kajang, Petaling Jaya and Puchong used an online sharing session as its first customer touchpoint. Audience overlap, early enquiry drop-off and centre-specific prices complicated registration.",
+      "solution": "Focus the budget and give people clearer reasons to register.",
+      "objectives": [],
+      "dots": null,
+      "execution": [
+        {
+          "title": "Consolidate campaigns by centre",
+          "detail": "Recommended one campaign per centre to reduce duplication and simplify budget allocation. Reserved additional campaigns for seasonal promotions."
+        },
+        {
+          "title": "Test three creative formats",
+          "detail": "Introduced one Reel, one static and one carousel per campaign. Compared CPL and focused spend on the strongest-performing creative."
+        },
+        {
+          "title": "Clarify value and pricing",
+          "detail": "Broadened the proposed messaging to water safety, practical skills and swimming’s encouragement in Islam. Recommended a starting fee, noting that prices vary by centre."
+        },
+        {
+          "title": "Return lead-quality feedback",
+          "detail": "Used Instant Forms to capture online session registrations. Returned relevant and irrelevant lead feedback to Meta to support optimisation beyond form submissions."
+        },
+        {
+          "title": "Introduce a fortnightly creative replacement schedule",
+          "detail": "Meta flagged creative fatigue alongside declining unique CTR and fewer registrations. Replaced affected creatives, introduced a two-week replacement schedule and began exploring AI-generated assets for ongoing production."
+        }
+      ],
+      "outcome": "The daily session-registration target was achieved. CPL was within target in October and December, but November’s range extended to RM13. Registrations are not confirmed swimming lesson enrolments.",
+      "results": [
+        {
+          "value": "100 registrations/day",
+          "label": "DAILY SESSION REGISTRATION TARGET MET",
+          "description": "Across all centres; not confirmed swimming lesson enrolments."
+        },
+        {
+          "value": "Not met throughout quarter",
+          "label": "CPL ≤RM10",
+          "description": "October RM5–10; November RM10–13; December RM6–9."
+        }
+      ],
+      "weekly": null
     },
 
     {
