@@ -8,6 +8,8 @@ The X button and Escape close the dialog. Native dialog behavior traps focus and
 
 Edit `META_CONFIG.cases` in `cases.js`. The existing fields provide the challenge, solution, objectives, dot comparison, execution stages, results, and optional weekly data. Both gameplay and reports use these case records. Text is inserted as text, not executable HTML.
 
+- The problem header supports `report.problemPoints` for short bullet points; other cases retain their narrative paragraph.
+- Objective comparisons use horizontal bullet charts, target markers, and baseline-to-goal equations. Optional `scaleMax` on each objective fixes the axis maximum. Percent changes are calculated only when a verified positive baseline exists.
 - Objective comparisons show the baseline and target with the appropriate currency/suffix. A missing baseline is labeled unavailable and is never drawn as zero.
 - The date follows the country in the metadata line; there is no separate date banner.
 - The solution overview appears in Execution, above the dial. Missing stages hide the dial and process disclosure while preserving any supplied solution. Missing dot comparisons omit their section. Pending cases retain their supplied placeholder text.
@@ -62,3 +64,5 @@ Load `cases.js`, then `report-template.js`, then the page's app script (all with
 - `MetaReports.isOpen()` reports its state.
 
 The homepage intercepts its Paid Media archive link to open the selector. That anchor retains `./so-meta/` as its fallback destination. The Nintendo reader's `openReader` calls the same popup component.
+
+The Philippines dot chart now uses separate purple budget and pink revenue grids from the latest supplied design. Both grids use the same dot value; the target is not presented as actual revenue or profit. Solution text sits on the white Execution background.

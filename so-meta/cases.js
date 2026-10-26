@@ -135,6 +135,11 @@ const META_CONFIG = {
       id: "02",
       report: {
         date: "February – March 2026",
+        objectiveOrder: [1, 0],
+        problemPoints: [
+          "Sales slowed in Q1 after stronger Q3 and Q4 trading.",
+          "Popular colourways sold out while other options struggled."
+        ],
         challengeTitle: "Demand slowed after the holiday peak.",
         outcomeHeading: "Were the objectives met?",
         conclusions: [
@@ -185,6 +190,7 @@ const META_CONFIG = {
         {
           title: "Return on ad spend",
           baseline: 3,
+          scaleMax: 7,
           target: 6,
           baselineLabel: "January average",
           targetLabel: "Target",
@@ -195,6 +201,7 @@ const META_CONFIG = {
         {
           title: "Cost per purchase",
           baseline: 2600,
+          scaleMax: 3000,
           target: 1500,
           baselineLabel: "January average",
           targetLabel: "Target",
@@ -204,7 +211,8 @@ const META_CONFIG = {
       ],
 
       dots: {
-        title: "What does 6× look like?",
+        visualization: "roas-waffle",
+        title: "₱1M in. ₱6M in revenue at 6× ROAS.",
         unit: 100000,
         unitLabel: "₱100,000",
         left: {

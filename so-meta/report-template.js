@@ -14,12 +14,14 @@
       <article class="case-report" hidden>
         <p class="case-context" data-field="context"></p>
         <p class="case-name" data-field="title"></p>
-        <section class="report-header">
+        <section class="report-header performance-section">
           <div class="report-narrative">
+            <p class="eyebrow">The problem</p>
             <h1 data-field="challenge"></h1>
             <p data-field="problem"></p>
+            <ul class="problem-list" hidden></ul>
           </div>
-          <div class="chart-panel"></div>
+          <div class="chart-panel goals-grid"></div>
         </section>
         <section class="dot-section">
           <h2 data-field="dot-title"></h2><p class="dot-scale" data-field="dot-scale"></p>
@@ -124,33 +126,69 @@
     `${metric.prefix ?? ''}${value.toLocaleString('en-US', {minimumFractionDigits: metric.decimals ?? 0, maximumFractionDigits: metric.decimals ?? 0})}${metric.suffix ?? ''}`;
 
   function objectives(items) {
-    const panel = q('.chart-panel'); panel.replaceChildren();
-    items.forEach(metric => {
-      const chart = make('div', 'metric-chart');
-      chart.append(make('div', 'metric-heading', metric.title));
-      const pair = make('div', 'bar-pair'), labels = make('div', 'bar-labels');
-      const max = Math.max(metric.baseline ?? 0, metric.target ?? 0, 1);
-      [metric.baseline, metric.target].forEach((value, i) => {
-        const column = make('div', 'bar-column');
-        if (typeof value === 'number' && Number.isFinite(value) && value >= 0) {
-          const bar = make('div', i ? 'bar target' : 'bar');
-          bar.style.setProperty('--bar-height', `${value / max * 100}%`);
-          bar.setAttribute('aria-hidden', 'true'); column.append(bar);
-        } else column.append(make('span', 'missing-value', '—'));
-        pair.append(column);
-        const label = make('div', 'bar-label');
-        label.append(make('strong', '', format(value, metric)),
-          make('span', '', i ? metric.targetLabel ?? 'Target' : metric.baselineLabel ?? 'Baseline'));
-        labels.append(label);
-      });
-      chart.append(pair, labels); panel.append(chart);
+    const panel=q('.chart-panel');panel.replaceChildren();
+    items.forEach(metric=>{
+      const card=make('article','goal-card');
+      card.append(make('h2','',metric.title),make('p','goal-direction',metric.lowerIsBetter?'Lower is better':'Higher is better'));
+      const baseline=metric.baseline,target=metric.target;
+      const valid=v=>typeof v==='number'&&Number.isFinite(v)&&v>=0;
+      if(valid(target)) {
+        const max=metric.scaleMax??Math.ceil(Math.max(valid(baseline)?baseline:0,target,1)*1.15);
+        const chart=make('div','bullet-chart');
+        const current=valid(baseline)?baseline/max*100:0,goal=target/max*100;
+        card.style.setProperty('--current',`${current}%`);card.style.setProperty('--target',`${goal}%`);
+        card.style.setProperty('--gap-start',`${Math.min(current,goal)}%`);card.style.setProperty('--gap-width',`${Math.abs(current-goal)}%`);
+        chart.setAttribute('role','img');chart.setAttribute('aria-label',`${metric.title}: ${metric.baselineLabel??'Baseline'} ${format(baseline,metric)}; goal ${format(target,metric)}. Scale ${format(0,metric)} to ${format(max,metric)}.`);
+        const track=make('div','chart-track');
+        if(valid(baseline))track.append(make('div','current-bar'));
+        track.append(make('span','target-marker'),make('span','target-label',`Goal ${format(target,metric)}`));
+        const axis=make('div','chart-axis');axis.setAttribute('aria-hidden','true');axis.append(make('span','',format(0,metric)),make('span','',format(max,metric)));
+        chart.append(track,axis);
+        if(valid(baseline)) {
+          const change=target-baseline;
+          const gap=make('div',`gap ${change<0?'gap-left':'gap-right'}`);gap.setAttribute('aria-hidden','true');chart.append(gap,make('p','gap-caption',`${change<0?'Reduce':'Increase'} by ${format(Math.abs(change),metric)}`));
+        }
+        card.append(chart);
+      }
+      if(valid(baseline)&&valid(target)) {
+        const change=target-baseline,equation=make('div','equation');
+        [[baseline,metric.baselineLabel??'Baseline',''],[Math.abs(change),change<0?'Reduction':'Increase','change'],[target,metric.targetLabel??'Goal','goal']].forEach(([value,label,cls],i)=>{
+          if(i)equation.append(make('span','operator',i===1?(change<0?'−':'+'):'='));
+          const item=make('div',`equation-item ${cls}`);item.append(make('span','equation-value',format(value,metric)),make('span','equation-label',label));equation.append(item);
+        });card.append(equation);
+        if(baseline>0){const required=make('p','required-change');required.append(make('strong','',`${(Math.abs(change)/baseline*100).toLocaleString('en-US',{maximumFractionDigits:1})}% ${change<0?'reduction':'increase'}`),document.createTextNode(' needed'));card.append(required);}
+      }else card.append(make('p','missing-value',`${metric.baselineLabel??'Baseline'}: ${format(baseline,metric)}. ${metric.targetLabel??'Goal'}: ${format(target,metric)}.`));
+      panel.append(card);
     });
   }
   function dots(data) {
     const container = q('.dot-comparison'); container.replaceChildren();
+    q('.dot-section').classList.remove('roas-visual');
+    container.classList.remove('roas-layout');
+    q('[data-field="dot-scale"]').hidden=false;
     if (!data) return;
     field('dot-title', data.title); field('dot-scale', `Each dot represents ${data.unitLabel}.`);
     field('dot-note', data.note);
+    if (data.visualization === 'roas-waffle') {
+      q('.dot-section').classList.add('roas-visual');
+      field('dot-title', 'What does 6× look like?');
+      q('[data-field="dot-scale"]').hidden=true;
+      const copy=make('div','roas-copy'),ratio=data.right.value/data.left.value;
+      copy.append(make('p','roas-number',`${ratio.toLocaleString('en-US',{maximumFractionDigits:2})}×`));
+      const description=make('p','roas-description');description.append(document.createTextNode('Every ₱1 spent needs to generate '),make('strong','',`₱${ratio.toLocaleString('en-US',{maximumFractionDigits:2})} in revenue.`));
+      const key=make('p','roas-key');key.append(make('span','roas-key-dot'),document.createTextNode(`Each dot represents ${data.unitLabel}.`));copy.append(description,key);
+      const figure=make('figure','roas-chart');figure.setAttribute('role','img');figure.setAttribute('aria-label',`${data.left.display} ad budget compared with ${data.right.display} required revenue. Each dot represents ${data.unitLabel}. Revenue before costs, not profit. Target illustration, not actual revenue.`);
+      [data.left,data.right].forEach((item,i)=>{
+        const group=make('div',`roas-group ${i?'roas-revenue':'roas-budget'}`),heading=make('div','roas-group-heading');
+        heading.append(make('h3','',i?'Revenue needed':'Ad budget'),make('strong','',`₱${item.value.toLocaleString('en-US')}`));
+        const grid=make('div','roas-dots');grid.setAttribute('aria-hidden','true');const count=Math.round(item.value/data.unit);
+        if(Number.isFinite(count)&&count>=0&&count<=300)for(let j=0;j<count;j++)grid.append(make('span',''));else grid.append(make('p','','Visualization unavailable for this amount.'));
+        group.append(heading,grid);figure.append(group);
+      });
+      container.classList.add('roas-layout');container.append(copy,figure);
+      field('dot-note', 'Revenue before costs, not profit. Illustrative target assuming the full monthly ad budget is spent; not actual revenue.');
+      return;
+    }
     [data.left, data.right].forEach((item, i) => {
       const group = make('div', 'dot-group'), pile = make('div', `dot-grid${i ? ' revenue' : ''}`);
       const count = Math.round(item.value / data.unit);
@@ -222,10 +260,14 @@
     field('title',data.title);field('challenge',options.challengeTitle??data.challengeTitle);
     field('problem',options.intro??data.problem);
     const solution=options.solution??data.solution;field('solution',solution);
+    const problemPoints=options.problemPoints??[];q('.problem-list').replaceChildren(...problemPoints.map(point=>make('li','',point)));
+    q('.problem-list').hidden=!problemPoints.length;q('[data-field="problem"]').hidden=!!problemPoints.length;
     q('.solution-box').hidden=!solution;
     field('nda',data.nda);field('outcome',data.outcome);field('execution-heading',options.executionHeading??'The decisions behind the results.');
     const hidden=new Set(options.hiddenSections??[]);
-    const objectiveItems=data.objectives??[];objectives(objectiveItems);
+    const objectiveItems=options.objectiveOrder
+      ? options.objectiveOrder.map(index=>(data.objectives??[])[index]).filter(Boolean)
+      : data.objectives??[];objectives(objectiveItems);
     q('.chart-panel').hidden=!objectiveItems.length||hidden.has('objectives');
     q('.report-header').classList.toggle('narrative-only',q('.chart-panel').hidden);
     dots(data.dots);q('.dot-section').hidden=!data.dots||hidden.has('dots');
