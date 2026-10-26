@@ -613,3 +613,23 @@
 .meta-report .swim-report .card-detail-text,
 .meta-report .swim-report .card-back-label,
 .meta-report .swim-report .card-return { text-align: left; }
+
+/* Supplied swim-school outcome design. */
+.swim-outcome, .swim-outcome * { box-sizing: border-box; }
+.swim-outcome { margin-top: 48px; padding: 34px; background: #f8f0f6; color: #17141b; font-family: "DM Sans", Arial, sans-serif; }
+.swim-outcome .outcome-label { margin: 0 0 12px; color: #391376; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; }
+.swim-outcome h2 { margin: 0; font-size: clamp(26px, 3.5vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: -0.9px; }
+.swim-outcome .outcome-summary { margin: 28px 0 18px; font-size: 15px; line-height: 1.75; }
+.swim-outcome .outcome-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.swim-outcome .outcome-item { padding-top: 18px; border-top: 2px solid #391376; }
+.swim-outcome .outcome-target { margin: 0 0 10px; font-size: 11px; font-weight: 700; line-height: 1.6; letter-spacing: 0.8px; text-transform: uppercase; }
+.swim-outcome .outcome-status { margin: 0 0 12px; color: #391376; font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -0.8px; }
+.swim-outcome .outcome-detail { margin: 0; font-size: 15px; line-height: 1.75; }
+.swim-outcome .outcome-footnote { margin: 26px 0 0; color: #756d7c; font-size: 12px; line-height: 1.7; }
+@media (max-width: 600px) {
+  .swim-outcome { margin-top: 36px; padding: 26px 22px; }
+  .swim-outcome .outcome-grid { grid-template-columns: 1fr; gap: 26px; }
+  .swim-outcome .outcome-summary { margin-top: 22px; font-size: 14px; }
+  .swim-outcome .outcome-detail { font-size: 14px; }
+  .swim-outcome .outcome-status { font-size: 30px; }
+}
