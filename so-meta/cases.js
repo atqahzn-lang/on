@@ -315,7 +315,7 @@ const META_CONFIG = {
     },
 
     /* ------------------------------------------------------
-       CASE 03 — SWIM SCHOOL; CASES 04–05 — CONTENT PENDING
+       CASES 03–04 — SWIM SCHOOL / RENOVATION; CASE 05 — CONTENT PENDING
     ------------------------------------------------------ */
 
     {
@@ -376,24 +376,61 @@ const META_CONFIG = {
     },
 
     {
-      id: "04",
-      title: "Case Study 04",
-      niche: "Campaign pending",
-      industry: "Meta Advertising",
-      market: "To be added",
-      duration: "To be added",
-      budget: null,
-      nda: "",
-      achievement: null,
-      challengeTitle: "Campaign details pending",
-      problem: "Challenge to be added.",
-      solution: "Solution to be added.",
-      objectives: [],
-      dots: null,
-      execution: [],
-      outcome: "Results to be added.",
-      results: [],
-      weekly: null
+      "id": "04",
+      "title": "Lead Costs of $25–$50 After Pausing Creatives Costing Up to $300 per Lead",
+      "niche": "Renovation · Home Services",
+      "industry": "Meta Advertising · Home Services",
+      "market": "Singapore",
+      "duration": "January–March 2026",
+      "budget": {
+        "amount": 1000,
+        "currency": "SGD",
+        "period": "daily, main campaign"
+      },
+      "nda": "",
+      "achievement": "Reported daily CPL $25–$50",
+      "challengeTitle": "Too many active ads. Too little evidence of efficient leads.",
+      "problem": "A renovation company’s broad-audience main campaign had a $1,000 daily budget and up to 50 active ads. Some creatives reached $300 per lead, while others received insufficient spend to establish performance.",
+      "solution": "Select ads by the enquiries they generated; pause expensive creatives, evaluate overlooked alternatives and focus on five active ads.",
+      "objectives": [],
+      "dots": null,
+      "execution": [
+        {
+          "title": "Evaluate clicks against leads",
+          "detail": "Reviewed cost per click and unique click-through rate alongside actual leads generated and cost per lead. Used these signals together to select ads, rather than judging click performance alone."
+        },
+        {
+          "title": "Pause expensive creatives",
+          "detail": "Paused creatives generating leads at costs as high as $300. Stopped continued spend on these ads so replacements could be evaluated."
+        },
+        {
+          "title": "Give overlooked creatives a chance",
+          "detail": "Replaced costly ads with creatives that had previously received too little budget to establish their performance. Gave them an opportunity to generate leads before judging their effectiveness."
+        },
+        {
+          "title": "Focus on five active ads",
+          "detail": "Reduced the main campaign from up to 50 active ads to five selected ads. Kept the broad audience, focusing the intervention on creative selection and spend distribution."
+        }
+      ],
+      "outcome": "Daily CPL was reported at $25–$50 from January to March 2026 after pausing expensive creatives and reducing the main campaign to five active ads. The earlier $300 creative-level peak and later daily CPL range are not matched averages. Sales conversion data was not shared.",
+      "results": [
+        {
+          "value": "$25–$50",
+          "label": "REPORTED DAILY CPL",
+          "description": "January–March 2026; not a matched-average comparison against the previous creative-level peak."
+        },
+        {
+          "value": "50 → 5",
+          "label": "ACTIVE ADS",
+          "description": "From up to 50 active ads to five selected ads."
+        },
+        {
+          "value": "Not shared",
+          "label": "SALES CONVERSION DATA",
+          "description": "Revenue and closed-project impact could not be assessed."
+        }
+      ],
+      "weekly": null
     },
 
     {
