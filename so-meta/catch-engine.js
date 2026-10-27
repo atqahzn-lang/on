@@ -10,10 +10,16 @@ window.CaseCatchEngine = class CaseCatchEngine {
     this.catHeight = .25;
     this.fileWidth = .09;
     this.fileHeight = .15;
+    this.speed = .48;
+    this.fallSpeed = .32;
     this.files = [];
     this.spawnIn = .6;
     this.sequence = 0;
     this.cursor = 0;
+  }
+  reset() {
+    this.collected.clear();this.files=[];this.catX=.5;
+    this.spawnIn=.3;this.sequence=0;this.cursor=0;
   }
   get complete() { return this.collected.size === this.ids.length; }
   moveTo(x) { this.catX = Math.max(this.catWidth / 2, Math.min(1 - this.catWidth / 2, x)); }
@@ -21,18 +27,18 @@ window.CaseCatchEngine = class CaseCatchEngine {
     const dt = Math.min(Math.max(seconds, 0), .05);
     const caught = [];
     if (this.complete) return caught;
-    this.moveTo(this.catX + direction * dt * .8);
+    this.moveTo(this.catX + direction * dt * this.speed);
     this.spawnIn -= dt;
     if (this.spawnIn <= 0) {
       const available = this.ids.filter(id => !this.collected.has(id) && !this.files.some(file => file.id === id));
       if (available.length) {
-        const id = available[this.cursor++ % available.length];
+        const id = available[Math.min(available.length-1, Math.floor(this.random()*available.length))];
         this.files.push({key: ++this.sequence, id, x: .12 + this.random() * .76, y: -.18});
       }
       this.spawnIn = 1.5;
     }
     this.files = this.files.filter(file => {
-      file.y += dt * .19;
+      file.y += dt * this.fallSpeed;
       const overlapsX = Math.abs(file.x - this.catX) <= (this.catWidth + this.fileWidth) / 2;
       const overlapsY = file.y + this.fileHeight >= this.catTop && file.y <= this.catTop + this.catHeight;
       if (overlapsX && overlapsY && !this.collected.has(file.id)) {
