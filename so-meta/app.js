@@ -22,7 +22,7 @@
     setText('pause-game',engine.complete?'Play again':!started?'Start':paused?'Resume':'Pause');
     byId('pause-game').setAttribute('aria-pressed',String(started&&paused&&!engine.complete));
     byId('arena-state').hidden=started&&!paused&&!engine.complete;
-    setText('arena-state',engine.complete?'ALL CASES COLLECTED':!started?'PRESS START':'PAUSED');
+    setText('arena-state',engine.complete?'ALL CASES COLLECTED':!started?'In progress':'PAUSED');
     if(performance.now()>=noticeUntil)setText('catch-instruction',defaultInstruction());
   }
   function announce(message){setText('catch-instruction',message);noticeUntil=performance.now()+2400;}
