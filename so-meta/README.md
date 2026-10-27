@@ -7,10 +7,10 @@ Standalone version of the supplied Wix HTML embed. No Wix SDK, build step, packa
 From the repository root:
 
 ```sh
-python3 -m http.server 8000 --directory so-meta
+python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`. Stop the server with Ctrl+C.
+Open `http://localhost:8000/so-meta/`. Stop the server with Ctrl+C.
 
 ## Edit the report
 
@@ -19,10 +19,12 @@ Open `http://localhost:8000`. Stop the server with Ctrl+C.
 - `responsive.css`: mobile and reduced-motion rules, loaded last. Check these when changing report layouts.
 - `cases.js`: case-study text, metrics, execution stages, and weekly chart data in `META_CONFIG.cases`. Preserve `null` and empty lists for missing data.
 - `index.html`: console and report HTML structure.
-- `app.js`: console navigation and gameplay.
+- `app.js`: keyboard/touch controls, collection tray, and report pause/resume.
+- `catch-engine.js`: falling-file physics and catch detection.
+- `catch-game.css`: game layout and compact lower-screen controls.
 - `report-template.js`: shared report popup and rendering. See `REPORT-TEMPLATE.md` for per-case layout and styling options.
 
-The original styling, content, interactions, and externally hosted cat sprite are preserved. The sprite still loads from `raw.githubusercontent.com/atqahzn-lang/atiqahis`; hosting it locally is optional.
+The pink console styling and reports are retained. The original cat sprite is hosted locally at `assets/cat-sprite.png` so gameplay does not rely on a remote image request.
 
 ## Publish on GitHub Pages
 
@@ -32,4 +34,4 @@ For Wix, add an Embed a Site element pointing to the published HTTPS page URL. T
 
 ## Manual checks after edits
 
-Open Read Case Study and select each case; check report navigation, execution stages, charts, and Escape to close. Open Play Game and advance through the checkpoints. Check the layout at desktop and mobile widths. Cases with missing metrics intentionally display placeholders.
+Move with ←/→ or A/D, or hold the arrow buttons on touch screens. Catch four numbered files to unlock the reports in the collection tray; missed files return. Pause/Resume freezes play. Opening a caught case pauses the game; X or Escape closes the report and resumes play. Collected cases are remembered for the current browser tab using sessionStorage. Case 05 is still pending and is not part of the game. Verify desktop/mobile layouts, all four reports, and that the lower display remains free of report text and menus.

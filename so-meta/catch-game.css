@@ -1,0 +1,47 @@
+/* Catch-the-cases game; reports retain their existing popup layouts. */
+.page-caption { max-width: 1100px; }
+.game-layout { display: grid; grid-template-columns: minmax(0, 660px) minmax(240px, 320px); align-items: start; justify-content: center; gap: 32px; max-width: 1100px; margin: auto; }
+.console { width: 100%; }
+.case-collection { position: sticky; top: 24px; padding: 22px; border: 1px solid #B9869B; border-radius: 18px; background: #FFFEFCDF; }
+.case-collection h2 { margin: 0 0 10px; font-size: 13px; color: #35116F; letter-spacing: 2px; }
+.case-collection > p { font-size: 12px; line-height: 1.6; margin: 0 0 16px; }
+.collection-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.collected-case { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 10px; min-height: 110px; text-align: left; color: #35116F; background: #F8F0F6; border: 1px solid #CBA9C2; border-radius: 10px; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.collected-case:not(:disabled):hover { background: #F0EAF7; border-color: #35116F; }
+.collected-case:disabled { color: #786C78; background: transparent; border-style: dashed; cursor: default; }
+.collected-number { font-size: 23px; font-weight: 700; line-height: 1; }
+.catch-arena { outline-offset: -4px; }
+.catch-cat { background-image: url("./assets/cat-sprite.png"); position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); transition: none; }
+.catch-cat.walking { animation: cat-walk 850ms steps(8) infinite; }
+.falling-case { position: absolute; width: clamp(36px, 10%, 48px); height: 48px; display: grid; place-items: center; transform: translateX(-50%); border: 2px solid #514456; border-radius: 3px 10px 3px 3px; background: #FFF3E3; color: #35116F; font-size: 17px; font-weight: 700; box-shadow: 2px 3px #51445630; }
+.arena-state { position: absolute; top: 40%; left: 10px; right: 10px; text-align: center; color: #302A3B; padding: 12px 8px; margin: 0; font-size: 13px; font-weight: 700; background: #FFF3E3E8; }
+.catch-controls { text-align: center; padding: 8px 0; }
+.catch-controls .touch-heading { font-size: 13px; letter-spacing: 1px; margin-bottom: 12px; }
+.catch-instruction { margin: 0 auto 18px; max-width: 280px; min-height: 36px; font-size: 12px; line-height: 1.5; }
+.movement-controls { display: flex; justify-content: center; gap: 16px; }
+.movement-controls button { width: 76px; height: 56px; border: 1px solid #AA7990; border-radius: 12px; background: #F8DFE8; color: #35116F; font-size: 30px; touch-action: none; user-select: none; }
+.movement-controls button:active { background: #E9B5C7; }
+.collection-progress { font-size: 12px; margin: 18px 0 10px; }
+.pause-control { border: 0; padding: 8px 14px; background: transparent; color: #6A455B; font-size: 12px; text-decoration: underline; }
+.dpad .left, .dpad .right { touch-action: none; }
+.caught-case-report .case-navigation { display: none; }
+@media(max-width: 960px) {
+  .game-layout { grid-template-columns: minmax(0, 660px); gap: 20px; }
+  .case-collection { position: static; grid-row: 1; padding: 16px; }
+  .collection-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .collected-case { min-height: 92px; }
+}
+@media(max-width:480px) {
+  .portfolio-page { padding-top: 24px; }
+  .case-collection { padding: 12px; }
+  .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .collected-case { min-height: 70px; padding: 10px; font-size: 10px; gap: 5px; }
+  .collected-number { font-size: 18px; }
+  .case-collection > p { margin-bottom: 10px; font-size: 11px; }
+  .movement-controls { gap: 10px; }
+  .movement-controls button { width: 60px; height: 48px; }
+  .touchscreen-header, .touchscreen-footer { padding: 8px 5px; font-size: 8px; letter-spacing: .4px; }
+  .catch-instruction { font-size: 11px; }
+  .quest-hud { font-size: 9px; top: 10px; left: 8px; right: 8px; gap: 6px; }
+}
+@media(prefers-reduced-motion:reduce) { .catch-cat.walking { animation: none; } }

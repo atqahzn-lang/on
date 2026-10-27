@@ -63,7 +63,7 @@ Load `cases.js`, then `report-template.js`, then the page's app script (all with
 - `MetaReports.close()` closes the dialog.
 - `MetaReports.isOpen()` reports its state.
 
-The homepage intercepts its Paid Media archive link to open the selector. That anchor retains `./so-meta/` as its fallback destination. The Nintendo reader's `openReader` calls the same popup component.
+The homepage intercepts its Paid Media archive link to open the selector. That anchor retains `./so-meta/` as its fallback destination. The catch game opens the same popup from collected-case buttons. Its report navigation is hidden so visitors return with X or Escape to the collected-case tray.
 
 The Philippines dot chart now uses separate purple budget and pink revenue grids from the latest supplied design. Both grids use the same dot value; the target is not presented as actual revenue or profit. Solution text sits on the white Execution background.
 
