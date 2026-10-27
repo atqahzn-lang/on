@@ -34,14 +34,16 @@ For Wix, add an Embed a Site element pointing to the published HTTPS page URL. T
 
 ## Current experience and checks
 
-The upper display shows the original So Meta title, subtitle and cat. The lower display contains only the Play Game / Read Case Study experience menu, with no collection grid, movement buttons, or progress counter. Play Game shows In progress for 1.6 seconds and returns to the title/menu. Read Case Study shows the five-report selector on the upper console display; choosing a case opens its existing report popup. Existing report designs remain unchanged.
+The upper display shows the original So Meta title, subtitle and cat. The lower display contains only the Play Game / Read Case Study experience menu, with no collection grid, movement buttons, or progress counter. Play Game shows In progress for 1.6 seconds and returns to the title/menu. Read Case Study shows the four-report selector on the upper console display; choosing a case opens its existing report popup. Existing report designs remain unchanged.
 
-Check the temporary notice and automatic return, all five reports, X/Escape to close, and mobile widths. Catch-game logic and assets remain in the repository for future work but the engine is not loaded or run.
+Check the temporary notice and automatic return, all four reports, X/Escape to close, and mobile widths. Catch-game logic and assets remain in the repository for future work but the engine is not loaded or run.
 
-Case 05 uses `case-05.js` and `case-05.css` for the anonymised Malaysian financial-services report, retaining the government-employee audience description. No direct client names are included in that report.
+Case 04 uses `case-04.js` and `case-04.css` for the anonymised Malaysian financial-services report, retaining the government-employee audience description. No direct client names are included in that report.
 
 ## Console controls and sound
 
-Tap either lower-screen option or use the console D-pad / keyboard arrow keys to highlight an option. A or Enter opens the selected option; B or Escape returns. In the upper-screen case selector, arrows cycle through the five reports and A/Enter opens the selected case. X opens the case selector and Y returns to the title/menu. The D-pad centre also activates the current selection.
+Tap either lower-screen option or use the console D-pad / keyboard arrow keys to highlight an option. A or Enter opens the selected option; B or Escape returns. In the upper-screen case selector, arrows cycle through the four reports and A/Enter opens the selected case. X opens the case selector and Y returns to the title/menu. The D-pad centre also activates the current selection.
 
 Short Web Audio tones play after interaction. The Sound on/off button and M shortcut mute or enable them; the preference is stored locally. There is no autoplay, external audio request, or dependency on sound for navigation.
+
+The original first case has been removed. The four remaining reports and their templates are renumbered 01–04: E-Commerce ROAS, Child Enrichment, Professional Services, and Financial Services.

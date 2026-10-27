@@ -120,7 +120,7 @@
     cases.forEach((data, index) => {
       if (options.caseIds && !options.caseIds.includes(data.id)) return;
       const button = make('button', 'case-choice'); button.type = 'button';
-      button.append(make('span', 'case-choice-number', pad(index + 1)),
+      button.append(make('span', 'case-choice-number', data.id),
         make('strong', '', data.menuTitle ?? data.title));
       if (!data.menuTitle) button.append(make('small', '', data.niche));
       button.addEventListener('click', () => open(index)); picker.append(button);
@@ -260,7 +260,7 @@
     if(custom) {
       q('.case-report').hidden=true;q('.case-picker').hidden=true;
       dialog.removeAttribute('style');
-      fieldTitle(`CASE ${data.id} / ${pad(cases.length)} — ${data.niche}`);
+      fieldTitle(`CASE ${data.id} — ${data.niche}`);
       // Templates are trusted, repository-owned markup, never remote or visitor content.
       customReport.innerHTML=custom;customReport.hidden=false;
       const nav=make('nav','case-navigation');nav.setAttribute('aria-label','Report navigation');
@@ -271,7 +271,7 @@
       (customReport.querySelector(".case-ending")??customReport.firstElementChild).append(nav);show();return;
     }
     const report=q('.case-report'); report.hidden=false; q('.case-picker').hidden=true;
-    fieldTitle(`CASE ${data.id} / ${pad(cases.length)} — ${data.niche}`);
+    fieldTitle(`CASE ${data.id} — ${data.niche}`);
     report.dataset.case=data.id; report.classList.toggle('wide-narrative',options.layout==='wide-narrative');
     // Only supported presentation tokens can be overridden; content remains text, not HTML.
     dialog.removeAttribute('style');

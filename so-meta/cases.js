@@ -19,122 +19,11 @@ const META_CONFIG = {
   cases: [
 
     /* ------------------------------------------------------
-       CASE 01 — MOBILE RETAIL / BNPL
+       CASE 01 — PHILIPPINES E-COMMERCE
     ------------------------------------------------------ */
 
     {
       id: "01",
-      menuTitle: "E-Commerce • Lead Generation",
-      menuNiche: "Mobile Retail / BNPL",
-
-      title:
-        "Enquiries Below RM10, Sustained Over a Quarter",
-
-      niche: "Mobile Retail / BNPL",
-      industry: "Meta Advertising · Lead Generation",
-      market: "Malaysia",
-      duration: "One quarter",
-
-      budget: null,
-
-      nda:
-        "Client identity withheld due to NDA.",
-
-      achievement:
-        "Below RM10 / enquiry",
-
-      challengeTitle:
-        "Reducing wasted enquiries while maintaining volume.",
-
-      problem:
-        "A mobile retailer needed 10 unique daily enquiries " +
-        "across Johor, Negeri Sembilan and Kuala Lumpur. " +
-        "Click-to-WhatsApp campaigns attracted accidental " +
-        "interactions, while overlapping audiences complicated " +
-        "campaign performance.",
-
-      solution:
-        "Rebuild the enquiry journey using Instant Forms, " +
-        "separate campaigns by audience and location, and " +
-        "introduce more deliberate cost controls.",
-
-      objectives: [
-        {
-          title: "Cost per enquiry",
-          baseline: null,
-          target: 10,
-          baselineLabel: "Starting value unavailable",
-          targetLabel: "Below RM10",
-          prefix: "RM",
-          lowerIsBetter: true
-        }
-      ],
-
-      dots: null,
-
-      execution: [
-        {
-          title: "Objective",
-          detail:
-            "Establish a measurable target of 10 unique daily " +
-            "enquiries at below RM10 per enquiry."
-        },
-        {
-          title: "Customer Journey",
-          detail:
-            "Move from Click-to-WhatsApp to Instant Forms " +
-            "to reduce accidental interactions and create " +
-            "a more deliberate enquiry process."
-        },
-        {
-          title: "Campaign Structure",
-          detail:
-            "Separate the campaigns into four structures " +
-            "with equal budget allocation."
-        },
-        {
-          title: "Audience Separation",
-          detail:
-            "Use Meta's A/B testing framework to separate " +
-            "audiences and reduce overlap. This was an audience " +
-            "partitioning exercise, not a creative A/B test."
-        },
-        {
-          title: "Cost Controls",
-          detail:
-            "Introduce cost controls and monitor enquiry " +
-            "quality alongside acquisition cost."
-        },
-        {
-          title: "Audience Exclusions",
-          detail:
-            "Apply exclusions to limit repeated exposure " +
-            "and unnecessary audience competition."
-        }
-      ],
-
-      outcome:
-        "Cost per enquiry remained below RM10 over a quarter.",
-
-      results: [
-        {
-          value: "< RM10",
-          label: "COST PER ENQUIRY",
-          description:
-            "Maintained below the target threshold " +
-            "over a quarter."
-        }
-      ],
-
-      weekly: null
-    },
-
-    /* ------------------------------------------------------
-       CASE 02 — PHILIPPINES E-COMMERCE
-    ------------------------------------------------------ */
-
-    {
-      id: "02",
       menuTitle: "E-Commerce • ROAS",
       menuNiche: "E-Commerce",
       report: {
@@ -319,11 +208,11 @@ const META_CONFIG = {
     },
 
     /* ------------------------------------------------------
-       CASES 03–05 — SWIM SCHOOL / RENOVATION / FINANCIAL SERVICES
+       CASES 02–04 — SWIM SCHOOL / RENOVATION / FINANCIAL SERVICES
     ------------------------------------------------------ */
 
     {
-      "id": "03",
+      "id": "02",
       "menuTitle": "Child Enrichment • Lead Generation",
       "menuNiche": "Swim School",
       "title": "100 Daily Session Registrations, With CPL as Low as RM5",
@@ -382,7 +271,7 @@ const META_CONFIG = {
     },
 
     {
-      "id": "04",
+      "id": "03",
       "menuTitle": "Professional Services • Lead Generation",
       "menuNiche": "Renovation",
       "title": "Lead Costs of $25–$50 After Pausing Creatives Costing Up to $300 per Lead",
@@ -442,7 +331,7 @@ const META_CONFIG = {
     },
 
     {
-      "id": "05",
+      "id": "04",
       "menuTitle": "Financial Services • Lead Generation",
       "title": "Improving Lead Acquisition and Qualification",
       "niche": "Financial Services · Government Employees",
