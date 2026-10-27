@@ -115,7 +115,7 @@
     q('.case-picker').hidden = false;
     fieldTitle('Meta case studies');
     const picker = q('.case-picker'); picker.replaceChildren();
-    const heading = make('h1', '', 'Choose a case study');
+    const heading = make('h1', '', 'Campaign Results');
     picker.append(heading);
     cases.forEach((data, index) => {
       if (options.caseIds && !options.caseIds.includes(data.id)) return;
@@ -125,6 +125,9 @@
       if (!data.menuTitle) button.append(make('small', '', data.niche));
       button.addEventListener('click', () => open(index)); picker.append(button);
     });
+    const systems = make('section', 'systems-placeholder');
+    systems.append(make('h2', '', 'Strategy & Systems'), make('p', '', 'In progress'));
+    picker.append(systems);
     show();
   }
   function fieldTitle(value) { q('#mr-window-title').textContent = value; }

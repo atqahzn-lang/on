@@ -20,3 +20,10 @@
 #console-case-menu .case-menu-item { min-height: 46px; }
 #console-case-menu .case-menu-item strong { font-size: 12px; line-height: 1.4; text-align: left; }
 #console-sound { border: 0; padding: 0 2px; background: transparent; color: #6A455B; font-size: 10px; cursor: pointer; }
+
+.group-choice { min-height: 62px; }
+.group-choice strong { font-size: 13px; }
+.group-choice small { font-size: 11px; line-height: 1.5; }
+.group-back { padding: 6px 0; margin: 0 0 10px; border: 0; background: transparent; color: #35116F; font-size: 11px; text-decoration: underline; }
+.strategy-status { color: #35116F; font-size: 18px !important; font-weight: 700; margin: 18px 0 14px !important; }
+.strategy-topics { padding-left: 18px; margin: 0 0 16px; font-size: 12px; line-height: 1.6; }

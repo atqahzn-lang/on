@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>So Meta (a case study) — Atiqah.is</title>
-<meta name="portfolio-build" content="cases-renumbered-20261027">
+<meta name="portfolio-build" content="portfolio-groups-20261027">
 
-<link rel="stylesheet" href="./styles.css?v=cases-renumbered-20261027">
-<link rel="stylesheet" href="./report.css?v=cases-renumbered-20261027">
-<link rel="stylesheet" href="./case-02.css?v=cases-renumbered-20261027">
-<link rel="stylesheet" href="./case-03.css?v=cases-renumbered-20261027">
-<link rel="stylesheet" href="./case-04.css?v=cases-renumbered-20261027">
-<link rel="stylesheet" href="./responsive.css?v=cases-renumbered-20261027">
-<link rel="stylesheet" href="./catch-game.css?v=cases-renumbered-20261027">
+<link rel="stylesheet" href="./styles.css?v=portfolio-groups-20261027">
+<link rel="stylesheet" href="./report.css?v=portfolio-groups-20261027">
+<link rel="stylesheet" href="./case-02.css?v=portfolio-groups-20261027">
+<link rel="stylesheet" href="./case-03.css?v=portfolio-groups-20261027">
+<link rel="stylesheet" href="./case-04.css?v=portfolio-groups-20261027">
+<link rel="stylesheet" href="./responsive.css?v=portfolio-groups-20261027">
+<link rel="stylesheet" href="./catch-game.css?v=portfolio-groups-20261027">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site-notice.css?v=cases-renumbered-20261027">
+<link rel="stylesheet" href="../site-notice.css?v=portfolio-groups-20261027">
 </head>
 
 <body>
@@ -54,9 +54,22 @@
             <div class="title-subtitle">(a case study)</div>
             <div class="cat-sprite title-cat" aria-hidden="true"></div>
           </div>
+          <section id="console-group-menu" class="screen-state case-menu" aria-label="Choose a portfolio group" hidden>
+            <h2>EXPLORE THE WORK</h2>
+            <p>Use the D-pad or tap a group.</p>
+            <button id="campaign-results" class="case-menu-item group-choice" type="button"><span><strong>Campaign Results</strong><small>Four campaign case studies</small></span></button>
+            <button id="strategy-systems" class="case-menu-item group-choice" type="button"><span><strong>Strategy &amp; Systems</strong><small>In progress</small></span></button>
+          </section>
+          <section id="console-strategy" class="screen-state case-menu" aria-label="Strategy and systems" hidden>
+            <h2>STRATEGY &amp; SYSTEMS</h2>
+            <p class="strategy-status">In progress</p>
+            <ul class="strategy-topics"><li>Meta ad-review rubric</li><li>Budget allocation framework</li><li>Creative testing and replacement process</li></ul>
+            <button id="strategy-back" class="group-back" type="button">← Back to groups</button>
+          </section>
           <section id="console-case-menu" class="screen-state case-menu" aria-label="Choose a case study" hidden>
-            <h2>SELECT A CASE</h2>
+            <h2>CAMPAIGN RESULTS</h2>
             <p>Use the D-pad or arrow keys, then A / Enter to read.</p>
+            <button id="cases-back" class="group-back" type="button">← Back to groups</button>
             <div id="console-case-list"></div>
           </section>
           <div id="game-notice" class="screen-state game-notice" role="status" aria-live="polite" hidden>
@@ -127,12 +140,12 @@
   </div>
 </main>
 
-<script src="./cases.js?v=cases-renumbered-20261027" defer></script>
-<script src="./case-02.js?v=cases-renumbered-20261027" defer></script>
-<script src="./case-03.js?v=cases-renumbered-20261027" defer></script>
-<script src="./case-04.js?v=cases-renumbered-20261027" defer></script>
-<script src="./report-template.js?v=cases-renumbered-20261027" defer></script>
-<script src="./console-sound.js?v=cases-renumbered-20261027" defer></script>
-<script src="./app.js?v=cases-renumbered-20261027" defer></script>
+<script src="./cases.js?v=portfolio-groups-20261027" defer></script>
+<script src="./case-02.js?v=portfolio-groups-20261027" defer></script>
+<script src="./case-03.js?v=portfolio-groups-20261027" defer></script>
+<script src="./case-04.js?v=portfolio-groups-20261027" defer></script>
+<script src="./report-template.js?v=portfolio-groups-20261027" defer></script>
+<script src="./console-sound.js?v=portfolio-groups-20261027" defer></script>
+<script src="./app.js?v=portfolio-groups-20261027" defer></script>
 </body>
 </html>
