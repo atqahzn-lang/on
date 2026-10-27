@@ -46,15 +46,15 @@
       <div class="top-screen-frame">
         <div class="top-screen">
 
-          <div id="catch-arena" class="screen-state quest-screen catch-arena" tabindex="0" role="region" aria-label="Catch falling case files. Move with the left and right arrow keys, A and D, or the console D-pad.">
-            <div class="quest-hud"><span>CATCH THE CASES</span></div>
-            <nav class="game-screen-tools" aria-label="Leave the game">
-              <button id="skip-game" type="button">Skip</button>
-              <button id="game-menu" type="button">Back to menu</button>
-            </nav>
-            <div id="falling-cases" aria-hidden="true"></div>
-            <div class="cat-sprite catch-cat" id="catch-cat" aria-hidden="true"></div>
-            <p class="arena-state" id="arena-state">In progress</p>
+          <div id="title-screen" class="screen-state title-screen">
+            <div class="title-eyebrow">ATIQAH.IS PRESENTS</div>
+            <h1 class="game-title">So Meta</h1>
+            <div class="title-subtitle">(a case study)</div>
+            <div class="cat-sprite title-cat" aria-hidden="true"></div>
+          </div>
+          <div id="game-notice" class="screen-state game-notice" role="status" aria-live="polite" hidden>
+            <strong>In progress</strong>
+            <span>Returning to menu…</span>
           </div>
 
         </div>
@@ -86,23 +86,17 @@
 
           <div class="touchscreen-body">
 
-            <section class="case-collection" aria-labelledby="collection-title">
-              <div class="collection-heading">
-                <h1 id="collection-title" class="touch-heading">YOUR CASES</h1>
-                <button id="read-case-studies" type="button">Read case studies</button>
-              </div>
-              <p class="catch-instruction" id="catch-instruction" role="status" aria-live="polite">Press Start, or read the case studies.</p>
-              <div id="collected-cases" class="collection-grid"></div>
-              <div class="collection-actions">
-                <p class="collection-progress" id="collection-progress">0 of 4 cases collected</p>
-                <button class="pause-control" id="pause-game" type="button" aria-pressed="false">Start</button>
-              </div>
-            </section>
+            <div class="experience-menu">
+              <h2 class="touch-heading">CHOOSE YOUR EXPERIENCE</h2>
+              <p class="touch-description">Play the game or read the complete case studies.</p>
+              <button id="play-game" type="button" class="touch-button">PLAY GAME</button>
+              <button id="read-case-study" type="button" class="touch-button secondary">READ CASE STUDY</button>
+            </div>
 
           </div>
 
           <div class="touchscreen-footer">
-            <span>CATCH · COLLECT · READ</span>
+            <span>SELECT · EXPLORE · READ</span>
             <span>© ATIQAH.IS</span>
           </div>
 
@@ -130,7 +124,6 @@
 <script src="./case-03.js" defer></script>
 <script src="./case-04.js" defer></script>
 <script src="./report-template.js" defer></script>
-<script src="./catch-engine.js" defer></script>
 <script src="./app.js" defer></script>
 </body>
 </html>
