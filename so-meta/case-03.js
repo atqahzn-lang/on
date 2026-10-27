@@ -1,61 +1,105 @@
-// Singapore renovation case, preserved from the supplied reference.
+// Current approved format: comparisons → scale/context → execution dial + full process → outcome.
+// See CASE-STUDY-FORMAT.md. Client identity remains anonymised where required.
 window.MetaCaseTemplates = window.MetaCaseTemplates || {};
 window.MetaCaseInitializers = window.MetaCaseInitializers || {};
-window.MetaCaseTemplates["03"] = "<article class=\"renovation-report\" data-case=\"03\">\n\n  <header>\n    <p class=\"meta\">\n      Meta Advertising · Home Services · Singapore · January–March 2026\n    </p>\n    <p class=\"case-title\">\n      Lead Costs of $25–$50 After Pausing Creatives Costing Up to $300 per Lead\n    </p>\n  </header>\n\n  <!-- PROBLEM -->\n  <section class=\"section\" aria-labelledby=\"problem-title\">\n    <p class=\"section-label\">The problem</p>\n\n    <h1 id=\"problem-title\">\n      Too many active ads.<br>\n      Too little evidence of efficient leads.\n    </h1>\n\n    <p class=\"intro\">\n      A renovation company’s main campaign targeted a broad audience\n      with a daily budget of $1,000.\n    </p>\n\n    <ul class=\"problem-list\">\n      <li>Up to 50 ads were active in the main campaign.</li>\n      <li>Some creatives generated leads at costs as high as $300.</li>\n      <li>\n        Other creatives received too little spend to establish\n        their performance.\n      </li>\n    </ul>\n\n    <div class=\"metrics\">\n      <div>\n        <strong class=\"metric-value\">$1,000</strong>\n        <span class=\"metric-label\">Daily budget</span>\n        <span class=\"metric-note\">Main campaign</span>\n      </div>\n\n      <div>\n        <strong class=\"metric-value\">Up to 50</strong>\n        <span class=\"metric-label\">Active ads</span>\n        <span class=\"metric-note\">Before the change</span>\n      </div>\n\n      <div>\n        <strong class=\"metric-value\">$300</strong>\n        <span class=\"metric-label\">Highest reported CPL</span>\n        <span class=\"metric-note\">On expensive creatives</span>\n      </div>\n    </div>\n  </section>\n\n  <!-- APPROACH -->\n  <section class=\"section\" aria-labelledby=\"approach-title\">\n    <p class=\"section-label\">The approach</p>\n    <h2 id=\"approach-title\">\n      Select ads by the enquiries they generated.\n    </h2>\n\n    <details class=\"quick-read\">\n      <summary>\n        <span>Short on time? <em>View the approach</em></span>\n        <span class=\"quick-toggle\" aria-hidden=\"true\"></span>\n      </summary>\n\n      <ol class=\"timeline\">\n        <li>\n          <span class=\"timeline-number\" aria-hidden=\"true\">01</span>\n          <p>\n            <strong>Assess:</strong> Compare CPC and unique CTR with\n            actual leads generated and CPL.\n          </p>\n        </li>\n        <li>\n          <span class=\"timeline-number\" aria-hidden=\"true\">02</span>\n          <p>\n            <strong>Pause:</strong> Remove expensive creatives,\n            including those reaching $300 per lead.\n          </p>\n        </li>\n        <li>\n          <span class=\"timeline-number\" aria-hidden=\"true\">03</span>\n          <p>\n            <strong>Replace:</strong> Give creatives with insufficient\n            previous spend an opportunity to generate results.\n          </p>\n        </li>\n        <li>\n          <span class=\"timeline-number\" aria-hidden=\"true\">04</span>\n          <p>\n            <strong>Focus:</strong> Limit the broad-audience campaign\n            to five active ads.\n          </p>\n        </li>\n      </ol>\n    </details>\n\n    <p class=\"cards-hint\">\n      Click a card to flip it. Click again to return.\n    </p>\n\n    <div class=\"cards\">\n\n      <button class=\"flip-card\" type=\"button\" aria-pressed=\"false\"\n        aria-label=\"Evaluate clicks against leads. Show details.\">\n        <span class=\"flip-inner\">\n          <span class=\"card-face card-front\" aria-hidden=\"false\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">01</span>\n              <span class=\"flip-icon\" aria-hidden=\"true\">↻</span>\n            </span>\n            <span class=\"card-title\">Evaluate clicks against leads</span>\n          </span>\n\n          <span class=\"card-face card-back\" aria-hidden=\"true\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">01</span>\n              <span class=\"back-label\">Assess</span>\n            </span>\n            <span class=\"card-detail\">\n              Reviewed cost per click and unique click-through rate\n              alongside actual leads generated and cost per lead.\n            </span>\n            <span class=\"card-detail\">\n              Used these signals together to select ads, rather than\n              judging click performance alone.\n            </span>\n            <span class=\"card-return\">↶ Click to return</span>\n          </span>\n        </span>\n      </button>\n\n      <button class=\"flip-card\" type=\"button\" aria-pressed=\"false\"\n        aria-label=\"Pause expensive creatives. Show details.\">\n        <span class=\"flip-inner\">\n          <span class=\"card-face card-front\" aria-hidden=\"false\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">02</span>\n              <span class=\"flip-icon\" aria-hidden=\"true\">↻</span>\n            </span>\n            <span class=\"card-title\">Pause expensive creatives</span>\n          </span>\n\n          <span class=\"card-face card-back\" aria-hidden=\"true\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">02</span>\n              <span class=\"back-label\">Pause</span>\n            </span>\n            <span class=\"card-detail\">\n              Paused creatives generating leads at costs as high as $300.\n            </span>\n            <span class=\"card-detail\">\n              Stopped continued spend on these ads so replacements\n              could be evaluated.\n            </span>\n            <span class=\"card-return\">↶ Click to return</span>\n          </span>\n        </span>\n      </button>\n\n      <button class=\"flip-card\" type=\"button\" aria-pressed=\"false\"\n        aria-label=\"Give overlooked creatives a chance. Show details.\">\n        <span class=\"flip-inner\">\n          <span class=\"card-face card-front\" aria-hidden=\"false\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">03</span>\n              <span class=\"flip-icon\" aria-hidden=\"true\">↻</span>\n            </span>\n            <span class=\"card-title\">Give overlooked creatives a chance</span>\n          </span>\n\n          <span class=\"card-face card-back\" aria-hidden=\"true\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">03</span>\n              <span class=\"back-label\">Replace</span>\n            </span>\n            <span class=\"card-detail\">\n              Replaced costly ads with creatives that had previously\n              received too little budget to establish their performance.\n            </span>\n            <span class=\"card-detail\">\n              Gave them an opportunity to generate leads before\n              judging their effectiveness.\n            </span>\n            <span class=\"card-return\">↶ Click to return</span>\n          </span>\n        </span>\n      </button>\n\n      <button class=\"flip-card\" type=\"button\" aria-pressed=\"false\"\n        aria-label=\"Focus on five active ads. Show details.\">\n        <span class=\"flip-inner\">\n          <span class=\"card-face card-front\" aria-hidden=\"false\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">04</span>\n              <span class=\"flip-icon\" aria-hidden=\"true\">↻</span>\n            </span>\n            <span class=\"card-title\">Focus on five active ads</span>\n          </span>\n\n          <span class=\"card-face card-back\" aria-hidden=\"true\">\n            <span class=\"card-top\">\n              <span class=\"card-number\">04</span>\n              <span class=\"back-label\">Focus</span>\n            </span>\n            <span class=\"card-detail\">\n              Reduced the main campaign from up to 50 active ads\n              to five selected ads.\n            </span>\n            <span class=\"card-detail\">\n              Kept the broad audience, focusing the intervention\n              on creative selection and spend distribution.\n            </span>\n            <span class=\"card-return\">↶ Click to return</span>\n          </span>\n        </span>\n      </button>\n\n    </div>\n  </section>\n\n  <!-- AD COUNT VISUALISATION -->\n  <section class=\"section dot-panel\" aria-labelledby=\"dot-title\">\n    <p class=\"section-label\">The change</p>\n    <h2 id=\"dot-title\">From up to 50 active ads to five.</h2>\n    <p class=\"dot-key\">Each dot represents one active ad.</p>\n\n    <div class=\"dot-comparison\">\n      <div>\n        <strong class=\"dot-value\">Up to 50</strong>\n        <span class=\"dot-label\">Before selection</span>\n        <div class=\"dot-grid\" id=\"before-dots\" aria-hidden=\"true\"></div>\n      </div>\n\n      <div>\n        <strong class=\"dot-value\">5</strong>\n        <span class=\"dot-label\">After selection</span>\n        <div class=\"dot-grid after\" id=\"after-dots\" aria-hidden=\"true\"></div>\n      </div>\n    </div>\n\n    <p class=\"dot-note\">\n      The change combined fewer active ads with deliberate creative\n      replacement. Selection was based on lead-generation performance.\n    </p>\n  </section>\n\n  <!-- RESULTS -->\n  <section class=\"section\" aria-labelledby=\"results-title\">\n    <p class=\"section-label\">The results</p>\n    <h2 id=\"results-title\">Daily CPL settled within $25–$50.</h2>\n\n    <p class=\"chart-description\">\n      The reported daily range ran from January to March 2026.\n      Previously, individual creatives had reached $300 per lead.\n    </p>\n\n    <figure class=\"cpl-chart\">\n      <div role=\"img\"\n        aria-label=\"Previous creative-level CPL reached $300. Subsequent reported daily CPL ranged from $25 to $50. These are different reporting bases, not matched averages.\">\n        <div class=\"chart-axis\" aria-hidden=\"true\">\n          <span></span>\n          <div class=\"axis-scale\">\n            <span>$0</span>\n            <span>$150</span>\n            <span>$300</span>\n          </div>\n          <span></span>\n        </div>\n\n        <div class=\"chart-row\" aria-hidden=\"true\">\n          <span class=\"chart-label\">Previous peak</span>\n          <div class=\"track\">\n            <span class=\"chart-bar\" style=\"--width:100%;\"></span>\n          </div>\n          <span class=\"chart-value\">$300</span>\n        </div>\n\n        <div class=\"chart-row\" aria-hidden=\"true\">\n          <span class=\"chart-label\">Daily range<br>Jan–Mar</span>\n          <div class=\"track\">\n            <span class=\"chart-bar after\"\n              style=\"--start:8.3333%;--width:8.3334%;\"></span>\n          </div>\n          <span class=\"chart-value\">$25–$50</span>\n        </div>\n      </div>\n\n      <figcaption class=\"chart-caption\">\n        The previous figure is a creative-level peak; the later figures\n        are a reported daily CPL range. They are not equivalent\n        campaign-period averages.\n      </figcaption>\n    </figure>\n  </section>\n\n  <!-- OUTCOME -->\n  <section class=\"section outcome\" aria-labelledby=\"outcome-title\">\n    <p class=\"section-label\">Outcome</p>\n    <h2 id=\"outcome-title\">Was the objective met?</h2>\n\n    <p class=\"outcome-summary\">\n      Reported daily CPL reached the $25–$50 range after expensive\n      creatives were paused and the main campaign was reduced\n      to five active ads.\n    </p>\n\n    <div class=\"outcome-grid\">\n      <div class=\"outcome-item\">\n        <h3 class=\"outcome-target\">Reduce lead acquisition costs</h3>\n        <p class=\"outcome-status\">MET*</p>\n        <p class=\"outcome-detail\">\n          Daily CPL was reported at $25–$50 from January to March 2026,\n          following earlier creative-level costs as high as $300.\n        </p>\n      </div>\n\n      <div class=\"outcome-item\">\n        <h3 class=\"outcome-target\">Sales conversion data</h3>\n        <p class=\"outcome-status unavailable\">NOT SHARED</p>\n        <p class=\"outcome-detail\">\n          The client did not share sales conversion data, so the impact\n          on closed renovation projects and revenue could not be assessed.\n        </p>\n      </div>\n    </div>\n\n    <p class=\"outcome-footnote\">\n      *Results reflect reported lead acquisition costs. The previous\n      peak and subsequent daily range are not matched averages;\n      no percentage reduction or revenue return is claimed.\n    </p>\n  </section>\n\n</article>";
-window.MetaCaseInitializers["03"] = function(root) {
+window.MetaCaseTemplates["03"] = "<article class=\"rn-report renovation-report\" id=\"renovation-case-study\" data-case=\"03\">\n\n  <header>\n    <p class=\"rn-meta\">\n      Meta Advertising · Home Services · Singapore · January–March 2026\n    </p>\n    <p class=\"rn-case-title\">\n      Daily Lead Costs of 25–50 After Creative Reselection\n    </p>\n  </header>\n\n  <section class=\"rn-problem\" aria-labelledby=\"rn-problem-title\">\n    <span class=\"rn-kicker\">The problem</span>\n\n    <h1 id=\"rn-problem-title\">\n      Too many active ads.<br>\n      Too little evidence of efficient leads.\n    </h1>\n\n    <p class=\"rn-intro\">\n      A renovation company’s main campaign targeted a broad audience\n      with a daily budget of $1,000.\n    </p>\n\n    <ul>\n      <li>Up to 50 ads were active in the main campaign.</li>\n      <li>Some creatives generated leads at costs as high as $300.</li>\n      <li>Other creatives received too little spend to establish their performance.</li>\n    </ul>\n\n    <div class=\"rn-context\">\n      <span>Daily budget <strong>$1,000 · main campaign</strong></span>\n      <span>Audience <strong>Broad</strong></span>\n      <span>Objective <strong>Lead generation</strong></span>\n    </div>\n  </section>\n\n  <!-- Comparisons adapted to the available evidence. -->\n  <section class=\"rn-comparisons\" aria-label=\"Campaign changes and lead costs\">\n\n    <article class=\"rn-comparison\">\n      <h3>Active ads in the main campaign</h3>\n      <p class=\"rn-subtitle\">Before and after creative selection</p>\n\n      <div class=\"rn-chart\"\n           role=\"img\"\n           aria-label=\"Up to 50 active ads before selection, reduced to five active ads.\">\n\n        <div class=\"rn-bar-group\">\n          <div class=\"rn-bar-label\">\n            <span>Before selection</span>\n            <strong>Up to 50</strong>\n          </div>\n          <div class=\"rn-track\">\n            <span class=\"rn-bar\" style=\"--width:100%\"></span>\n          </div>\n        </div>\n\n        <div class=\"rn-bar-group\">\n          <div class=\"rn-bar-label\">\n            <span>After selection</span>\n            <strong>5</strong>\n          </div>\n          <div class=\"rn-track\">\n            <span class=\"rn-bar is-pink\" style=\"--width:10%\"></span>\n          </div>\n        </div>\n\n        <div class=\"rn-axis\">\n          <span>0 ads</span>\n          <span>50 ads</span>\n        </div>\n      </div>\n\n      <div class=\"rn-comparison-summary\">\n        <strong class=\"rn-summary-value\">Up to 50 → 5</strong>\n        <p>\n          A smaller active set, selected using lead-generation performance.\n        </p>\n      </div>\n    </article>\n\n    <article class=\"rn-comparison\">\n      <h3>Reported cost per lead</h3>\n      <p class=\"rn-subtitle\">Earlier creative peak and subsequent daily range</p>\n\n      <div class=\"rn-chart\"\n           role=\"img\"\n           aria-label=\"Earlier individual creatives reached $300 per lead. Subsequent reported daily CPL ranged from $25 to $50 during January to March 2026. These are different measurement scopes.\">\n\n        <div class=\"rn-bar-group\">\n          <div class=\"rn-bar-label\">\n            <span>Earlier creative-level peak</span>\n            <strong>$300</strong>\n          </div>\n          <div class=\"rn-track\">\n            <span class=\"rn-bar\" style=\"--width:100%\"></span>\n          </div>\n        </div>\n\n        <div class=\"rn-bar-group\">\n          <div class=\"rn-bar-label\">\n            <span>Daily CPL · January–March</span>\n            <strong>25–50</strong>\n          </div>\n          <div class=\"rn-track\">\n            <span class=\"rn-bar is-pink\"\n                  style=\"--start:8.3333%;--width:8.3334%\"></span>\n          </div>\n        </div>\n\n        <div class=\"rn-axis\">\n          <span>$0</span>\n          <span>$150</span>\n          <span>$300</span>\n        </div>\n      </div>\n\n      <div class=\"rn-comparison-summary\">\n        <strong class=\"rn-summary-value\">25–50</strong>\n        <p>\n          Reported daily CPL after expensive creatives were paused\n          and alternatives introduced.\n        </p>\n      </div>\n    </article>\n\n  </section>\n\n  <p class=\"rn-note rn-comparison-note\">\n    The earlier $300 figure is a creative-level peak; 25–50 is a\n    subsequent daily CPL range. They are not matched campaign averages,\n    so no percentage reduction is calculated.\n  </p>\n\n  <!-- PH-style visual context -->\n  <section class=\"rn-change\" aria-labelledby=\"rn-change-title\">\n    <h2 id=\"rn-change-title\">Fewer active ads. More deliberate selection.</h2>\n\n    <div class=\"rn-change-layout\">\n      <div>\n        <strong class=\"rn-big-number\">5</strong>\n        <p class=\"rn-change-copy\">\n          Active ads after reviewing\n          <strong>clicks, actual leads and acquisition cost.</strong>\n        </p>\n        <p class=\"rn-legend\">Each dot represents one active ad.</p>\n      </div>\n\n      <div>\n        <div class=\"rn-dot-group\">\n          <div class=\"rn-dot-label\">\n            <span>Before selection</span>\n            <strong>Up to 50</strong>\n          </div>\n          <div class=\"rn-dots\" data-dots=\"50\" aria-hidden=\"true\"></div>\n        </div>\n\n        <div class=\"rn-dot-group\">\n          <div class=\"rn-dot-label\">\n            <span>After selection</span>\n            <strong>5</strong>\n          </div>\n          <div class=\"rn-dots\" data-dots=\"5\" aria-hidden=\"true\"></div>\n        </div>\n      </div>\n    </div>\n\n    <p class=\"rn-note\">\n      The change combined a smaller active set with creative replacement.\n      Previously underfunded ads were given an opportunity to establish\n      performance; fewer ads alone were not isolated as the cause of the result.\n    </p>\n  </section>\n\n  <section class=\"rn-execution\" aria-labelledby=\"rn-execution-title\">\n    <span class=\"rn-kicker\">Execution</span>\n    <h2 id=\"rn-execution-title\">The decisions behind the results.</h2>\n\n    <div class=\"rn-solution\">\n      <h3>Solution</h3>\n      <p>\n        Assess creatives by the enquiries they generated, pause expensive\n        ads and give previously underfunded alternatives a chance\n        within a smaller active set.\n      </p>\n    </div>\n\n    <div class=\"rn-dial-layout\">\n\n      <div class=\"rn-dial\" role=\"group\" aria-label=\"Select an execution stage\">\n        <svg viewBox=\"0 0 250 300\" fill=\"none\" aria-hidden=\"true\">\n          <path d=\"M32 10 C250 55 250 245 32 290\"\n                stroke=\"#e8e4ec\" stroke-width=\"2\"/>\n        </svg>\n\n        <button type=\"button\" class=\"rn-node\" data-stage=\"0\"\n                style=\"--x:37%;--y:10%\"\n                aria-label=\"Stage 1: Evaluate clicks against leads\"\n                aria-pressed=\"true\"\n                aria-controls=\"rn-stage-panel\">01</button>\n\n        <button type=\"button\" class=\"rn-node\" data-stage=\"1\"\n                style=\"--x:73%;--y:36%\"\n                aria-label=\"Stage 2: Pause expensive creatives\"\n                aria-pressed=\"false\"\n                aria-controls=\"rn-stage-panel\">02</button>\n\n        <button type=\"button\" class=\"rn-node\" data-stage=\"2\"\n                style=\"--x:73%;--y:64%\"\n                aria-label=\"Stage 3: Give overlooked creatives a chance\"\n                aria-pressed=\"false\"\n                aria-controls=\"rn-stage-panel\">03</button>\n\n        <button type=\"button\" class=\"rn-node\" data-stage=\"3\"\n                style=\"--x:37%;--y:90%\"\n                aria-label=\"Stage 4: Focus on five active ads\"\n                aria-pressed=\"false\"\n                aria-controls=\"rn-stage-panel\">04</button>\n      </div>\n\n      <div class=\"rn-stage\">\n        <div id=\"rn-stage-panel\" aria-live=\"polite\" aria-atomic=\"true\">\n          <span class=\"rn-stage-number\">STAGE 01</span>\n          <h3 class=\"rn-stage-title\">Evaluate clicks against leads</h3>\n          <p class=\"rn-stage-description\">\n            Reviewed cost per click and unique click-through rate\n            alongside actual leads and cost per result. Used these\n            measures together to assess whether engagement translated\n            into efficient enquiries.\n          </p>\n        </div>\n\n        <div class=\"rn-controls\">\n          <button type=\"button\" class=\"rn-prev\" disabled>← PREVIOUS</button>\n          <span class=\"rn-page-count\" aria-label=\"Stage 1 of 4\">1 / 4</span>\n          <button type=\"button\" class=\"rn-next\">NEXT →</button>\n        </div>\n      </div>\n\n    </div>\n\n    <details class=\"rn-process\">\n      <summary>\n        Skip the dial — view the complete process\n        <small>All 4 campaign decisions in one timeline</small>\n      </summary>\n\n      <ol class=\"rn-timeline\">\n        <li>\n          <h3>Evaluate clicks against leads</h3>\n          <p>\n            Reviewed cost per click and unique click-through rate\n            alongside actual leads and cost per result. Used these\n            measures together to assess whether engagement translated\n            into efficient enquiries.\n          </p>\n        </li>\n\n        <li>\n          <h3>Pause expensive creatives</h3>\n          <p>\n            Paused creatives generating expensive enquiries, including\n            ads reaching $300 per lead, to stop further spend on\n            demonstrated poor performers.\n          </p>\n        </li>\n\n        <li>\n          <h3>Give overlooked creatives a chance</h3>\n          <p>\n            Introduced alternative creatives that had previously\n            received insufficient budget to establish performance.\n            Distinguished limited delivery from evidence of poor results.\n          </p>\n        </li>\n\n        <li>\n          <h3>Focus on five active ads</h3>\n          <p>\n            Reduced the main campaign to five active ads at a time,\n            combining a smaller creative set with selection based\n            on actual lead-generation performance.\n          </p>\n        </li>\n      </ol>\n    </details>\n  </section>\n\n  <section class=\"rn-outcome\" aria-labelledby=\"rn-outcome-title\">\n    <span class=\"rn-kicker\">Outcome</span>\n    <h2 id=\"rn-outcome-title\">Was the objective met?</h2>\n\n    <p class=\"rn-outcome-intro\">\n      Reported daily CPL settled within 25–50 after creative\n      reselection and a reduction to five active ads.\n    </p>\n\n    <div class=\"rn-outcome-grid\">\n      <article class=\"rn-outcome-item\">\n        <span class=\"rn-outcome-label\">Reduce lead acquisition costs</span>\n        <strong class=\"rn-status\">MET*</strong>\n        <p>\n          Daily CPL was reported at 25–50 during January–March 2026.\n          Earlier individual creatives had reached $300 per lead.\n        </p>\n      </article>\n\n      <article class=\"rn-outcome-item\">\n        <span class=\"rn-outcome-label\">Sales conversion data</span>\n        <strong class=\"rn-status is-muted\">NOT SHARED</strong>\n        <p>\n          Closed renovation projects and revenue impact could\n          not be assessed.\n        </p>\n      </article>\n    </div>\n\n    <ul class=\"rn-limits\">\n      <li>\n        *The earlier creative peak and subsequent daily range are\n        different measures; no percentage reduction is claimed.\n      </li>\n      <li>\n        Results demonstrate reported acquisition costs, not verified\n        lead quality or sales conversion.\n      </li>\n    </ul>\n  </section>\n\n  <footer class=\"rn-footer\">\n    <p class=\"rn-note\">\n      Reporting period: January–March 2026.\n    </p>\n  </footer>\n\n</article>";
+window.MetaCaseInitializers["03"] = function(container) {
 
-/* DOT COMPARISON */
-[
-  ["before-dots", 50],
-  ["after-dots", 5]
-].forEach(([id, count]) => {
-  const container = root.querySelector("#" + id);
-  const fragment = document.createDocumentFragment();
+(() => {
+  const root = container.querySelector("#renovation-case-study");
+  if (!root) return;
 
-  for (let i = 0; i < count; i++) {
-    const dot = document.createElement("span");
-    dot.className = "dot";
-    fragment.appendChild(dot);
-  }
+  /* Exact ad counts; equal-sized dots in both groups. */
+  root.querySelectorAll("[data-dots]").forEach(group => {
+    const fragment = document.createDocumentFragment();
 
-  container.appendChild(fragment);
-});
-
-/* CLICK-TO-FLIP CARDS */
-root.querySelectorAll(".flip-card").forEach(card => {
-  const front = card.querySelector(".card-front");
-  const back = card.querySelector(".card-back");
-  const title = card.querySelector(".card-title").textContent.trim();
-
-  const details = [...card.querySelectorAll(".card-detail")]
-    .map(item => item.textContent.trim().replace(/\s+/g, " "))
-    .join(" ");
-
-  function setFlipped(flipped) {
-    card.classList.toggle("is-flipped", flipped);
-    card.setAttribute("aria-pressed", String(flipped));
-    front.setAttribute("aria-hidden", String(flipped));
-    back.setAttribute("aria-hidden", String(!flipped));
-
-    card.setAttribute(
-      "aria-label",
-      flipped
-        ? `${title}. ${details} Click to return to the title.`
-        : `${title}. Show details.`
-    );
-  }
-
-  card.addEventListener("click", () => {
-    setFlipped(!card.classList.contains("is-flipped"));
-  });
-
-  card.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      if (card.classList.contains("is-flipped")) {
-        event.preventDefault();event.stopPropagation();setFlipped(false);
-      }
+    for (let i = 0; i < Number(group.dataset.dots); i++) {
+      const dot = document.createElement("span");
+      dot.className = "rn-dot";
+      fragment.appendChild(dot);
     }
+
+    group.replaceChildren(fragment);
   });
-});
+
+  /* Timeline supplies the dial content. */
+  const steps = [...root.querySelectorAll(".rn-timeline li")].map(item => ({
+    title: item.querySelector("h3").textContent.trim(),
+    description: item.querySelector("p")
+      .textContent.trim().replace(/\s+/g, " ")
+  }));
+
+  const nodes = [...root.querySelectorAll(".rn-node")];
+  const number = root.querySelector(".rn-stage-number");
+  const title = root.querySelector(".rn-stage-title");
+  const description = root.querySelector(".rn-stage-description");
+  const count = root.querySelector(".rn-page-count");
+  const previous = root.querySelector(".rn-prev");
+  const next = root.querySelector(".rn-next");
+
+  let current = 0;
+
+  function render(index) {
+    current = Math.max(0, Math.min(index, steps.length - 1));
+
+    number.textContent =
+      `STAGE ${String(current + 1).padStart(2, "0")}`;
+
+    title.textContent = steps[current].title;
+    description.textContent = steps[current].description;
+
+    count.textContent = `${current + 1} / ${steps.length}`;
+    count.setAttribute(
+      "aria-label",
+      `Stage ${current + 1} of ${steps.length}`
+    );
+
+    nodes.forEach((node, i) => {
+      node.setAttribute("aria-pressed", String(i === current));
+    });
+
+    previous.disabled = current === 0;
+    next.disabled = current === steps.length - 1;
+  }
+
+  nodes.forEach((node, index) => {
+    node.addEventListener("click", () => render(index));
+
+    node.addEventListener("keydown", event => {
+      let destination;
+
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        destination = (index + 1) % nodes.length;
+      } else if (
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowUp"
+      ) {
+        destination = (index - 1 + nodes.length) % nodes.length;
+      } else if (event.key === "Home") {
+        destination = 0;
+      } else if (event.key === "End") {
+        destination = nodes.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      render(destination);
+      nodes[destination].focus();
+    });
+  });
+
+  previous.addEventListener("click", () => {
+    render(current - 1);
+    if (previous.disabled) next.focus();
+  });
+
+  next.addEventListener("click", () => {
+    render(current + 1);
+    if (next.disabled) previous.focus();
+  });
+
+  render(0);
+})();
 
 };

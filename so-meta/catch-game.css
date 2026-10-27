@@ -1,3 +1,10 @@
+/* EDITING MAP — active console/menu overrides, loaded after styles.css.
+   FRAME: .page-caption, .game-layout max-width controls the 660px console.
+   TYPE: .experience-menu, .group-choice, #console-case-menu, #console-sound.
+   MOBILE: @media(max-width:480px) overrides selected desktop values.
+   This file changes the console only, not report popup typography.
+   Complete property map and examples: STYLE-GUIDE.md.
+*/
 /* Restored title screen and experience menu; catch-game assets remain available for later. */
 .page-caption, .game-layout { max-width: 660px; margin-left: auto; margin-right: auto; }
 .console { width: 100%; }

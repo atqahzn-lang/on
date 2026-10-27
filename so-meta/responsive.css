@@ -1,3 +1,9 @@
+/* EDITING MAP — mobile console geometry below 480px.
+   .top-screen: upper display height (240px).
+   .console-bottom: side controls / centre display column widths and gaps.
+   Change desktop geometry in styles.css and active overrides in catch-game.css.
+   Keep the reduced-motion accessibility rules. See STYLE-GUIDE.md.
+*/
 /* ==========================================================
    12 — RESPONSIVE
 ========================================================== */

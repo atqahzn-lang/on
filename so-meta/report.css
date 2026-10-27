@@ -1,3 +1,12 @@
+/* EDITING MAP — shared popup frame plus case 01 (E-Commerce / ROAS).
+   POPUP: search "dialog.meta-report {" for width 1120px / height cap 900px.
+   CASE 01 CONTENT: .case-report and --report-padding; --section-gap for spacing.
+   TYPE: .meta-report font-family; latest hierarchy overrides are near the end.
+   COLOURS: .meta-report variables; .performance-section and .roas-visual have overrides.
+   CASES 02–04: their own case-02.css / case-03.css / case-04.css.
+   A selector may occur more than once: edit the final applicable rule.
+   See STYLE-GUIDE.md for examples and the actual stylesheet load order.
+*/
 /* Shared report template adapted from the supplied Wix design. All styles are scoped to the popup. */
 
 .meta-report {

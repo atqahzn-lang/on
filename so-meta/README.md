@@ -1,5 +1,7 @@
 # So Meta
 
+For the required format for future cases, see [CASE-STUDY-FORMAT.md](CASE-STUDY-FORMAT.md) and the persistent instructions in [AGENTS.md](AGENTS.md). For fonts, dimensions, frames, spacing and colours, see [STYLE-GUIDE.md](STYLE-GUIDE.md). Each active stylesheet starts with an EDITING MAP.
+
 Standalone version of the supplied Wix HTML embed. No Wix SDK, build step, package installation, or secrets are required.
 
 ## Preview locally

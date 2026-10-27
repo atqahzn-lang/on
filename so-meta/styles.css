@@ -1,3 +1,10 @@
+/* EDITING MAP — see STYLE-GUIDE.md before changing dimensions.
+   Base console shell, screens, fonts and colours live here.
+   Later responsive.css and catch-game.css can override these rules.
+   Overall width: edit .game-layout in catch-game.css (currently 660px).
+   Upper display height: .top-screen; lower display minimum: .touchscreen.
+   Console font: body; title font: .game-title; colours: :root.
+*/
 /* ==========================================================
    01 — GLOBAL DESIGN TOKENS
    Nintendo and report colours are kept separate.

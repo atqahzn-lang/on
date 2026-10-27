@@ -94,6 +94,7 @@
     button.addEventListener('click',()=>{if(!MetaReports.isOpen()||selector==='#button-b')action();});
   }
   document.addEventListener('keydown',event=>{
+    if(event.defaultPrevented)return;
     if(/INPUT|TEXTAREA|SELECT/.test(event.target.tagName))return;
     if(event.key.toLowerCase()==='m'&&!event.repeat){event.preventDefault();window.ConsoleSound?.toggle();return;}
     if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.key)){
