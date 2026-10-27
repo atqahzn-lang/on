@@ -1,5 +1,7 @@
 # Atiqah portfolio
 
+The root URL temporarily redirects to `./so-meta/`. The original portfolio homepage is preserved in Git history (before the temporary redirect); its CSS, configuration, and app files remain in the repository for restoration. The other pages remain available at their existing paths.
+
 Static GitHub Pages site adapted from the supplied Wix HTML embeds. No build step or Wix runtime required.
 
 ## Pages
