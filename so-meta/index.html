@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>So Meta (a case study) — Atiqah.is</title>
-<meta name="portfolio-build" content="case05-20261027">
+<meta name="portfolio-build" content="console-controls-20261027">
 
-<link rel="stylesheet" href="./styles.css?v=case05-20261027">
-<link rel="stylesheet" href="./report.css?v=case05-20261027">
-<link rel="stylesheet" href="./case-03.css?v=case05-20261027">
-<link rel="stylesheet" href="./case-04.css?v=case05-20261027">
-<link rel="stylesheet" href="./case-05.css?v=case05-20261027">
-<link rel="stylesheet" href="./responsive.css?v=case05-20261027">
-<link rel="stylesheet" href="./catch-game.css?v=case05-20261027">
+<link rel="stylesheet" href="./styles.css?v=console-controls-20261027">
+<link rel="stylesheet" href="./report.css?v=console-controls-20261027">
+<link rel="stylesheet" href="./case-03.css?v=console-controls-20261027">
+<link rel="stylesheet" href="./case-04.css?v=console-controls-20261027">
+<link rel="stylesheet" href="./case-05.css?v=console-controls-20261027">
+<link rel="stylesheet" href="./responsive.css?v=console-controls-20261027">
+<link rel="stylesheet" href="./catch-game.css?v=console-controls-20261027">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site-notice.css?v=case05-20261027">
+<link rel="stylesheet" href="../site-notice.css?v=console-controls-20261027">
 </head>
 
 <body>
@@ -54,6 +54,11 @@
             <div class="title-subtitle">(a case study)</div>
             <div class="cat-sprite title-cat" aria-hidden="true"></div>
           </div>
+          <section id="console-case-menu" class="screen-state case-menu" aria-label="Choose a case study" hidden>
+            <h2>SELECT A CASE</h2>
+            <p>Use the D-pad or arrow keys, then A / Enter to read.</p>
+            <div id="console-case-list"></div>
+          </section>
           <div id="game-notice" class="screen-state game-notice" role="status" aria-live="polite" hidden>
             <strong>In progress</strong>
             <span>Returning to menu…</span>
@@ -83,7 +88,7 @@
 
           <div class="touchscreen-header">
             <span>SO META</span>
-            <span>ATIQAH.IS</span>
+            <button id="console-sound" type="button" aria-pressed="true" title="Toggle console sound (M)">Sound on</button>
           </div>
 
           <div class="touchscreen-body">
@@ -122,11 +127,12 @@
   </div>
 </main>
 
-<script src="./cases.js?v=case05-20261027" defer></script>
-<script src="./case-03.js?v=case05-20261027" defer></script>
-<script src="./case-04.js?v=case05-20261027" defer></script>
-<script src="./case-05.js?v=case05-20261027" defer></script>
-<script src="./report-template.js?v=case05-20261027" defer></script>
-<script src="./app.js?v=case05-20261027" defer></script>
+<script src="./cases.js?v=console-controls-20261027" defer></script>
+<script src="./case-03.js?v=console-controls-20261027" defer></script>
+<script src="./case-04.js?v=console-controls-20261027" defer></script>
+<script src="./case-05.js?v=console-controls-20261027" defer></script>
+<script src="./report-template.js?v=console-controls-20261027" defer></script>
+<script src="./console-sound.js?v=console-controls-20261027" defer></script>
+<script src="./app.js?v=console-controls-20261027" defer></script>
 </body>
 </html>

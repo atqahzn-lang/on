@@ -14,3 +14,9 @@
   .experience-menu .touch-description { font-size: 11px; }
   .touchscreen-header, .touchscreen-footer { padding: 8px 5px; font-size: 8px; letter-spacing: .4px; }
 }
+
+/* Existing layout with clear console selection and a compact sound toggle. */
+.console-selected { outline: 2px solid #35116F; outline-offset: 2px; }
+#console-case-menu .case-menu-item { min-height: 46px; }
+#console-case-menu .case-menu-item strong { font-size: 12px; line-height: 1.4; text-align: left; }
+#console-sound { border: 0; padding: 0 2px; background: transparent; color: #6A455B; font-size: 10px; cursor: pointer; }
