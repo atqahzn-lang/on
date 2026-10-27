@@ -45,3 +45,11 @@
   .quest-hud { font-size: 9px; top: 10px; left: 8px; right: 8px; gap: 6px; }
 }
 @media(prefers-reduced-motion:reduce) { .catch-cat.walking { animation: none; } }
+
+.game-screen-tools { position: absolute; top: 36px; right: 10px; z-index: 5; display: flex; gap: 6px; }
+.game-screen-tools button { min-height: 32px; padding: 6px 9px; border: 1px solid #51445666; border-radius: 6px; background: #FFF3E3F2; color: #35116F; font-size: 12px; font-weight: 600; line-height: 1.3; }
+.game-screen-tools button:hover { background: #FFFFFF; }
+@media (max-width:480px) {
+  .game-screen-tools { top: 32px; right: 8px; gap: 5px; }
+  .game-screen-tools button { font-size: 11px; padding: 6px 8px; }
+}

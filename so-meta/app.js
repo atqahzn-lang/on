@@ -146,6 +146,17 @@
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();previousTime=null;});
   dialog.addEventListener('close',()=>{dialog.classList.remove('caught-case-report');clearInput();previousTime=null;noticeUntil=0;displays();});
   byId('pause-game').addEventListener('click',()=>{startOrPause();arena.focus();});
+  byId('skip-game').addEventListener('click',()=>{
+    clearInput();engine.files=[];
+    for(const data of cases)engine.collected.add(data.id);
+    started=true;paused=true;previousTime=null;
+    try {sessionStorage.setItem(storageKey,JSON.stringify([...engine.collected]));}catch{}
+    renderCollection();paint();displays();
+    selectCollected();announce('Game skipped. All four reports are available.');
+  });
+  byId('game-menu').addEventListener('click',()=>{
+    pause();MetaReports.openMenu({caseIds:cases.map(data=>data.id)});
+  });
   new ResizeObserver(measure).observe(arena);
   measure();renderCollection();displays();requestAnimationFrame(frame);
 })();

@@ -109,7 +109,7 @@
   // Native modal dialogs provide Escape dismissal, focus trapping and background inertness.
   dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
 
-  function menu() {
+  function menu(options = {}) {
     customReport.hidden=true;
     q('.case-report').hidden = true;
     q('.case-picker').hidden = false;
@@ -118,6 +118,7 @@
     const heading = make('h1', '', 'Choose a case study');
     picker.append(heading);
     cases.forEach((data, index) => {
+      if (options.caseIds && !options.caseIds.includes(data.id)) return;
       const button = make('button', 'case-choice'); button.type = 'button';
       button.append(make('span', 'case-choice-number', pad(index + 1)),
         make('strong', '', data.menuTitle ?? data.title));
