@@ -24,6 +24,8 @@ const META_CONFIG = {
 
     {
       id: "01",
+      menuTitle: "E-Commerce • Lead Generation",
+      menuNiche: "Mobile Retail / BNPL",
 
       title:
         "Enquiries Below RM10, Sustained Over a Quarter",
@@ -133,6 +135,8 @@ const META_CONFIG = {
 
     {
       id: "02",
+      menuTitle: "E-Commerce • ROAS",
+      menuNiche: "E-Commerce",
       report: {
         date: "February – March 2026",
         objectiveOrder: [1, 0],
@@ -320,6 +324,8 @@ const META_CONFIG = {
 
     {
       "id": "03",
+      "menuTitle": "Child Enrichment • Lead Generation",
+      "menuNiche": "Swim School",
       "title": "100 Daily Session Registrations, With CPL as Low as RM5",
       "niche": "Swim School · Lead Generation",
       "industry": "Meta Advertising · Lead Generation",
@@ -377,6 +383,8 @@ const META_CONFIG = {
 
     {
       "id": "04",
+      "menuTitle": "Professional Services • Lead Generation",
+      "menuNiche": "Renovation",
       "title": "Lead Costs of $25–$50 After Pausing Creatives Costing Up to $300 per Lead",
       "niche": "Renovation · Home Services",
       "industry": "Meta Advertising · Home Services",

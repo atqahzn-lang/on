@@ -120,7 +120,8 @@
     cases.forEach((data, index) => {
       const button = make('button', 'case-choice'); button.type = 'button';
       button.append(make('span', 'case-choice-number', pad(index + 1)),
-        make('strong', '', data.title), make('small', '', data.niche));
+        make('strong', '', data.menuTitle ?? data.title));
+      if (!data.menuTitle) button.append(make('small', '', data.niche));
       button.addEventListener('click', () => open(index)); picker.append(button);
     });
     show();

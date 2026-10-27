@@ -70,10 +70,11 @@ function openCaseMenu(chosenMode = "read") {
     const info = document.createElement("span");
 
     const title = document.createElement("strong");
-    title.textContent = data.title;
+    title.textContent = data.menuTitle ?? data.title;
 
     const niche = document.createElement("small");
     niche.textContent = data.niche;
+    niche.hidden = Boolean(data.menuTitle);
 
     info.append(title, niche);
     button.append(num, info);
