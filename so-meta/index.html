@@ -46,8 +46,8 @@
       <div class="top-screen-frame">
         <div class="top-screen">
 
-          <div id="catch-arena" class="screen-state quest-screen catch-arena" tabindex="0" role="region" aria-label="Catch falling case files. Move with the left and right arrow keys, A and D, or the buttons below.">
-            <div class="quest-hud"><span>CATCH THE CASES</span><span id="catch-counter">0 / 4 collected</span></div>
+          <div id="catch-arena" class="screen-state quest-screen catch-arena" tabindex="0" role="region" aria-label="Catch falling case files. Move with the left and right arrow keys, A and D, or the console D-pad.">
+            <div class="quest-hud"><span>CATCH THE CASES</span></div>
             <nav class="game-screen-tools" aria-label="Leave the game">
               <button id="skip-game" type="button">Skip</button>
               <button id="game-menu" type="button">Back to menu</button>
@@ -86,16 +86,18 @@
 
           <div class="touchscreen-body">
 
-            <div class="catch-controls">
-              <h1 class="touch-heading">CATCH THE CASES</h1>
-              <p class="catch-instruction" id="catch-instruction" role="status" aria-live="polite">Move the cat beneath a falling file.</p>
-              <div class="movement-controls" aria-label="Move the cat">
-                <button id="move-left" type="button" aria-label="Move left">←</button>
-                <button id="move-right" type="button" aria-label="Move right">→</button>
+            <section class="case-collection" aria-labelledby="collection-title">
+              <div class="collection-heading">
+                <h1 id="collection-title" class="touch-heading">YOUR CASES</h1>
+                <button id="read-case-studies" type="button">Read case studies</button>
               </div>
-              <p class="collection-progress" id="collection-progress">0 of 4 cases collected</p>
-              <button class="pause-control" id="pause-game" type="button" aria-pressed="false">Pause</button>
-            </div>
+              <p class="catch-instruction" id="catch-instruction" role="status" aria-live="polite">Press Start, or read the case studies.</p>
+              <div id="collected-cases" class="collection-grid"></div>
+              <div class="collection-actions">
+                <p class="collection-progress" id="collection-progress">0 of 4 cases collected</p>
+                <button class="pause-control" id="pause-game" type="button" aria-pressed="false">Start</button>
+              </div>
+            </section>
 
           </div>
 
@@ -120,11 +122,7 @@
 
     </div>
   </div>
-  <aside class="case-collection" aria-labelledby="collection-title">
-    <h2 id="collection-title">YOUR CASES</h2>
-    <p>Catch a file, then select it here to read.</p>
-    <div id="collected-cases" class="collection-grid"></div>
-  </aside>
+
   </div>
 </main>
 

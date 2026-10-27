@@ -54,7 +54,6 @@
       const label=caught?data.menuTitle:'Catch to collect';if(button.lastElementChild.textContent!==label)button.lastElementChild.textContent=label;
       button.setAttribute('aria-label',caught?`Read case ${data.id}: ${data.menuTitle}`:`Case ${data.id}, not collected yet`);
     }
-    setText('catch-counter',`${engine.collected.size} / ${cases.length} collected`);
     setText('collection-progress',`${engine.collected.size} of ${cases.length} cases collected`);
   }
   function paint(){
@@ -98,13 +97,13 @@
       if(caught.length){
         try {sessionStorage.setItem(storageKey,JSON.stringify([...engine.collected]));}catch{}
         if(!selectedId)selectedId=caught[0];renderCollection();
-        if(engine.complete){clearInput();announce(defaultInstruction());}else announce(`Case ${caught[0]} collected! Select it at the top right.`);
+        if(engine.complete){clearInput();announce(defaultInstruction());}else announce(`Case ${caught[0]} collected! Select it below.`);
       }
       paint();
     }
     displays();requestAnimationFrame(frame);
   }
-  for(const [selector,direction] of [['#move-left',-1],['#move-right',1],['.dpad .left',-1],['.dpad .right',1]]){
+  for(const [selector,direction] of [['.dpad .left',-1],['.dpad .right',1]]){
     const button=document.querySelector(selector);
     button.addEventListener('pointerdown',event=>{
       event.preventDefault();if(blocked()){if(!MetaReports.isOpen())selectCollected(direction);return;}
@@ -154,9 +153,9 @@
     renderCollection();paint();displays();
     selectCollected();announce('Game skipped. All four reports are available.');
   });
-  byId('game-menu').addEventListener('click',()=>{
-    pause();MetaReports.openMenu({caseIds:cases.map(data=>data.id)});
-  });
+  function openCaseMenu(){pause();MetaReports.openMenu({caseIds:cases.map(data=>data.id)});}
+  byId('game-menu').addEventListener('click',openCaseMenu);
+  byId('read-case-studies').addEventListener('click',openCaseMenu);
   new ResizeObserver(measure).observe(arena);
   measure();renderCollection();displays();requestAnimationFrame(frame);
 })();
