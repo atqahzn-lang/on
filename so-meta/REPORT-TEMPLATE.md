@@ -76,3 +76,7 @@ The latest case 03 reference defines leads as online sharing-session registratio
 ## Case 04 — Singapore renovation
 
 `case-04.js` and `case-04.css` preserve the supplied renovation report inside the shared popup, including four flip cards, a quick-read timeline, the 50-to-5 active-ad dot comparison, CPL chart and qualified outcome. Edit its case-specific markup for report content and keep the case record in `cases.js` consistent for the selector and gameplay. Its initializer rebuilds the dots and card interactions each time the report opens. The earlier creative-level CPL peak and subsequent reported daily range are different reporting bases; neither a percentage reduction nor revenue return is inferred.
+
+## Case 05 — Malaysian financial services
+
+`case-05.js` and `case-05.css` preserve the latest supplied report layout, with client names replaced by a general Malaysian financial-services identifier. Government-employee eligibility is retained as audience context. Its four flip cards, five-step quick-read timeline, budget-automation disclosure, acquisition chart, financing-opportunity comparison and measured outcome remain intact. Financing opportunity values are not revenue or proof of Meta attribution, and unknown historical records are not treated as confirmed ineligible. Print listeners are installed once and restore the automation disclosure state after printing. Keep `cases.js` consistent when editing report copy.

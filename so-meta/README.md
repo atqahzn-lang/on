@@ -34,6 +34,8 @@ For Wix, add an Embed a Site element pointing to the published HTTPS page URL. T
 
 ## Current experience and checks
 
-The upper display shows the original So Meta title, subtitle and cat. The lower display contains only the Play Game / Read Case Study experience menu, with no collection grid, movement buttons, or progress counter. Play Game shows In progress for 1.6 seconds and returns to the title/menu. Read Case Study opens the existing four-report selector and reports in a separate popup. Existing report designs remain unchanged.
+The upper display shows the original So Meta title, subtitle and cat. The lower display contains only the Play Game / Read Case Study experience menu, with no collection grid, movement buttons, or progress counter. Play Game shows In progress for 1.6 seconds and returns to the title/menu. Read Case Study opens the existing five-report selector and reports in a separate popup. Existing report designs remain unchanged.
 
-Check the temporary notice and automatic return, all four reports, X/Escape to close, and mobile widths. Catch-game logic and assets remain in the repository for future work but the engine is not loaded or run.
+Check the temporary notice and automatic return, all five reports, X/Escape to close, and mobile widths. Catch-game logic and assets remain in the repository for future work but the engine is not loaded or run.
+
+Case 05 uses `case-05.js` and `case-05.css` for the anonymised Malaysian financial-services report, retaining the government-employee audience description. No direct client names are included in that report.

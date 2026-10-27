@@ -319,7 +319,7 @@ const META_CONFIG = {
     },
 
     /* ------------------------------------------------------
-       CASES 03–04 — SWIM SCHOOL / RENOVATION; CASE 05 — CONTENT PENDING
+       CASES 03–05 — SWIM SCHOOL / RENOVATION / FINANCIAL SERVICES
     ------------------------------------------------------ */
 
     {
@@ -442,24 +442,66 @@ const META_CONFIG = {
     },
 
     {
-      id: "05",
-      title: "Case Study 05",
-      niche: "Campaign pending",
-      industry: "Meta Advertising",
-      market: "To be added",
-      duration: "To be added",
-      budget: null,
-      nda: "",
-      achievement: null,
-      challengeTitle: "Campaign details pending",
-      problem: "Challenge to be added.",
-      solution: "Solution to be added.",
-      objectives: [],
-      dots: null,
-      execution: [],
-      outcome: "Results to be added.",
-      results: [],
-      weekly: null
+      "id": "05",
+      "menuTitle": "Financial Services • Lead Generation",
+      "title": "Improving Lead Acquisition and Qualification",
+      "niche": "Financial Services · Government Employees",
+      "industry": "Meta Advertising · Financial Services",
+      "market": "Malaysia",
+      "duration": "April–October 2026",
+      "budget": {
+        "amount": 7000,
+        "currency": "MYR",
+        "period": "available"
+      },
+      "nda": "Client identity withheld.",
+      "achievement": "RM21.90 CPL across 119 leads",
+      "challengeTitle": "Generating relevant financing enquiries at a controlled cost.",
+      "problem": "A Malaysian financial-services provider serves government employees, making employment eligibility essential to applicant screening. Previous reporting recorded 14 eligible leads out of 8,275 records; most remaining records were unknown or ineligible. Unknown records were not confirmed as ineligible.",
+      "solution": "Screen applicants earlier, test audiences and creatives, apply a historical RM30 CPL benchmark, and review ad copy before publication.",
+      "objectives": [],
+      "dots": null,
+      "execution": [
+        {
+          "title": "Screen",
+          "detail": "Add employment eligibility questions to Instant Forms to exclude applicants outside the service criteria."
+        },
+        {
+          "title": "Allocate",
+          "detail": "Use broad, lookalike and retargeting audiences, with the largest budget allocated to broad."
+        },
+        {
+          "title": "Control",
+          "detail": "Use a historically achievable RM30 CPL benchmark to inform budget decisions and automated rules."
+        },
+        {
+          "title": "Test",
+          "detail": "Review audience and creative performance during September to inform subsequent decisions."
+        },
+        {
+          "title": "Review",
+          "detail": "Apply a keyword-risk rubric to ad copy before publication."
+        }
+      ],
+      "outcome": "October CPL was RM21.90 across 119 leads from 1–27 October 2026. No monthly account restrictions were recorded April–October. Recorded qualified financing opportunity value rose from RM68,000 in August to RM102,000 in October. These are financing values, not company revenue or proof of Meta attribution; post-change eligibility rate was not verified.",
+      "results": [
+        {
+          "value": "RM21.90",
+          "label": "OCTOBER CPL",
+          "description": "119 leads, 1–27 October 2026; below the historical RM30 benchmark."
+        },
+        {
+          "value": "0",
+          "label": "MONTHLY ACCOUNT RESTRICTIONS",
+          "description": "Recorded throughout April–October 2026."
+        },
+        {
+          "value": "RM68K → RM102K",
+          "label": "QUALIFIED FINANCING OPPORTUNITY VALUE",
+          "description": "Recorded August to October increase of 50%; not revenue or proof of Meta attribution."
+        }
+      ],
+      "weekly": null
     }
   ]
 };
