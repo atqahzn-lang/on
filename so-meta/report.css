@@ -1611,3 +1611,16 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 .case-report.financial-case { padding: 48px 36px; max-width:1100px; }
 .case-report.financial-case > .financial-layout { padding:0; max-width:none; }
 @media(max-width:700px){.case-report.financial-case {padding:32px 22px;}}
+
+/* Case 01: neutral historical CPL comparison and factual outcomes. */
+.financial-layout .cpl-benchmark {position:absolute;left:0;right:0;bottom:75%;border-top:2px dashed var(--purple);pointer-events:none;z-index:2;}
+.financial-layout .cpl-benchmark span {position:absolute;right:0;bottom:5px;font-size:10px;color:var(--purple);background:#fff;padding:0 4px;}
+.financial-layout .screening-comparison {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px;}
+.financial-layout .screening-comparison article {border-top:1px solid var(--line);padding-top:16px;}
+.financial-layout .screening-comparison p {margin-top:10px;font-size:13px;}
+.financial-layout .broad-support {margin-top:24px;padding:20px;border:1px solid var(--line);}
+.financial-layout .broad-support h3 {font-size:14px;}
+.financial-layout .broad-support p {margin-top:10px;font-size:12px;}
+.financial-layout .factual-outcomes {margin:22px 0 0;padding-left:19px;}
+.financial-layout .factual-outcomes li+li {margin-top:14px;}
+@media(max-width:700px){.financial-layout .screening-comparison {grid-template-columns:1fr;}.financial-layout .cpl-columns {--axis-width:45px;}.financial-layout .cpl-columns .bar-value {font-size:10px;}}

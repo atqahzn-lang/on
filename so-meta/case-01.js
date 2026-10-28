@@ -5,7 +5,7 @@
   "report": {
     "challengeTitle": "Advertising spend outpaced visibility into lead quality.",
     "executionHeading": "Move screening earlier. Make spending more deliberate.",
-    "solution": "Move employment screening into Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
+    "solution": "Collect employment eligibility information earlier through Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
     "hiddenSections": [
       "objectives",
       "dots",
@@ -18,7 +18,7 @@
   "execution": [
     {
       "title": "Screen before customer-service follow-up",
-      "detail": "Added employment eligibility questions to Instant Forms to screen out applicants outside the service criteria, including private-sector employees; the service serves government employees."
+      "detail": "Added employment eligibility questions to Instant Forms to collect eligibility information before customer-service follow-up for a service aimed at government employees. Submission blocking was not verified; a quantified filtering effect is not claimed."
     },
     {
       "title": "Separate audience budgets",

@@ -19,13 +19,13 @@ const META_CONFIG = {
       "achievement": "RM21.90 CPL across 119 leads",
       "challengeTitle": "Generating relevant financing enquiries at a controlled cost.",
       "problem": "January–April 2026 advertising spend was RM91,232.52 across 8,275 recorded leads; 5,962 had no recorded eligibility outcome. The 2,299 labelled ineligible included non-response and missing remarks. The 14 recorded eligible leads do not establish a verified eligibility rate.",
-      "solution": "Move employment screening into Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
+      "solution": "Collect employment eligibility information earlier through Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
       "objectives": [],
       "dots": null,
       "execution": [
         {
           "title": "Screen before customer-service follow-up",
-          "detail": "Added employment eligibility questions to Instant Forms to screen out applicants outside the service criteria, including private-sector employees; the service serves government employees."
+          "detail": "Added employment eligibility questions to Instant Forms to collect eligibility information before customer-service follow-up for a service aimed at government employees. Submission blocking was not verified; a quantified filtering effect is not claimed."
         },
         {
           "title": "Separate audience budgets",
@@ -46,7 +46,7 @@ const META_CONFIG = {
       "report": {
         "challengeTitle": "Advertising spend outpaced visibility into lead quality.",
         "executionHeading": "Move screening earlier. Make spending more deliberate.",
-        "solution": "Move employment screening into Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
+        "solution": "Collect employment eligibility information earlier through Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
         "hiddenSections": [
           "objectives",
           "dots",
