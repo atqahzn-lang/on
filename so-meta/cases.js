@@ -24,20 +24,20 @@ const META_CONFIG = {
       "dots": null,
       "execution": [
         {
-          "title": "Bring screening into the form",
-          "detail": "Added employment eligibility questions to Instant Forms, bringing screening ahead of customer-service follow-up for a service aimed at government employees. Submission blocking was not verified; these questions collected eligibility information earlier."
+          "title": "Screen earlier",
+          "detail": "Added employment eligibility questions to Instant Forms, bringing screening ahead of customer-service follow-up."
         },
         {
-          "title": "Allocate budget by audience",
+          "title": "Allocate by audience",
           "detail": "Tested broad, lookalike and retargeting audiences with separate budgets. Broad received the largest allocation."
         },
         {
-          "title": "Give testing a clear purpose",
-          "detail": "Used September to test audiences and creatives. The objective was to inform subsequent acquisition decisions, rather than maximise lead volume."
+          "title": "Test before expanding",
+          "detail": "Used September to test audiences and creatives and inform subsequent acquisition decisions. Lead volume was not the primary objective during testing."
         },
         {
-          "title": "Manage spending and publication risk",
-          "detail": "Used a RM30 CPL benchmark, reduced overnight budget exposure and introduced a keyword-risk rubric for pre-publication copy review."
+          "title": "Manage spending and risk",
+          "detail": "Used a RM30 CPL benchmark, scheduled overnight budget reductions and introduced a keyword-risk rubric for pre-publication review."
         }
       ],
       "outcome": "119 leads at RM21.90 CPL; October assessed financing opportunity value RM121,500, 24.6% above August. Opportunity values are not revenue or final financing approvals.",

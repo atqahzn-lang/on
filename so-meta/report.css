@@ -1763,3 +1763,37 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 .case-report.financial-case {padding:48px 36px;max-width:1100px;}
 .case-report.financial-case > .financial-layout {padding:0;max-width:none;}
 @media(max-width:700px){.case-report.financial-case {padding:32px 22px;}}
+
+/* Final case 01 refinements: summary, factual CPL reference, visible dial labels, compact clock. */
+.financial-layout .summary-strip {margin-top:30px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.financial-layout .summary-strip h2 {font-size:20px;letter-spacing:-.4px;}
+.financial-layout .summary-items {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:18px;}
+.financial-layout .summary-items strong,.financial-layout .summary-items span {display:block;}
+.financial-layout .summary-items strong {font-size:13px;color:var(--purple);}
+.financial-layout .summary-items span {margin-top:7px;font-size:12px;color:var(--muted);}
+.financial-layout .october-result {margin-top:24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 20px;}
+.financial-layout .october-result strong {font-size:38px;color:var(--purple);line-height:1.2;}
+.financial-layout .october-result span {font-size:14px;}
+.financial-layout .october-result small {font-size:12px;color:var(--muted);}
+.financial-layout .compact-clock .clock-body {display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;margin-top:20px;}
+.financial-layout .compact-clock .clock-digits {font-size:clamp(90px,11vw,110px);}
+.financial-layout .compact-clock .clock-time {justify-content:flex-start;margin:0;gap:10px;}
+.financial-layout .compact-clock .clock-period {font-size:11px;}
+.financial-layout .compact-clock .clock-controls {display:flex;align-items:center;gap:8px;}
+.financial-layout .compact-clock .clock-zone {margin-top:5px;font-size:11px;}
+.financial-layout .compact-clock .clock-detail {padding:0;border:0;}
+.financial-layout .compact-clock .clock-detail h3 {font-size:26px;}
+.financial-layout .compact-clock .clock-detail p {min-height:0;font-size:13px;}
+.financial-case .decision-labels {display:none;}
+@media(max-width:700px){
+.financial-layout .summary-items {grid-template-columns:1fr;gap:16px;}
+.financial-layout .compact-clock .clock-top {flex-wrap:wrap;gap:14px;}
+.financial-layout .compact-clock .clock-body {grid-template-columns:1fr;gap:18px;}
+.financial-layout .compact-clock .clock-digits {font-size:clamp(64px,18vw,100px);}
+.financial-case .dial-decision-title {display:none;}
+.financial-case .decision-labels {display:grid;gap:8px;margin:0 0 20px;}
+.financial-case .decision-labels button {text-align:left;padding:8px 0;border:0;background:transparent;color:var(--purple);font:inherit;font-size:13px;cursor:pointer;}
+.financial-case .decision-labels button[aria-pressed="true"] {font-weight:700;text-decoration:underline;text-underline-offset:4px;}
+}
+
+@media(max-width:700px){.meta-report .financial-case .execution-board {grid-template-columns:1fr;}.financial-case .decision-labels {grid-column:1 / -1;}}

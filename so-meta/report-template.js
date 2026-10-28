@@ -247,20 +247,27 @@
     const svg = q('#mr-execution-dial'); const focused = svg.contains(document.activeElement); svg.replaceChildren();
     svg.append(svgNode('circle', {cx:-74,cy:160,r:177,fill:'none',stroke:'var(--border)','stroke-width':2}));
     steps.forEach((step, i) => {
-      const angle = (i - stage) * .33, x = -74 + 177 * Math.cos(angle), y = 160 + 177 * Math.sin(angle);
+      const angle = (i - stage) * (cases[current].id==='01'?.30:.33), x = -74 + 177 * Math.cos(angle), y = 160 + 177 * Math.sin(angle);
       if (x < 5 || y < 12 || y > 307) return;
       const active = i === stage;
       const group = svgNode('g', {role:'button',tabindex:0,'aria-label':`Stage ${i + 1}: ${step.title}`,'aria-pressed':active});
       const circle = svgNode('circle',{cx:x,cy:y,r:active?25:21,fill:active?'var(--purple)':'var(--page)',stroke:'var(--purple)','stroke-width':1.5});
       const label = svgNode('text',{x,y:y+7,'text-anchor':'middle','font-size':active?21:18,'font-weight':700,fill:active?'var(--page)':'var(--purple)','pointer-events':'none'}); label.textContent=pad(i+1);
-      group.append(circle,label); group.addEventListener('click',()=>renderStage(i));
+      group.append(circle,label);
+      if(cases[current].id==='01'){const title=svgNode('text',{x:x+34,y:y+4,'font-size':11,'font-weight':active?700:500,fill:'var(--purple)',class:'dial-decision-title'});title.textContent=step.title;group.append(title);} group.addEventListener('click',()=>renderStage(i));
       group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();renderStage(i);}});
       svg.append(group);
     });
+    if(cases[current].id==='01'){q('.decision-labels')?.querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===stage)));}
     if (focused) svg.querySelector('[aria-pressed="true"]')?.focus();
   }
   function execution() {
     const timeline = q('.process-timeline'); timeline.replaceChildren();
+    q('.decision-labels')?.remove();
+    const financial=cases[current].id==='01';
+    q('.process-summary-title').textContent=financial?'View all four decisions':'Skip the dial — view the complete process';
+    if(financial){const controls=make('div','decision-labels');controls.setAttribute('aria-label','Select an execution decision');steps.forEach((step,i)=>{const button=make('button','',`${pad(i+1)} · ${step.title}`);button.type='button';button.addEventListener('click',()=>renderStage(i));controls.append(button);});q('.dial-viewport').after(controls);}
+
     q('.process-disclosure').open = false;
     field('process-subtitle', `All ${steps.length} campaign decisions in one timeline`);
     steps.forEach((step,i)=>{
