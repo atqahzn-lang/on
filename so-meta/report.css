@@ -1797,3 +1797,9 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 }
 
 @media(max-width:700px){.meta-report .financial-case .execution-board {grid-template-columns:1fr;}.financial-case .decision-labels {grid-column:1 / -1;}}
+
+/* Actual spend supports, rather than competes with, assessed opportunity value. */
+.financial-layout .timeline-card .timeline-spend {margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;}
+.financial-layout .timeline-spend span,.financial-layout .timeline-spend strong {display:block;}
+.financial-layout .timeline-spend span {color:var(--muted);font-size:10px;}
+.financial-layout .timeline-spend strong {margin-top:4px;font-size:15px;font-weight:600;color:var(--ink);}
