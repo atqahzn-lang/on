@@ -98,8 +98,10 @@
     q('.popup-close').focus();
     scrollTop();
   }
+  let disposeFinancialReport = () => {};
   function close() { if (dialog.open) dialog.close(); }
   dialog.addEventListener('close', () => {
+    disposeFinancialReport();disposeFinancialReport=()=>{};
     document.body.style.overflow = previousOverflow ?? '';
     if (returnFocus?.isConnected) returnFocus.focus();
   });
@@ -108,6 +110,7 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
 
   function menu(options = {}) {
+    disposeFinancialReport();disposeFinancialReport=()=>{};
     q('.case-report').hidden = true;
     q('.case-picker').hidden = false;
     fieldTitle('Meta case studies');
@@ -281,9 +284,11 @@
     values.forEach((d,i)=>{const dot=svgNode('circle',{cx:x(i),cy:y(d.roas),r:4,fill:'var(--purple)'});const title=svgNode('title',{});title.textContent=`${d.week}: ${d.roas}×`;dot.append(title);svg.append(dot);const label=svgNode('text',{x:x(i),y:225,'text-anchor':'middle','font-size':12});label.textContent=d.week;svg.append(label);});
   }
   function open(index=0) {
+    disposeFinancialReport();disposeFinancialReport=()=>{};
     current=Math.max(0,Math.min(index,cases.length-1)); const data=cases[current], options=data.report??{};
     const report=q('.case-report'); report.hidden=false; q('.case-picker').hidden=true;
     fieldTitle(`CASE ${data.id} — ${data.niche}`);
+    report.classList.toggle('financial-case',data.id==='01');
     report.dataset.case=data.id; report.classList.toggle('wide-narrative',options.layout==='wide-narrative');
     // Only supported presentation tokens can be overridden; content remains text, not HTML.
     dialog.removeAttribute('style');
@@ -304,6 +309,7 @@
     if(options.comparisons) evidenceComparisons(options.comparisons);else objectives(objectiveItems);
     q('.chart-panel').hidden=!(options.comparisons?.length??objectiveItems.length)||hidden.has('objectives');
     q('.report-header').classList.toggle('narrative-only',q('.chart-panel').hidden);
+    disposeFinancialReport();disposeFinancialReport=()=>{};
     const evidence=q('.evidence-sections');evidence.replaceChildren();
     (options.evidenceSections??[]).forEach(section=>{const node=make('section','execution-section');node.append(make('h2','execution-heading',section.title),make('p','',section.intro));const grid=make('div','goals-grid');section.items.forEach(item=>{const card=make('article','goal-card');card.append(make('h3','',item.title),make('p','',item.detail));grid.append(card);});node.append(grid,make('p','comparison-note',section.note));evidence.append(node);});
     dots(data.dots);q('.dot-section').hidden=!data.dots||hidden.has('dots');
@@ -320,6 +326,7 @@
     if(hidden.has('weekly'))q('.weekly-section').hidden=true;
     q('[data-action="case-prev"]').disabled=current===0;
     q('[data-action="case-next"]').disabled=current===cases.length-1;
+    if(data.id==='01')disposeFinancialReport=window.MetaFinancialReport.mount(report,q('.execution-section'));
     show();
   }
   const actions={'stage-prev':()=>renderStage(stage-1),'stage-next':()=>renderStage(stage+1),'case-prev':()=>open(current-1),'case-next':()=>open(current+1),menu};

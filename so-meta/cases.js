@@ -5,7 +5,7 @@ const META_CONFIG = {
     {
       "id": "01",
       "menuTitle": "Financial Services • Lead Generation",
-      "title": "Improving Lead Acquisition and Qualification",
+      "title": "Improving Lead Screening, Acquisition Costs and Financing Opportunities",
       "niche": "Financial Services · Government Employees",
       "industry": "Meta Advertising · Financial Services",
       "market": "Malaysia",
@@ -18,51 +18,41 @@ const META_CONFIG = {
       "nda": "Client identity withheld.",
       "achievement": "RM21.90 CPL across 119 leads",
       "challengeTitle": "Generating relevant financing enquiries at a controlled cost.",
-      "problem": "A Malaysian financial-services provider serves government employees. Baseline channel reporting covered 1,830 leads: 31 Facebook WhatsApp and 1,799 Instant Form leads. Eligibility was unknown for 1,290 records; 540 were labelled ineligible, including 367 non-responsive contacts and 173 with other listed disqualification reasons. Unknown status and non-response do not establish ineligibility.",
-      "solution": "Screen applicants earlier, test audiences and creatives, apply a historical RM30 CPL benchmark, and review ad copy before publication.",
+      "problem": "January–April 2026 advertising spend was RM91,232.52 across 8,275 recorded leads; 5,962 had no recorded eligibility outcome. The 2,299 labelled ineligible included non-response and missing remarks. The 14 recorded eligible leads do not establish a verified eligibility rate.",
+      "solution": "Move employment screening into Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
       "objectives": [],
       "dots": null,
       "execution": [
         {
-          "title": "Screen",
-          "detail": "Add employment eligibility questions to Instant Forms to exclude applicants outside the service criteria."
+          "title": "Screen before customer-service follow-up",
+          "detail": "Added employment eligibility questions to Instant Forms to screen out applicants outside the service criteria, including private-sector employees; the service serves government employees."
         },
         {
-          "title": "Allocate",
-          "detail": "Use broad, lookalike and retargeting audiences, with the largest budget allocated to broad."
+          "title": "Separate audience budgets",
+          "detail": "Tested broad, lookalike and retargeting audiences, with the largest allocation assigned to broad."
         },
         {
-          "title": "Control",
-          "detail": "Use a historically achievable RM30 CPL benchmark to inform budget decisions and automated rules."
+          "title": "Test audiences and creatives",
+          "detail": "Used September for testing to inform subsequent acquisition decisions."
         },
         {
-          "title": "Test",
-          "detail": "Review audience and creative performance during September to inform subsequent decisions."
-        },
-        {
-          "title": "Review",
-          "detail": "Apply a keyword-risk rubric to ad copy before publication."
+          "title": "Control costs and review copy",
+          "detail": "Used a historically achievable RM30 CPL target, scheduled budget adjustments and a pre-publication keyword-risk rubric."
         }
       ],
-      "outcome": "October CPL was RM21.90 across 119 leads from 1–27 October 2026. No monthly account restrictions were recorded April–October. Recorded qualified financing opportunity value rose from RM68,000 in August to RM102,000 in October. These are financing values, not company revenue or proof of Meta attribution; post-change eligibility rate was not verified.",
-      "results": [
-        {
-          "value": "RM21.90",
-          "label": "OCTOBER CPL",
-          "description": "119 leads, 1–27 October 2026; below the historical RM30 benchmark."
-        },
-        {
-          "value": "0",
-          "label": "MONTHLY ACCOUNT RESTRICTIONS",
-          "description": "Recorded throughout April–October 2026."
-        },
-        {
-          "value": "RM68K → RM102K",
-          "label": "QUALIFIED FINANCING OPPORTUNITY VALUE",
-          "description": "Recorded August to October increase of 50%; not revenue or proof of Meta attribution."
-        }
-      ],
-      "weekly": null
+      "outcome": "119 leads at RM21.90 CPL; October assessed financing opportunity value RM121,500, 24.6% above August. Opportunity values are not revenue or final financing approvals.",
+      "results": [],
+      "weekly": null,
+      "report": {
+        "challengeTitle": "Advertising spend outpaced visibility into lead quality.",
+        "executionHeading": "Move screening earlier. Make spending more deliberate.",
+        "solution": "Move employment screening into Instant Forms and guide audience, creative and spending decisions with acquisition performance.",
+        "hiddenSections": [
+          "objectives",
+          "dots",
+          "weekly"
+        ]
+      }
     },
     {
       "id": "02",

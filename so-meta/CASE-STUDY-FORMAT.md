@@ -49,3 +49,7 @@ For other quantity visuals, `dots.visualization = 'context'` uses the same case 
 ## Publishing and validation
 
 Test all reports in the shared popup. Compare content width, H1/body/stage fonts, padding, disclosure direction and outcome styles against the e-commerce master (now case 04). Check all navigation and dial controls, exact dot counts, qualifications and mobile overflow at 320/390/768/1360px. Maintain anonymisation, console navigation and mute behavior. See STYLE-GUIDE.md for editing locations.
+
+## Latest case 01 exception
+
+The replacement attachment is authoritative for case 01 non-execution design and evidence. Keep its baseline charts, accepted-sales context, October results, clock, assessed-opportunity timeline and outcomes. Retain the original interactive execution dial, applying the four updated approach stages. Do not duplicate the attached static approach list. January–April baseline accepted financing value RM30,500 and August–October assessed opportunities measure different populations: do not derive growth or ROAS between them. Current opportunity totals are RM97,500 / RM6,000 / RM121,500, replacing older totals and dot visuals.

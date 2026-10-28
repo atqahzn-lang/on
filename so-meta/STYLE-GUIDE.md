@@ -178,3 +178,9 @@ Use browser **Inspect → Computed / Styles** on the element to see the winning 
 ## After each visual edit
 
 Check 320px and 390px mobile widths plus a desktop width. Open all four reports; test long execution descriptions, timelines and menus, X/Escape closing, and the small sound button. Check that text is not clipped and the page does not scroll horizontally. Keep visible focus outlines and reduced-motion styles.
+
+## Case 01 financial report exception
+
+`financial-report.js` contains the latest supplied non-execution markup and budget-clock behaviour. Its CSS in `report.css` is scoped to `.financial-layout`; other cases are unaffected. The case 01 frame uses 1100px maximum width, 48px/36px padding (32px/22px on mobile), DM Sans 14px/1.65, with the supplied baseline column charts, result bars, clock, opportunity timeline and outcome grid. The shared execution component remains outside this styling scope to preserve its dial design.
+
+The schedule alternates every five seconds while visible, supports Pause/Play and 12h/24h, respects reduced motion, and disposes timers/listeners when leaving the report. It illustrates budget settings rather than actual spend or live time.

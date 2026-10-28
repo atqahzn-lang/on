@@ -9,3 +9,7 @@ The original E-Commerce / ROAS report (now case 04) is the user's master format 
 - Preserve anonymisation. Use a general Malaysian financial-services identifier; government-employee audience context is allowed. Uploaded examples containing client names do not authorise restoring them.
 - Preserve the console title, Play/Read menu, groups, D-pad/keyboard control and optional sound unless requested otherwise. Reports stay in the existing X/Escape popup.
 - Validate all four reports, shared visual metrics, case navigation, dial/disclosure controls, exact dot counts and mobile overflow. Keep STYLE-GUIDE.md accurate.
+
+## Case 01 exception — latest explicit user request
+
+The user supplied a replacement financial-services report and explicitly requested its design for all non-execution sections. `financial-report.js` mounts that supplied content inside the existing popup; its styles are scoped to `.financial-layout` in `report.css`. Preserve the shared execution dial and full-process disclosure, with updated approach copy. Other cases retain the e-commerce master. This exception supersedes the data-only/shared-layout rule for case 01 only. Preserve the distinction between baseline accepted sales and later assessed opportunities; the latest figures replace earlier opportunity totals.
