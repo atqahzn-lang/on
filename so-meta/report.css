@@ -999,7 +999,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 }
 
 .financial-layout h1 {
-  max-width: 850px;
+  max-width: 880px;
   font-size: clamp(32px, 4.6vw, 46px);
   line-height: 1.16;
   letter-spacing: -1.6px;
@@ -1018,7 +1018,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 
 .financial-layout button,
 .financial-layout summary {
-  font-family: inherit;
+  font: inherit;
   cursor: pointer;
 }
 
@@ -1026,6 +1026,10 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 .financial-layout summary:focus-visible {
   outline: 3px solid var(--pink);
   outline-offset: 4px;
+}
+
+.financial-layout [hidden] {
+  display: none !important;
 }.financial-layout .meta{
   color: var(--muted);
   font-size: 12px;
@@ -1081,6 +1085,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   font-size: clamp(27px, 3.8vw, 38px);
   line-height: 1.2;
   letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
 }.financial-layout .stat span{
   display: block;
   margin-top: 9px;
@@ -1150,8 +1155,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   transform: translateX(-50%);
   border-radius: 4px 4px 0 0;
   background: var(--color, var(--purple));
-}.financial-layout /* No minimum height: small values retain their true proportions. */
-.bar-value{
+}.financial-layout .bar-value{
   position: absolute;
   bottom: calc(var(--height) + 10px);
   left: 50%;
@@ -1176,6 +1180,23 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   font-size: 11px;
 }.financial-layout .chart-note{
   margin-top: 20px !important;
+}.financial-layout .benchmark-line{
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  left: 0;
+  bottom: 75%;
+  border-top: 1px dashed var(--purple);
+  pointer-events: none;
+}.financial-layout .benchmark-line span{
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  padding-left: 8px;
+  background: #fff;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
 }.financial-layout /* Baseline sales context */
 
 .baseline-sales{
@@ -1196,76 +1217,183 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 }.financial-layout .baseline-sales .note{
   margin-top: 7px;
   font-size: 11px;
-}.financial-layout /* Approach */
+}.financial-layout /* Execution dial */
 
-.approach-list{
+.execution-layout{
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  align-items: center;
+  gap: 50px;
+  margin-top: 30px;
+}.financial-layout .execution-dial{
+  position: relative;
+  width: 290px;
+  height: 290px;
+  margin: 12px auto;
+}.financial-layout .dial-ring{
+  position: absolute;
+  inset: 30px;
+  border: 1px solid var(--lavender);
+  border-radius: 50%;
+}.financial-layout .dial-ring::after{
+  content: "";
+  position: absolute;
+  inset: 17px;
+  border: 1px dashed var(--line);
+  border-radius: 50%;
+}.financial-layout .dial-pointer{
+  position: absolute;
+  inset: 30px;
+  transform: rotate(var(--angle, 0deg));
+  transition: transform .45s ease;
+  pointer-events: none;
+}.financial-layout .dial-pointer::before{
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 44px;
+  background: var(--pink);
+}.financial-layout .dial-center{
+  position: absolute;
+  inset: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--purple);
+}.financial-layout .dial-center small{
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}.financial-layout .dial-number{
+  font-size: 43px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -2px;
+}.financial-layout .dial-step{
+  position: absolute;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--lavender);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--purple);
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  transition: background .2s, color .2s, border-color .2s;
+}.financial-layout .dial-step:nth-of-type(1){
+  top: 6px;
+  left: calc(50% - 24px);
+}.financial-layout .dial-step:nth-of-type(2){
+  top: calc(50% - 24px);
+  right: 6px;
+}.financial-layout .dial-step:nth-of-type(3){
+  bottom: 6px;
+  left: calc(50% - 24px);
+}.financial-layout .dial-step:nth-of-type(4){
+  top: calc(50% - 24px);
+  left: 6px;
+}.financial-layout .dial-step:hover{
+  border-color: var(--purple);
+}.financial-layout .dial-step[aria-pressed="true"]{
+  border-color: var(--purple);
+  background: var(--purple);
+  color: #fff;
+}.financial-layout .execution-detail{
+  min-width: 0;
+}.financial-layout .execution-stage{
+  display: block;
+  margin-bottom: 13px;
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}.financial-layout .execution-detail h3{
+  max-width: 490px;
+  color: var(--purple);
+  font-size: clamp(23px, 3vw, 29px);
+  letter-spacing: -.6px;
+  line-height: 1.25;
+}.financial-layout .execution-detail p{
+  max-width: 520px;
+  min-height: 90px;
+  margin-top: 16px;
+  color: var(--muted);
+}.financial-layout .execution-controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 23px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}.financial-layout .execution-controls button{
+  min-height: 44px;
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 800;
+}.financial-layout .execution-count{
+  color: var(--muted);
+  font-size: 11px;
+}.financial-layout .process-list{
+  margin: 12px 0 0;
+  padding-left: 22px;
+}.financial-layout .process-list li{
+  padding: 12px 0 12px 8px;
+}.financial-layout .process-list li + li{
+  border-top: 1px solid var(--line);
+}.financial-layout .process-list li::marker{
+  color: var(--pink);
+  font-weight: 700;
+}.financial-layout .process-list h3{
+  font-size: 14px;
+}.financial-layout .process-list p{
+  max-width: 800px;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}.financial-layout /* CPL interpretation */
+
+.tradeoff{
+  margin-top: 28px;
+  padding: 25px 28px;
+  border-left: 3px solid var(--purple);
+  background: var(--soft);
+}.financial-layout .tradeoff h3{
+  color: var(--purple);
+}.financial-layout .tradeoff p{
+  max-width: 820px;
+  margin-top: 9px;
+  font-size: 13px;
+}.financial-layout .screening-comparison{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 25px;
-  margin: 25px 0 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: approach;
-}.financial-layout .approach-list li{
-  padding-top: 16px;
+  gap: 30px;
+  margin-top: 28px;
+}.financial-layout .screening-step{
+  padding-top: 17px;
   border-top: 1px solid var(--line);
-  counter-increment: approach;
-}.financial-layout .approach-list li::before{
-  content: counter(approach, decimal-leading-zero);
+}.financial-layout .screening-step span{
   display: block;
-  margin-bottom: 10px;
-  color: var(--pink);
-  font-size: 12px;
+  margin-bottom: 8px;
+  color: var(--purple);
+  font-size: 10px;
   font-weight: 800;
-}.financial-layout .approach-list p{
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}.financial-layout .screening-step p{
   margin-top: 9px;
   color: var(--muted);
   font-size: 13px;
-}.financial-layout /* Campaign results */
-
-.result-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-  margin-top: 27px;
-}.financial-layout .result-card h3{
-  font-size: 16px;
-}.financial-layout .result-subtitle{
-  margin-top: 5px !important;
-  color: var(--muted);
-  font-size: 11px;
-}.financial-layout .result-row{
-  margin-top: 21px;
-}.financial-layout .result-label{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 7px;
-  font-size: 11px;
-}.financial-layout .result-label strong{
-  white-space: nowrap;
-}.financial-layout .result-track{
-  height: 18px;
-  border-radius: 3px;
-  background: var(--soft);
-}.financial-layout .result-fill{
-  display: block;
-  width: var(--width);
-  height: 100%;
-  border-radius: 3px;
-  background: var(--purple);
-}.financial-layout .result-fill.pink{
-  background: var(--pink);
-}.financial-layout .result-axis{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 10px;
-}.financial-layout .result-takeaway{
-  margin-top: 17px !important;
-  font-size: 12px;
 }.financial-layout /* Budget clock */
 
 .budget-context{
@@ -1312,7 +1440,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   border-radius: 999px;
   background: transparent;
   color: var(--purple);
-  font-size: 11px;
+  font-size: 11px !important;
 }.financial-layout .clock-time{
   display: flex;
   align-items: baseline;
@@ -1329,8 +1457,6 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 }.financial-layout .clock-meridiem{
   font-size: clamp(16px, 3vw, 27px);
   font-weight: 600;
-}.financial-layout .clock-meridiem[hidden]{
-  display: none;
 }.financial-layout .clock-meta{
   padding-bottom: 22px;
 }.financial-layout .clock-period{
@@ -1345,7 +1471,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   background: rgba(255,255,255,.4);
 }.financial-layout .clock-format button{
   min-width: 42px;
-  min-height: 32px;
+  min-height: 36px;
   padding: 5px 10px;
   border: 0;
   border-radius: 999px;
@@ -1378,7 +1504,11 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   margin-top: 10px;
   color: var(--panel-muted);
   font-size: 13px;
-}.financial-layout /* Post-intervention timeline */
+}.financial-layout .schedule-summary{
+  margin-top: 16px !important;
+  font-size: 12px;
+  color: var(--purple);
+}.financial-layout /* Opportunity timeline */
 
 .timeline{
   display: grid;
@@ -1473,7 +1603,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 10px 0;
+  padding: 12px 0;
   list-style: none;
   color: var(--purple);
   font-size: 12px;
@@ -1485,7 +1615,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   font-size: 19px;
 }.financial-layout .metric-details[open] summary::after{
   content: "−";
-}.financial-layout .metric-details p{
+}.financial-layout .metric-details > p{
   padding: 5px 0 12px;
 }.financial-layout /* Outcome */
 
@@ -1493,6 +1623,7 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   padding: 32px;
   background: var(--pale);
 }.financial-layout .outcome-intro{
+  max-width: 820px;
   margin-top: 18px !important;
 }.financial-layout .outcome-grid{
   display: grid;
@@ -1543,11 +1674,17 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
     font-size: 10px;
   }.financial-layout .column-label strong,.financial-layout .column-label span{
     font-size: 10px;
-  }.financial-layout .baseline-sales,.financial-layout .result-grid,.financial-layout .approach-list{
+  }.financial-layout .baseline-sales,.financial-layout .screening-comparison,.financial-layout .execution-layout{
     grid-template-columns: 1fr;
   }.financial-layout .baseline-sales{
     gap: 12px;
     padding: 23px;
+  }.financial-layout .execution-layout{
+    gap: 16px;
+  }.financial-layout .execution-detail p{
+    min-height: 0;
+  }.financial-layout .tradeoff{
+    padding: 22px;
   }.financial-layout .clock-panel{
     padding: 20px;
   }.financial-layout .clock-location{
@@ -1597,6 +1734,12 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   }.financial-layout .spend-chart .bar-value{
     font-size: 9px;
     letter-spacing: -.3px;
+  }.financial-layout .execution-dial{
+    width: 270px;
+    height: 270px;
+    max-width: 100%;
+  }.financial-layout .dial-center{
+    inset: 78px;
   }
 }
 
@@ -1607,20 +1750,16 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
   }
 }
 
-.case-report.financial-case > :not(.financial-layout):not(.execution-section) { display: none !important; }
-.case-report.financial-case { padding: 48px 36px; max-width:1100px; }
-.case-report.financial-case > .financial-layout { padding:0; max-width:none; }
-@media(max-width:700px){.case-report.financial-case {padding:32px 22px;}}
+@media print {.financial-layout .execution-layout,.financial-layout .clock-play,.financial-layout .clock-format{
+    display: none !important;
+  }.financial-layout .metric-details > *{
+    display: block !important;
+  }.financial-layout .section{
+    break-inside: avoid;
+  }
+}
 
-/* Case 01: neutral historical CPL comparison and factual outcomes. */
-.financial-layout .cpl-benchmark {position:absolute;left:0;right:0;bottom:75%;border-top:2px dashed var(--purple);pointer-events:none;z-index:2;}
-.financial-layout .cpl-benchmark span {position:absolute;right:0;bottom:5px;font-size:10px;color:var(--purple);background:#fff;padding:0 4px;}
-.financial-layout .screening-comparison {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:26px;}
-.financial-layout .screening-comparison article {border-top:1px solid var(--line);padding-top:16px;}
-.financial-layout .screening-comparison p {margin-top:10px;font-size:13px;}
-.financial-layout .broad-support {margin-top:24px;padding:20px;border:1px solid var(--line);}
-.financial-layout .broad-support h3 {font-size:14px;}
-.financial-layout .broad-support p {margin-top:10px;font-size:12px;}
-.financial-layout .factual-outcomes {margin:22px 0 0;padding-left:19px;}
-.financial-layout .factual-outcomes li+li {margin-top:14px;}
-@media(max-width:700px){.financial-layout .screening-comparison {grid-template-columns:1fr;}.financial-layout .cpl-columns {--axis-width:45px;}.financial-layout .cpl-columns .bar-value {font-size:10px;}}
+.case-report.financial-case > :not(.financial-layout):not(.execution-section) {display:none !important;}
+.case-report.financial-case {padding:48px 36px;max-width:1100px;}
+.case-report.financial-case > .financial-layout {padding:0;max-width:none;}
+@media(max-width:700px){.case-report.financial-case {padding:32px 22px;}}

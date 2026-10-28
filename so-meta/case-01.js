@@ -16,23 +16,23 @@
   "dots": null,
   "weekly": null,
   "execution": [
-    {
-      "title": "Screen before customer-service follow-up",
-      "detail": "Added employment eligibility questions to Instant Forms to collect eligibility information before customer-service follow-up for a service aimed at government employees. Submission blocking was not verified; a quantified filtering effect is not claimed."
-    },
-    {
-      "title": "Separate audience budgets",
-      "detail": "Tested broad, lookalike and retargeting audiences, with the largest allocation assigned to broad."
-    },
-    {
-      "title": "Test audiences and creatives",
-      "detail": "Used September for testing to inform subsequent acquisition decisions."
-    },
-    {
-      "title": "Control costs and review copy",
-      "detail": "Used a historically achievable RM30 CPL target, scheduled budget adjustments and a pre-publication keyword-risk rubric."
-    }
-  ],
+  {
+    "title": "Bring screening into the form",
+    "detail": "Added employment eligibility questions to Instant Forms, bringing screening ahead of customer-service follow-up for a service aimed at government employees. Submission blocking was not verified; these questions collected eligibility information earlier."
+  },
+  {
+    "title": "Allocate budget by audience",
+    "detail": "Tested broad, lookalike and retargeting audiences with separate budgets. Broad received the largest allocation."
+  },
+  {
+    "title": "Give testing a clear purpose",
+    "detail": "Used September to test audiences and creatives. The objective was to inform subsequent acquisition decisions, rather than maximise lead volume."
+  },
+  {
+    "title": "Manage spending and publication risk",
+    "detail": "Used a RM30 CPL benchmark, reduced overnight budget exposure and introduced a keyword-risk rubric for pre-publication copy review."
+  }
+],
   "outcome": "119 leads at RM21.90 CPL; October assessed financing opportunity value RM121,500, 24.6% above August. Opportunity values are not revenue or final financing approvals.",
   "results": []
 });})();

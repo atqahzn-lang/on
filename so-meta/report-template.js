@@ -101,6 +101,7 @@
   let disposeFinancialReport = () => {};
   function close() { if (dialog.open) dialog.close(); }
   dialog.addEventListener('close', () => {
+    if (dialog.open) return; // A queued close event must not dispose a reopened report.
     disposeFinancialReport();disposeFinancialReport=()=>{};
     document.body.style.overflow = previousOverflow ?? '';
     if (returnFocus?.isConnected) returnFocus.focus();
