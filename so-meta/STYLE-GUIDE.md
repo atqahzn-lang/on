@@ -18,10 +18,10 @@ This guide maps the current styles without changing the design. CSS files now ha
 | [styles.css](styles.css) | Base console shell, screens, controls, default colours and fonts |
 | [responsive.css](responsive.css) | Mobile console geometry at viewport widths of 480px or less |
 | [catch-game.css](catch-game.css) | Current console/menu overrides, group selectors, selection highlight, sound toggle |
-| [report.css](report.css) | Shared popup window and case 01: E-Commerce / ROAS |
-| [case-02.css](case-02.css) | Case 02: Child Enrichment / swim school |
-| [case-03.css](case-03.css) | Case 03: Professional Services / renovation |
-| [case-04.css](case-04.css) | Case 04: Financial Services |
+| [report.css](report.css) | Shared popup and original e-commerce master layout/typography for ALL reports |
+| [case-02.js](case-02.js) | Child Enrichment data/copy only; style it in report.css |
+| [case-03.js](case-03.js) | Professional Services data/copy only; style it in report.css |
+| [case-01.js](case-01.js) | Financial Services data/copy only; style it in report.css |
 | [../site-notice.css](../site-notice.css) | Portfolio In progress notice above the console |
 
 The root `/on/index.html` redirects to `/on/so-meta/`. The root-level `styles.css` belongs to the temporarily hidden homepage, not this console.
@@ -101,59 +101,30 @@ The **outer popup** and the **report content inside it** are separate containers
 | Case 01 content width | `.meta-report .case-report` | Maximum 1050px |
 | Case 01 content padding | `dialog.meta-report` → `--report-padding` | `26px 50px 60px`; smaller-screen overrides are later in the file |
 | Case 01 section spacing | `--section-gap` | 46px; some sections have their own margins |
-| Case 02 content | `case-02.css` → `.meta-report .sw-report` | Maximum 1100px; `padding: 48px 36px` |
-| Case 03 content | `case-03.css` → `.meta-report .rn-report` | Maximum 1100px; `padding: 48px 36px` |
-| Case 04 content | `case-04.css` → `.meta-report .fs-report` | Maximum 1100px; `padding: 48px 36px` |
+| Cases 02–04 content | Same `.case-report` and `--report-padding` as the original e-commerce master (now case 04) | Same 1050px maximum and responsive padding |
 
-Changing the shared popup width affects all reports. Changing `--report-padding` affects the shared case 01 layout; the three case-specific templates have their own padding rules. Inspect their mobile overrides too.
 
-## Report fonts and hierarchy
+Changing the shared popup width affects all reports. Changing `--report-padding` affects all four cases. Inspect its mobile overrides too.
 
-For cases 02–04, begin with the report wrapper's `font-family` in its own CSS file. For case 01 and the popup toolbar, use `.meta-report` in `report.css`.
+## Report fonts and hierarchy — one master for all cases
 
-Current shared case 01 hierarchy, in the **latest overrides near the bottom of `report.css`**:
+All four reports now use case 01's renderer and stylesheet. Edit `report.css` for EVERY report's font, width, spacing, execution dial and outcomes. There are no case-specific layout overrides. The old case-specific CSS files contain comments only.
 
-| Role | Selector | Size / spacing |
+| Role | Selector in report.css | Current style |
 | --- | --- | --- |
-| Main problem heading | `.performance-section .report-narrative h1` | `clamp(30px, 4vw, 42px)`, line height 1.18 |
-| Execution / outcome headings | `.execution-heading, .conclusion-heading` | `clamp(26px, 3vw, 32px)` |
-| Execution stage title | `.stage-title` | `clamp(22px, 2.8vw, 26px)` |
-| Solution subheading | `.solution-box h3` | 18px |
-| Reading text | `.solution-box p, .stage-description, .conclusion-item p, .outcome-summary` | 15px, line height 1.7 |
-| Problem bullet points | `.problem-list` | 15px, line height 1.75 |
-| Chart card heading | `.goal-card h2` | 17px |
-| Main chart values | `.equation-value` | `clamp(18px, 2.3vw, 25px)` |
-| Small labels | `.stage-label, .conclusion-metric` | 11px |
-| Footnote | `.conclusion-footnote` | 12px, line height 1.6 |
+| Report font | `.meta-report` | DM Sans |
+| Content width | `.meta-report .case-report` | Maximum 1050px |
+| Content padding | `dialog.meta-report` → `--report-padding` | 26px 50px 60px, with mobile overrides |
+| Main heading | `.performance-section .report-narrative h1` | clamp(30px, 4vw, 42px) |
+| Execution / outcome heading | `.execution-heading, .conclusion-heading` | clamp(26px, 3vw, 32px) |
+| Stage title | `.stage-title` | clamp(22px, 2.8vw, 26px) |
+| Body text | `.solution-box p, .stage-description, .conclusion-item p, .outcome-summary` | 15px / line height 1.7 |
+| Evidence row text | `.evidence-label` | 12px / line height 1.5 |
+| Comparison qualifications | `.comparison-note` | 12px / line height 1.65 |
+| Process direction | `.process-timeline` | Horizontal, scrollable |
+| Outcome qualification | `.conclusion-footnote` | 12px / line height 1.6 |
 
-Prefix these selectors with `.meta-report` when adding report overrides, to avoid affecting the console.
-
-### Case-specific reports use the approved execution format
-
-The latest format uses execution dials and full-process disclosures, not flip cards. See [CASE-STUDY-FORMAT.md](CASE-STUDY-FORMAT.md).
-
-| Case | Root selector | Heading / detail selectors |
-| --- | --- | --- |
-| 02 — Child Enrichment | `.meta-report .sw-report` | `.sw-stage-title`, `.sw-stage-description`, `.sw-outcome` |
-| 03 — Professional Services | `.meta-report .rn-report` | `.rn-stage-title`, `.rn-stage-description`, `.rn-outcome` |
-| 04 — Financial Services | `.meta-report .fs-report` | `.fs-stage-title`, `.fs-stage-description`, `.fs-outcome` |
-
-Each root defines its own DM Sans font and colour tokens. Update the root's font-family and the specific H1/H2/H3/body/stage rules as needed; mobile overrides are later in the same file. The old flip-card title sizes and 20% card padding belong to a superseded layout and are no longer active.
-
-Example: change the Child Enrichment execution title and detail text in `case-02.css`:
-
-```css
-.meta-report .sw-stage-title {
-  font-size: 26px;
-  line-height: 1.25;
-}
-.meta-report .sw-stage-description {
-  font-size: 15px;
-  line-height: 1.7;
-}
-```
-
-Edit the existing matching rules and mobile overrides rather than stacking duplicate overrides.
+Report-specific text and chart values belong in `cases.js` or `case-02.js` / `case-03.js` / `case-01.js`. See CASE-STUDY-FORMAT.md for data options. Changing a report font in `report.css` applies consistently to all four cases.
 
 ## Choose a different web font
 
@@ -183,8 +154,8 @@ max-width: 65ch;                         /* Approximate readable line length */
 - Page pink background: `styles.css` → `body { background: #F1CAD8; }` (currently a literal colour, not the shell variable).
 - Upper display sky/ground: `styles.css` → `.top-screen` → `linear-gradient(...)`.
 - Shared report palette: `report.css` → `.meta-report` variables. The chart/ROAS sections define some local overrides too.
-- Cases 02–04: their report wrappers define their own `--purple`, `--pink`, `--muted`, `--wash` and other colours.
-- Case-specific outcome panels: `.sw-outcome`, `.rn-outcome`, and `.fs-outcome` use their report palette.
+- Cases 02–04 use the same shared report variables as the original e-commerce master (now case 04).
+- All outcome panels use `.conclusion-section` and the shared palette.
 
 ## Why a CSS edit may appear to do nothing
 

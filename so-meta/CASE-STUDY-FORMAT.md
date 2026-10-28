@@ -1,65 +1,51 @@
-# Approved case-study format
+# Master format: case 01
 
-This is the required format for upcoming So Meta case studies, as selected by the user on 27 October 2026. Use this format only unless the user explicitly requests a different one. The latest combined reference has been adapted into case 02 (swim school), case 03 (renovation) and case 04 (financial services). Case 01 remains the E-Commerce / ROAS baseline.
+**The original E-Commerce / ROAS report (now case 04), is the user's chosen master.** All other reports must replicate its visual and interaction details. This supersedes the earlier interpretation that the separately attached adapted layouts were the standard. Similar section order alone is insufficient.
 
-## Evaluation of the adaptations
+## What must be identical
 
-The common sequence makes reports easier to compare without forcing different evidence into identical charts. The strongest improvement over the earlier layouts is that the execution dial and full-process view share one set of copy, and measurement limits sit beside the claims they qualify.
+All reports use the same `report-template.js` renderer and `report.css` styles:
 
-| Case | Evidence-specific adaptation | What must stay qualified |
-| --- | --- | --- |
-| 01 — E-Commerce / ROAS | Baseline-to-goal comparisons; budget-to-revenue dot illustration; solution in Execution | Target revenue is illustrative, not actual revenue or profit; individual weeks are not campaign-period averages |
-| 02 — Child Enrichment | Registration and CPL comparisons; 100-registration dot context; five decisions; monthly CPL ranges | Leads mean online sharing-session registrations, not lesson enrolments; November extended above the CPL limit; no invented starting registration baseline or verified enrolment impact |
-| 03 — Professional Services | Up to 50 versus five ads; separate earlier creative-peak and later daily-CPL range; four decisions | Peak creative CPL and later daily range are different reporting bases; no matched-average percentage reduction or sales-conversion claim |
-| 04 — Financial Services | Historical benchmark and campaign comparisons; exact financing-opportunity dot amounts; five decisions | Unknown historical records are not confirmed ineligible; post-change eligibility rate is unverified; financing opportunity values are not revenue or proof of Meta attribution |
+- Native X/Escape popup, title bar and report navigation.
+- 1050px maximum content width, master padding and section spacing.
+- Master problem heading, bullets/intro hierarchy, body typography and supporting labels.
+- Comparison cards in the master two-column chart region, stacking on mobile.
+- Purple/pink dot context section with the master numeric callout, equal-sized dots, units and qualification.
+- Solution text directly above the master execution dial, without a separate coloured solution box.
+- Same partially cropped SVG dial, stage copy, Previous/Next buttons and stage counter.
+- Same expandable **horizontal** complete-process view.
+- Same outcome card format, evidence-based status and visible measurement footnote.
 
-This format is better for scanning than the old flip cards: the report explains the problem and comparisons first, then lets readers either step through execution or read the complete process. Watch long outcome labels on mobile; keep them readable rather than forcing them into short fixed-height cards.
+There must not be separate swim-school, renovation or financial-services layout implementations. The legacy case-specific CSS files contain explanatory comments only.
 
-## Required order
+## Adapt the evidence, not the design
 
-1. **Metadata:** industry/objective, country and reporting period. Follow with a concise, anonymised case title.
-2. **The problem:** one clear H1, short context, a few factual bullets, and a compact budget/audience/conversion context strip where relevant.
-3. **Comparisons:** use horizontal charts with labels, units, period/scope and a short summary. Match the chart to available evidence: targets, baselines, observations and peaks are distinct. Missing baselines must be stated, not invented as zero.
-4. **Scale or context visual:** equal-sized dots or another approved simple quantitative visual. State the value of each dot and preserve exact counts. Label illustrations as illustrations.
-5. **Execution:** section heading, a plain solution statement, the numbered interactive execution dial, Previous/Next controls, a stage counter, and a complete-process disclosure. The visible full timeline supplies the dial text, avoiding duplicate editable copy.
-6. **Additional observed results:** include only when the case needs evidence beyond the first comparison (for example, monthly ranges). Mark ranges and averages correctly.
-7. **Outcome:** objective label, evidence-based status, brief supporting result, and visible measurement limits. Use MET, NOT MET*, NOT SHARED, IMPLEMENTED or INCREASE RECORDED as appropriate; the labels must not imply more evidence than exists.
-8. **Footer and navigation:** reporting period/snapshot where helpful; existing Previous case / All case studies / Next case controls. Keep the shared X-close popup.
+| Case | Evidence-specific content inside the master |
+| --- | --- |
+| 04 — E-Commerce / ROAS | Existing baseline/goal charts, illustrative ₱1M budget → ₱6M revenue requirement, weekly achievement caveats |
+| 02 — Child Enrichment | 100 daily registrations target/result; monthly RM5–10 / RM10–13 / RM6–9 CPL ranges against RM10; 100 registration dots; five execution decisions |
+| 03 — Professional Services | Up to 50 → 5 active ads; earlier creative-level peak $300 versus later daily $25–50 range; exact 50/5 dot illustration; four execution decisions |
+| 01 — Financial Services | RM30 historical benchmark and specified campaign comparisons; financing opportunity values RM68K → RM102K; 34/51 dots at RM2,000 per dot; five execution decisions |
 
-## Visual rules
+Registrations are not enrolments. Ranges are not averages. A previous creative peak and later daily range do not justify a matched-average percentage reduction. Opportunity values are not revenue or proof of attribution. Unknown historical eligibility does not mean confirmed ineligibility. Keep all case-specific definitions and measurement limits visible.
 
-- Use DM Sans and the approved purple/pink/white palette, with pale contextual sections.
-- Maintain the H1 → H2 → H3 → body → supporting-label hierarchy in the canonical CSS.
-- Keep the solution in Execution, without a separate pink solution box.
-- Use the approved numbered dial and full-process disclosure. Do not substitute flip cards.
-- Keep comparisons, narrative and outcome sections responsive. Avoid fixed content heights that clip longer text.
-- Use unique case-scoped class prefixes (`sw-`, `rn-`, `fs-`, or a new neutral prefix) beneath `.meta-report`.
-- Allow longer case wording to wrap. Keep keyboard focus indicators and reduced-motion support.
+## Data model
 
-## Implementation pattern
+`cases.js` defines IDs, menu labels and base metadata. Load `case-02.js` / `case-03.js` / `case-01.js` after it; each updates that case's report data before the shared renderer loads.
 
-Use the existing report registrations:
+Common case fields: `title`, `industry`, `market`, `duration`, `problem`, `solution`, `execution`, `outcome`, `objectives`, `dots`, `weekly`.
 
-```js
-window.MetaCaseTemplates = window.MetaCaseTemplates || {};
-window.MetaCaseInitializers = window.MetaCaseInitializers || {};
-window.MetaCaseTemplates['CASE_ID'] = '...trusted, anonymised report markup...';
-window.MetaCaseInitializers['CASE_ID'] = function (container) {
-  // Query only inside container. Generate exact dots and bind the dial.
-  // Derive the dial's stage title/description from the visible full timeline.
-};
-```
+`report` options:
 
-Load that case's stylesheet and script in `index.html`; load its script before `report-template.js`. Add its record to `META_CONFIG.cases`, including a short industry/objective menu label. The shared popup supplies navigation and close behavior. Initializers run again on reopen; avoid persistent window listeners that accumulate.
+- `challengeTitle`, `intro`, `showIntro`, `problemPoints`, `solution`: case-specific copy; set `showIntro` when both intro and bullets are needed.
+- `comparisons`: evidence cards using the master layout. Each has title, subtitle, scaleMax, optional prefix/suffix/decimals, optional reference marker, rows and a qualification note. Each row uses either `value` or `min`/`max`, plus label/display/tone. Never supply invented data to fill a row.
+- `conclusions`: label, status, tone and description. Status text may be MET, NOT MET*, NOT SHARED, IMPLEMENTED or INCREASE RECORDED. Neutral implementation/missing-data statuses are not success claims.
+- `footnote`, `outcomeHeading`: qualifications and heading wording.
 
-Dial keyboard support: arrows select stages, Home/End select the first/last stage, and Enter/Space activate buttons. Call preventDefault when consuming a key. The global console keyboard handler must respect an already-handled event.
+The original case 01 `objectives` renderer remains unchanged. `report.comparisons` is used when evidence is a range, a count, or a campaign observation rather than a baseline-to-target equation.
 
-## Confidentiality and reporting
+For other quantity visuals, `dots.visualization = 'context'` uses the same case 01 dot-section design. Supply title, hero, description, unit, unitLabel, groups (label/value/display), and note. Dot counts must be exact integers. No currency or ratio may be inferred unless explicitly supported by the data.
 
-Keep direct client identifiers out of markup, CSS/JS naming, comments, metadata and accessible descriptions. Financial services may refer to a Malaysian provider and government employees. Preserve country, currency, employment audience and verified results where authorised. An uploaded reference containing a client name does not override the user's anonymisation request.
+## Publishing and validation
 
-Before publishing, check charts and dot counts against the supplied figures, distinguish targets from actuals, confirm definitions/periods, and retain all caveats about missing data or attribution. Never invent a metric to fill a template slot.
-
-## Validation
-
-Test all four report entry points, Previous/Next, numbered dial clicks and keyboard behavior, disclosure expansion, X/Escape, and reopen/reset. Check at 320, 390, 768 and 1360px widths. Ensure no horizontal report overflow and no conflicting console/dial keyboard handlers. Preserve the console, sound mute preference and group navigation.
+Test all reports in the shared popup. Compare content width, H1/body/stage fonts, padding, disclosure direction and outcome styles against the e-commerce master (now case 04). Check all navigation and dial controls, exact dot counts, qualifications and mobile overflow at 320/390/768/1360px. Maintain anonymisation, console navigation and mute behavior. See STYLE-GUIDE.md for editing locations.

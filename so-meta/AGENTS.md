@@ -1,13 +1,11 @@
-# So Meta case-study requirements
+# So Meta requirements
 
-For all upcoming case studies, use the approved format in CASE-STUDY-FORMAT.md. This is the user's chosen format, not an optional suggestion. Later explicit user instructions can revise it.
+The original E-Commerce / ROAS report (now case 04) is the user's master format for every case study. This explicitly supersedes the earlier instruction treating the attached case-02/03/04 layouts as canonical. Read CASE-STUDY-FORMAT.md.
 
-- Preserve the console's title / Play Game / Read Case Study experience, groups, D-pad navigation and optional sounds unless the user requests changes.
-- Reports open in the existing closable popup; do not create standalone report pages.
-- Use the approved problem → evidence comparisons → scale/context visual → execution (solution, interactive dial, complete-process disclosure) → qualified outcomes structure.
-- The current case-02.js/css, case-03.js/css and case-04.js/css are canonical adaptations. Use scoped selectors and the shared MetaCaseTemplates / MetaCaseInitializers registration.
-- Do not reintroduce flip cards, repeated solution cards, or new layout families for future reports without a user request.
-- Preserve anonymisation. Use a general Malaysian financial-services identifier; government-employee employment/audience context is permitted. Do not restore client names from uploaded references, including in source, comments, titles or accessible labels.
-- Do not invent metrics, missing baselines, conversion outcomes or attribution. Preserve reporting periods, units, lead definitions and measurement limits. Use status labels that match evidence.
-- Verify exact dot counts, report opening/closing, dial buttons/keyboard, process disclosure, case navigation, and mobile overflow. Respect preventDefault from the dial's keyboard handler in global console navigation.
-- For styling help, keep STYLE-GUIDE.md and stylesheet EDITING MAP comments consistent with active selectors and current case numbering.
+- Use the single renderer in report-template.js and single layout/typography stylesheet report.css for all reports. Do not create case-specific HTML/CSS layout families, standalone report pages, or resurrect MetaCaseTemplates/MetaCaseInitializers.
+- case-02.js, case-03.js and case-01.js provide only case-specific data/copy. Keep the same 1050px content frame, master typography, spacing, solution placement, dial, horizontal full-process disclosure, and outcome cards as the original e-commerce master (now case 04).
+- Preserve evidence-specific differences. CPR/CPL/ROAS need not be every report's main metric. Use report.comparisons rows for observations/ranges and dots.visualization=context for exact quantity illustrations, without changing the design.
+- Preserve reporting periods, lead definitions, units and measurement limits. Never invent baselines, averages, attribution, conversion outcomes or targets. Keep unknown eligibility distinct from ineligibility; financing values are not revenue.
+- Preserve anonymisation. Use a general Malaysian financial-services identifier; government-employee audience context is allowed. Uploaded examples containing client names do not authorise restoring them.
+- Preserve the console title, Play/Read menu, groups, D-pad/keyboard control and optional sound unless requested otherwise. Reports stay in the existing X/Escape popup.
+- Validate all four reports, shared visual metrics, case navigation, dial/disclosure controls, exact dot counts and mobile overflow. Keep STYLE-GUIDE.md accurate.

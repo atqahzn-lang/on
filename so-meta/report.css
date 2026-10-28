@@ -1,9 +1,9 @@
-/* EDITING MAP — shared popup frame plus case 01 (E-Commerce / ROAS).
+/* EDITING MAP — case 01 master for ALL reports.
    POPUP: search "dialog.meta-report {" for width 1120px / height cap 900px.
    CASE 01 CONTENT: .case-report and --report-padding; --section-gap for spacing.
    TYPE: .meta-report font-family; latest hierarchy overrides are near the end.
    COLOURS: .meta-report variables; .performance-section and .roas-visual have overrides.
-   CASES 02–04: their own case-02.css / case-03.css / case-04.css.
+   CASES 02–04: data is in case-02.js / case-03.js / case-04.js; styling stays here.
    A selector may occur more than once: edit the final applicable rule.
    See STYLE-GUIDE.md for examples and the actual stylesheet load order.
 */
@@ -955,3 +955,12 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 .meta-report .systems-placeholder { margin-top: 28px; border-top: 1px solid var(--border); padding-top: 20px; }
 .meta-report .systems-placeholder h2 { margin: 0 0 8px; font-size: 20px; }
 .meta-report .systems-placeholder p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Evidence-specific data, with case 01's shared cards, colours and typography. */
+.meta-report .evidence-chart { margin-top: 28px; }
+.meta-report .evidence-row + .evidence-row { margin-top: 22px; }
+.meta-report .evidence-label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; margin-bottom: 8px; font-size: 12px; line-height: 1.5; }
+.meta-report .evidence-label strong { font-variant-numeric: tabular-nums; }
+.meta-report .evidence-highlight { background: var(--pink); }
+.meta-report .comparison-note { margin: 20px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.meta-report .conclusion-status.neutral { color: var(--muted); font-size: 24px; line-height: 1.25; }

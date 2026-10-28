@@ -1,216 +1,69 @@
-/* ==========================================================
-   15 — CENTRAL CASE STUDY DATABASE
-
-   To add another case study:
-   - Fill in the metadata
-   - Add objectives
-   - Add execution stages
-   - Add outcome metrics
-   - Add weekly data if available
-
-   PLAY GAME and READ CASE STUDY use this same database.
-========================================================== */
-
+// Central case database. Financial Services is 01; E-Commerce is 04.
 const META_CONFIG = {
-
-  catSprite:
-    "https://raw.githubusercontent.com/atqahzn-lang/atiqahis/main/Frame%208%20%281%29.png",
-
-  cases: [
-
-    /* ------------------------------------------------------
-       CASE 01 — PHILIPPINES E-COMMERCE
-    ------------------------------------------------------ */
-
+  "catSprite": "https://raw.githubusercontent.com/atqahzn-lang/atiqahis/main/Frame%208%20%281%29.png",
+  "cases": [
     {
-      id: "01",
-      menuTitle: "E-Commerce • ROAS",
-      menuNiche: "E-Commerce",
-      report: {
-        date: "February – March 2026",
-        objectiveOrder: [1, 0],
-        problemPoints: [
-          "Sales slowed in Q1 after stronger Q3 and Q4 trading.",
-          "Popular colourways sold out while other options struggled."
-        ],
-        challengeTitle: "Demand slowed after the holiday peak.",
-        outcomeHeading: "Were the objectives met?",
-        conclusions: [
-          { label: "ROAS target · 6.00×", status: "MET*", tone: "met",
-            description: "ROAS exceeded 6.00× during individual weeks of the campaign." },
-          { label: "CPP target · ₱1,500", status: "MET*", tone: "met",
-            description: "The lowest recorded cost per purchase reached ₱1,300." }
-        ],
-        footnote: "*Targets were reached at individual points, not established as campaign-period averages. Complete period-level reporting is unavailable, so sustained achievement cannot be verified."
+      "id": "01",
+      "menuTitle": "Financial Services • Lead Generation",
+      "title": "Improving Lead Acquisition and Qualification",
+      "niche": "Financial Services · Government Employees",
+      "industry": "Meta Advertising · Financial Services",
+      "market": "Malaysia",
+      "duration": "April–October 2026",
+      "budget": {
+        "amount": 7000,
+        "currency": "MYR",
+        "period": "available"
       },
-
-      title:
-        "Achieving Weekly ROAS Above 6",
-
-      niche: "E-Commerce",
-      industry: "Meta Advertising · E-Commerce",
-      market: "Philippines",
-      duration: "Q4 2025 – Q2 2026",
-
-      budget: {
-        amount: 1000000,
-        currency: "PHP",
-        period: "monthly"
-      },
-
-      nda:
-        "Client details withheld due to NDA.",
-
-      achievement:
-        "6+ weekly ROAS",
-
-      challengeTitle:
-        "Sales slowed after the holiday peak.",
-
-      problem:
-        "After stronger Q3 and Q4 trading, sales slowed " +
-        "in Q1 2026. Popular colourways sold out while " +
-        "other options struggled. January ROAS averaged " +
-        "3.00 and average cost per purchase was ₱2,600. " +
-        "Products were priced between ₱12,990 and ₱35,000.",
-
-      solution:
-        "Refine audience segmentation, cost controls, " +
-        "creative selection, pricing and promotional planning " +
-        "to improve returns outside the Christmas period.",
-
-      objectives: [
+      "nda": "Client identity withheld.",
+      "achievement": "RM21.90 CPL across 119 leads",
+      "challengeTitle": "Generating relevant financing enquiries at a controlled cost.",
+      "problem": "A Malaysian financial-services provider serves government employees. Baseline channel reporting covered 1,830 leads: 31 Facebook WhatsApp and 1,799 Instant Form leads. Eligibility was unknown for 1,290 records; 540 were labelled ineligible, including 367 non-responsive contacts and 173 with other listed disqualification reasons. Unknown status and non-response do not establish ineligibility.",
+      "solution": "Screen applicants earlier, test audiences and creatives, apply a historical RM30 CPL benchmark, and review ad copy before publication.",
+      "objectives": [],
+      "dots": null,
+      "execution": [
         {
-          title: "Return on ad spend",
-          baseline: 3,
-          scaleMax: 7,
-          target: 6,
-          baselineLabel: "January average",
-          targetLabel: "Target",
-          suffix: "×",
-          decimals: 2,
-          lowerIsBetter: false
+          "title": "Screen",
+          "detail": "Add employment eligibility questions to Instant Forms to exclude applicants outside the service criteria."
         },
         {
-          title: "Cost per purchase",
-          baseline: 2600,
-          scaleMax: 3000,
-          target: 1500,
-          baselineLabel: "January average",
-          targetLabel: "Target",
-          prefix: "₱",
-          lowerIsBetter: true
+          "title": "Allocate",
+          "detail": "Use broad, lookalike and retargeting audiences, with the largest budget allocated to broad."
+        },
+        {
+          "title": "Control",
+          "detail": "Use a historically achievable RM30 CPL benchmark to inform budget decisions and automated rules."
+        },
+        {
+          "title": "Test",
+          "detail": "Review audience and creative performance during September to inform subsequent decisions."
+        },
+        {
+          "title": "Review",
+          "detail": "Apply a keyword-risk rubric to ad copy before publication."
         }
       ],
-
-      dots: {
-        visualization: "roas-waffle",
-        title: "₱1M in. ₱6M in revenue at 6× ROAS.",
-        unit: 100000,
-        unitLabel: "₱100,000",
-        left: {
-          value: 1000000,
-          display: "₱1M",
-          label: "Monthly advertising budget"
-        },
-        right: {
-          value: 6000000,
-          display: "₱6M",
-          label: "Revenue required at 6.00 ROAS"
-        },
-        note:
-          "Illustrative revenue requirement assuming the " +
-          "full ₱1M monthly advertising budget is spent. " +
-          "This is a target illustration, not actual revenue."
-      },
-
-      execution: [
+      "outcome": "October CPL was RM21.90 across 119 leads from 1–27 October 2026. No monthly account restrictions were recorded April–October. Recorded qualified financing opportunity value rose from RM68,000 in August to RM102,000 in October. These are financing values, not company revenue or proof of Meta attribution; post-change eligibility rate was not verified.",
+      "results": [
         {
-          title: "Audience Segmentation",
-          detail:
-            "Compare broad audiences, engaged-customer " +
-            "retargeting and lookalike audiences up to 5% " +
-            "to identify opportunities for stronger returns."
+          "value": "RM21.90",
+          "label": "OCTOBER CPL",
+          "description": "119 leads, 1–27 October 2026; below the historical RM30 benchmark."
         },
         {
-          title: "Cost Controls",
-          detail:
-            "Gradually adjust cost-per-result goals " +
-            "alongside creative changes while monitoring " +
-            "delivery and purchase costs."
+          "value": "0",
+          "label": "MONTHLY ACCOUNT RESTRICTIONS",
+          "description": "Recorded throughout April–October 2026."
         },
         {
-          title: "Creative Optimisation",
-          detail:
-            "Use CTR and CPC to guide creative replacement, " +
-            "while evaluating purchase cost and ROAS " +
-            "for commercial performance."
-        },
-        {
-          title: "Pricing & Product Selection",
-          detail:
-            "Adjust pricing for popular colourways " +
-            "and feature those products more prominently " +
-            "in advertising."
-        },
-        {
-          title: "Promotional Planning",
-          detail:
-            "Introduce off-peak offers, including a " +
-            "Valentine's Day 2026 carousel highlighting " +
-            "discounts and popular colourways."
+          "value": "RM68K → RM102K",
+          "label": "QUALIFIED FINANCING OPPORTUNITY VALUE",
+          "description": "Recorded August to October increase of 50%; not revenue or proof of Meta attribution."
         }
       ],
-
-      outcome:
-        "Weekly ROAS exceeded 6.00, while the lowest " +
-        "recorded cost per purchase reached ₱1,300.",
-
-      results: [
-        {
-          value: "6+",
-          label: "WEEKLY ROAS",
-          description:
-            "Weekly ROAS achieved above the 6.00 target. " +
-            "This is not presented as the campaign-period average."
-        },
-        {
-          value: "₱1,300",
-          label: "LOWEST RECORDED CPP",
-          description:
-            "The lowest recorded cost per purchase, " +
-            "13.3% below the ₱1,500 target."
-        }
-      ],
-
-      /* ----------------------------------------------------
-         WEEKLY CHART DATA
-
-         IMPORTANT:
-         Enter actual measured weekly ROAS figures here.
-
-         Example FORMAT ONLY:
-         { week: "2026-W06", roas: 6.25 }
-
-         Do not insert estimated or invented values.
-
-         Keep an empty array until verified figures exist.
-      ---------------------------------------------------- */
-
-      weekly: {
-        title: "Weekly ROAS",
-        target: 6,
-        data: [],
-        note:
-          "Weekly values will be plotted once the " +
-          "campaign's actual reporting data is available."
-      }
+      "weekly": null
     },
-
-    /* ------------------------------------------------------
-       CASES 02–04 — SWIM SCHOOL / RENOVATION / FINANCIAL SERVICES
-    ------------------------------------------------------ */
-
     {
       "id": "02",
       "menuTitle": "Child Enrichment • Lead Generation",
@@ -269,7 +122,6 @@ const META_CONFIG = {
       ],
       "weekly": null
     },
-
     {
       "id": "03",
       "menuTitle": "Professional Services • Lead Generation",
@@ -329,68 +181,134 @@ const META_CONFIG = {
       ],
       "weekly": null
     },
-
     {
       "id": "04",
-      "menuTitle": "Financial Services • Lead Generation",
-      "title": "Improving Lead Acquisition and Qualification",
-      "niche": "Financial Services · Government Employees",
-      "industry": "Meta Advertising · Financial Services",
-      "market": "Malaysia",
-      "duration": "April–October 2026",
-      "budget": {
-        "amount": 7000,
-        "currency": "MYR",
-        "period": "available"
+      "menuTitle": "E-Commerce • ROAS",
+      "menuNiche": "E-Commerce",
+      "report": {
+        "date": "February – March 2026",
+        "objectiveOrder": [
+          1,
+          0
+        ],
+        "problemPoints": [
+          "Sales slowed in Q1 after stronger Q3 and Q4 trading.",
+          "Popular colourways sold out while other options struggled."
+        ],
+        "challengeTitle": "Demand slowed after the holiday peak.",
+        "outcomeHeading": "Were the objectives met?",
+        "conclusions": [
+          {
+            "label": "ROAS target · 6.00×",
+            "status": "MET*",
+            "tone": "met",
+            "description": "ROAS exceeded 6.00× during individual weeks of the campaign."
+          },
+          {
+            "label": "CPP target · ₱1,500",
+            "status": "MET*",
+            "tone": "met",
+            "description": "The lowest recorded cost per purchase reached ₱1,300."
+          }
+        ],
+        "footnote": "*Targets were reached at individual points, not established as campaign-period averages. Complete period-level reporting is unavailable, so sustained achievement cannot be verified."
       },
-      "nda": "Client identity withheld.",
-      "achievement": "RM21.90 CPL across 119 leads",
-      "challengeTitle": "Generating relevant financing enquiries at a controlled cost.",
-      "problem": "A Malaysian financial-services provider serves government employees, making employment eligibility essential to applicant screening. Previous reporting recorded 14 eligible leads out of 8,275 records; most remaining records were unknown or ineligible. Unknown records were not confirmed as ineligible.",
-      "solution": "Screen applicants earlier, test audiences and creatives, apply a historical RM30 CPL benchmark, and review ad copy before publication.",
-      "objectives": [],
-      "dots": null,
+      "title": "Achieving Weekly ROAS Above 6",
+      "niche": "E-Commerce",
+      "industry": "Meta Advertising · E-Commerce",
+      "market": "Philippines",
+      "duration": "Q4 2025 – Q2 2026",
+      "budget": {
+        "amount": 1000000,
+        "currency": "PHP",
+        "period": "monthly"
+      },
+      "nda": "Client details withheld due to NDA.",
+      "achievement": "6+ weekly ROAS",
+      "challengeTitle": "Sales slowed after the holiday peak.",
+      "problem": "After stronger Q3 and Q4 trading, sales slowed in Q1 2026. Popular colourways sold out while other options struggled. January ROAS averaged 3.00 and average cost per purchase was ₱2,600. Products were priced between ₱12,990 and ₱35,000.",
+      "solution": "Refine audience segmentation, cost controls, creative selection, pricing and promotional planning to improve returns outside the Christmas period.",
+      "objectives": [
+        {
+          "title": "Return on ad spend",
+          "baseline": 3,
+          "scaleMax": 7,
+          "target": 6,
+          "baselineLabel": "January average",
+          "targetLabel": "Target",
+          "suffix": "×",
+          "decimals": 2,
+          "lowerIsBetter": false
+        },
+        {
+          "title": "Cost per purchase",
+          "baseline": 2600,
+          "scaleMax": 3000,
+          "target": 1500,
+          "baselineLabel": "January average",
+          "targetLabel": "Target",
+          "prefix": "₱",
+          "lowerIsBetter": true
+        }
+      ],
+      "dots": {
+        "visualization": "roas-waffle",
+        "title": "₱1M in. ₱6M in revenue at 6× ROAS.",
+        "unit": 100000,
+        "unitLabel": "₱100,000",
+        "left": {
+          "value": 1000000,
+          "display": "₱1M",
+          "label": "Monthly advertising budget"
+        },
+        "right": {
+          "value": 6000000,
+          "display": "₱6M",
+          "label": "Revenue required at 6.00 ROAS"
+        },
+        "note": "Illustrative revenue requirement assuming the full ₱1M monthly advertising budget is spent. This is a target illustration, not actual revenue."
+      },
       "execution": [
         {
-          "title": "Screen",
-          "detail": "Add employment eligibility questions to Instant Forms to exclude applicants outside the service criteria."
+          "title": "Audience Segmentation",
+          "detail": "Compare broad audiences, engaged-customer retargeting and lookalike audiences up to 5% to identify opportunities for stronger returns."
         },
         {
-          "title": "Allocate",
-          "detail": "Use broad, lookalike and retargeting audiences, with the largest budget allocated to broad."
+          "title": "Cost Controls",
+          "detail": "Gradually adjust cost-per-result goals alongside creative changes while monitoring delivery and purchase costs."
         },
         {
-          "title": "Control",
-          "detail": "Use a historically achievable RM30 CPL benchmark to inform budget decisions and automated rules."
+          "title": "Creative Optimisation",
+          "detail": "Use CTR and CPC to guide creative replacement, while evaluating purchase cost and ROAS for commercial performance."
         },
         {
-          "title": "Test",
-          "detail": "Review audience and creative performance during September to inform subsequent decisions."
+          "title": "Pricing & Product Selection",
+          "detail": "Adjust pricing for popular colourways and feature those products more prominently in advertising."
         },
         {
-          "title": "Review",
-          "detail": "Apply a keyword-risk rubric to ad copy before publication."
+          "title": "Promotional Planning",
+          "detail": "Introduce off-peak offers, including a Valentine's Day 2026 carousel highlighting discounts and popular colourways."
         }
       ],
-      "outcome": "October CPL was RM21.90 across 119 leads from 1–27 October 2026. No monthly account restrictions were recorded April–October. Recorded qualified financing opportunity value rose from RM68,000 in August to RM102,000 in October. These are financing values, not company revenue or proof of Meta attribution; post-change eligibility rate was not verified.",
+      "outcome": "Weekly ROAS exceeded 6.00, while the lowest recorded cost per purchase reached ₱1,300.",
       "results": [
         {
-          "value": "RM21.90",
-          "label": "OCTOBER CPL",
-          "description": "119 leads, 1–27 October 2026; below the historical RM30 benchmark."
+          "value": "6+",
+          "label": "WEEKLY ROAS",
+          "description": "Weekly ROAS achieved above the 6.00 target. This is not presented as the campaign-period average."
         },
         {
-          "value": "0",
-          "label": "MONTHLY ACCOUNT RESTRICTIONS",
-          "description": "Recorded throughout April–October 2026."
-        },
-        {
-          "value": "RM68K → RM102K",
-          "label": "QUALIFIED FINANCING OPPORTUNITY VALUE",
-          "description": "Recorded August to October increase of 50%; not revenue or proof of Meta attribution."
+          "value": "₱1,300",
+          "label": "LOWEST RECORDED CPP",
+          "description": "The lowest recorded cost per purchase, 13.3% below the ₱1,500 target."
         }
       ],
-      "weekly": null
+      "weekly": {
+        "title": "Weekly ROAS",
+        "target": 6,
+        "data": [],
+        "note": "Weekly values will be plotted once the campaign's actual reporting data is available."
+      }
     }
   ]
 };

@@ -23,6 +23,7 @@
           </div>
           <div class="chart-panel goals-grid"></div>
         </section>
+        <div class="evidence-sections"></div>
         <section class="dot-section">
           <h2 data-field="dot-title"></h2><p class="dot-scale" data-field="dot-scale"></p>
           <div class="dot-comparison"></div><p class="dot-note" data-field="dot-note"></p>
@@ -70,9 +71,6 @@
         </nav>
       </article>
     </div>`;
-  const customReport=document.createElement('div');
-  customReport.className='custom-report';customReport.hidden=true;
-  dialog.querySelector('.popup-scroll').append(customReport);
   document.body.append(dialog);
   const q = selector => dialog.querySelector(selector);
   const field = (name, value) => { q(`[data-field="${name}"]`).textContent = value ?? ''; };
@@ -110,7 +108,6 @@
   dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
 
   function menu(options = {}) {
-    customReport.hidden=true;
     q('.case-report').hidden = true;
     q('.case-picker').hidden = false;
     fieldTitle('Meta case studies');
@@ -170,6 +167,24 @@
       panel.append(card);
     });
   }
+  function evidenceComparisons(items) {
+    const panel=q('.chart-panel');panel.replaceChildren();
+    for(const metric of items){
+      const card=make('article','goal-card');card.append(make('h2','',metric.title),make('p','goal-direction',metric.subtitle));
+      const chart=make('div','evidence-chart');chart.setAttribute('role','img');
+      chart.setAttribute('aria-label',metric.rows.map(row=>`${row.label}: ${row.display??(row.value!=null?format(row.value,metric):format(row.min,metric)+' to '+format(row.max,metric))}`).join('; ')+`. ${metric.note}`);
+      for(const row of metric.rows){
+        const line=make('div','evidence-row'),heading=make('div','evidence-label');
+        heading.append(make('span','',row.label),make('strong','',row.display??format(row.value,metric)));
+        const track=make('div','chart-track'),bar=make('div',`current-bar${row.tone==='target'?' evidence-highlight':''}`);
+        const min=row.min??0,max=row.max??row.value;bar.style.left=`${min/metric.scaleMax*100}%`;bar.style.width=`${(max-min)/metric.scaleMax*100}%`;
+        track.append(bar);if(Number.isFinite(metric.reference)){const marker=make('span','target-marker');marker.style.left=`${metric.reference/metric.scaleMax*100}%`;track.append(marker);}
+        line.append(heading,track);chart.append(line);
+      }
+      const axis=make('div','chart-axis');axis.append(make('span','',format(0,metric)),make('span','',format(metric.scaleMax,metric)));chart.append(axis);
+      card.append(chart,make('p','comparison-note',metric.note));panel.append(card);
+    }
+  }
   function dots(data) {
     const container = q('.dot-comparison'); container.replaceChildren();
     q('.dot-section').classList.remove('roas-visual');
@@ -178,6 +193,15 @@
     if (!data) return;
     field('dot-title', data.title); field('dot-scale', `Each dot represents ${data.unitLabel}.`);
     field('dot-note', data.note);
+    if (data.visualization === 'context') {
+      q('.dot-section').classList.add('roas-visual');container.classList.add('roas-layout');
+      q('[data-field="dot-scale"]').hidden=true;
+      const copy=make('div','roas-copy');copy.append(make('p','roas-number',data.hero),make('p','roas-description',data.description));
+      const key=make('p','roas-key');key.append(make('span','roas-key-dot'),document.createTextNode(`Each dot represents ${data.unitLabel}.`));copy.append(key);
+      const figure=make('figure','roas-chart');figure.setAttribute('role','img');figure.setAttribute('aria-label',data.groups.map(item=>`${item.label}: ${item.display}`).join('; ')+`. Each dot represents ${data.unitLabel}. ${data.note}`);
+      data.groups.forEach((item,index)=>{const group=make('div',`roas-group ${index?'roas-revenue':'roas-budget'}`),heading=make('div','roas-group-heading');heading.append(make('h3','',item.label),make('strong','',item.display));const grid=make('div','roas-dots');grid.setAttribute('aria-hidden','true');const count=item.value/data.unit;if(Number.isInteger(count)&&count>=0&&count<=300)for(let i=0;i<count;i++)grid.append(make('span',''));else grid.append(make('p','','Quantity unavailable for the dot scale.'));group.append(heading,grid);figure.append(group);});
+      container.append(copy,figure);return;
+    }
     if (data.visualization === 'roas-waffle') {
       q('.dot-section').classList.add('roas-visual');
       field('dot-title', 'What does 6× look like?');
@@ -258,21 +282,6 @@
   }
   function open(index=0) {
     current=Math.max(0,Math.min(index,cases.length-1)); const data=cases[current], options=data.report??{};
-    customReport.hidden=true;
-    const custom=window.MetaCaseTemplates?.[data.id];
-    if(custom) {
-      q('.case-report').hidden=true;q('.case-picker').hidden=true;
-      dialog.removeAttribute('style');
-      fieldTitle(`CASE ${data.id} — ${data.niche}`);
-      // Templates are trusted, repository-owned markup, never remote or visitor content.
-      customReport.innerHTML=custom;customReport.hidden=false;
-      const nav=make('nav','case-navigation');nav.setAttribute('aria-label','Report navigation');
-      [['← Previous case',()=>open(current-1),current===0],['All case studies',menu,false],['Next case →',()=>open(current+1),current===cases.length-1]].forEach(([label,action,disabled])=>{
-        const button=make('button','',label);button.type='button';button.disabled=disabled;button.addEventListener('click',action);nav.append(button);
-      });
-      window.MetaCaseInitializers?.[data.id]?.(customReport);
-      (customReport.querySelector(".case-ending")??customReport.firstElementChild).append(nav);show();return;
-    }
     const report=q('.case-report'); report.hidden=false; q('.case-picker').hidden=true;
     fieldTitle(`CASE ${data.id} — ${data.niche}`);
     report.dataset.case=data.id; report.classList.toggle('wide-narrative',options.layout==='wide-narrative');
@@ -285,15 +294,18 @@
     field('problem',options.intro??data.problem);
     const solution=options.solution??data.solution;field('solution',solution);
     const problemPoints=options.problemPoints??[];q('.problem-list').replaceChildren(...problemPoints.map(point=>make('li','',point)));
-    q('.problem-list').hidden=!problemPoints.length;q('[data-field="problem"]').hidden=!!problemPoints.length;
+    q('.problem-list').hidden=!problemPoints.length;q('[data-field="problem"]').hidden=!!problemPoints.length&&!options.showIntro;
     q('.solution-box').hidden=!solution;
     field('nda',data.nda);field('outcome',data.outcome);field('execution-heading',options.executionHeading??'The decisions behind the results.');
     const hidden=new Set(options.hiddenSections??[]);
     const objectiveItems=options.objectiveOrder
       ? options.objectiveOrder.map(index=>(data.objectives??[])[index]).filter(Boolean)
-      : data.objectives??[];objectives(objectiveItems);
-    q('.chart-panel').hidden=!objectiveItems.length||hidden.has('objectives');
+      : data.objectives??[];
+    if(options.comparisons) evidenceComparisons(options.comparisons);else objectives(objectiveItems);
+    q('.chart-panel').hidden=!(options.comparisons?.length??objectiveItems.length)||hidden.has('objectives');
     q('.report-header').classList.toggle('narrative-only',q('.chart-panel').hidden);
+    const evidence=q('.evidence-sections');evidence.replaceChildren();
+    (options.evidenceSections??[]).forEach(section=>{const node=make('section','execution-section');node.append(make('h2','execution-heading',section.title),make('p','',section.intro));const grid=make('div','goals-grid');section.items.forEach(item=>{const card=make('article','goal-card');card.append(make('h3','',item.title),make('p','',item.detail));grid.append(card);});node.append(grid,make('p','comparison-note',section.note));evidence.append(node);});
     dots(data.dots);q('.dot-section').hidden=!data.dots||hidden.has('dots');
     steps=data.execution??[];stage=0;dragX=null;q('.dial-viewport').classList.remove('dragging');execution();
     q('.execution-board').hidden=!steps.length;
@@ -303,7 +315,7 @@
     const grid=q('.conclusion-grid');grid.replaceChildren();
     const results=options.conclusions??(data.results??[]).map(r=>({label:r.label,status:r.value,description:r.description}));
     results.forEach(result=>{const item=make('div','conclusion-item');
-      item.append(make('span','conclusion-metric',result.label),make('strong',`conclusion-status ${result.tone==='met'?'met':result.tone==='not-met'?'not-met':''}`,result.status),make('p','',result.description));grid.append(item);});
+      item.append(make('span','conclusion-metric',result.label),make('strong',`conclusion-status ${result.tone==='met'?'met':result.tone==='not-met'?'not-met':result.tone==='neutral'?'neutral':''}`,result.status),make('p','',result.description));grid.append(item);});
     q('.conclusion-section').hidden=hidden.has('outcome');weekly(data.weekly);
     if(hidden.has('weekly'))q('.weekly-section').hidden=true;
     q('[data-action="case-prev"]').disabled=current===0;

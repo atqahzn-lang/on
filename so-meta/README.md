@@ -1,51 +1,32 @@
 # So Meta
 
-For the required format for future cases, see [CASE-STUDY-FORMAT.md](CASE-STUDY-FORMAT.md) and the persistent instructions in [AGENTS.md](AGENTS.md). For fonts, dimensions, frames, spacing and colours, see [STYLE-GUIDE.md](STYLE-GUIDE.md). Each active stylesheet starts with an EDITING MAP.
+The original E-Commerce / ROAS report (now case 04) is the master design for every report. See [CASE-STUDY-FORMAT.md](CASE-STUDY-FORMAT.md), [AGENTS.md](AGENTS.md), and [STYLE-GUIDE.md](STYLE-GUIDE.md).
 
-Standalone version of the supplied Wix HTML embed. No Wix SDK, build step, package installation, or secrets are required.
+## Current experience
 
-## Preview locally
+The console shows its So Meta title and cat above, and Play Game / Read Case Study below. Play Game briefly displays In progress and returns to the menu. Read Case Study opens the Campaign Results / Strategy & Systems groups. Campaign Results contains the four reports; Strategy & Systems is In progress.
 
-From the repository root:
+Tap the menu, use the physical D-pad, or use keyboard arrows to select. A / Enter opens a selection; B / Escape returns. X opens the reading groups, Y returns to the title/menu. Sound on/off and M control optional interaction tones; no sound autoplays.
 
-```sh
-python3 -m http.server 8000
-```
+## Files to edit
 
-Open `http://localhost:8000/so-meta/`. Stop the server with Ctrl+C.
+- `index.html`: console structure, stylesheet/script order and font loading.
+- `styles.css`, `responsive.css`, `catch-game.css`: console appearance and menu sizing.
+- `app.js`, `console-sound.js`: console navigation and optional Web Audio sounds.
+- `cases.js`: base report metadata, menu labels and e-commerce content (case 04).
+- `case-02.js`, `case-03.js`, `case-01.js`: case-specific copy, comparisons, context quantities and outcomes; no custom report markup.
+- `report-template.js`: one shared report renderer and interactions for all cases.
+- `report.css`: one shared original e-commerce master layout and typography for all cases.
+- `case-02.css`, `case-03.css`, `case-04.css`: comments only; do not add divergent layouts here.
 
-## Edit the report
+The four cases are Financial Services, Child Enrichment, Professional Services and E-Commerce / ROAS, numbered 01–04. The financial-services report remains anonymised; government-employee audience context is retained.
 
-- `report.css`: shared popup report design adapted from the latest Wix template.
-- `styles.css`: shared color variables in `:root`, console shell, and game styles. Report colors use the `--report-*` variables.
-- `responsive.css`: mobile and reduced-motion rules, loaded last. Check these when changing report layouts.
-- `cases.js`: case-study text, metrics, execution stages, and weekly chart data in `META_CONFIG.cases`. Preserve `null` and empty lists for missing data.
-- `index.html`: console and report HTML structure.
-- `app.js`: keyboard/touch controls, collection tray, and report pause/resume.
-- `catch-engine.js`: falling-file physics and catch detection.
-- `catch-game.css`: game layout and compact lower-screen controls.
-- `report-template.js`: shared report popup and rendering. See `REPORT-TEMPLATE.md` for per-case layout and styling options.
+## Preview and publish
 
-The pink console styling and reports are retained. The original cat sprite is hosted locally at `assets/cat-sprite.png` so gameplay does not rely on a remote image request.
+From the repository root, run `python3 -m http.server 8000` and open `http://localhost:8000/so-meta/`. No build step, packages or secrets are needed. The cat sprite is hosted locally under `assets/`.
 
-## Publish on GitHub Pages
+Push to `main` for the configured GitHub Pages deployment. Public URL: https://atqahzn-lang.github.io/on/so-meta/. The root portfolio URL temporarily redirects here.
 
-Commit the `so-meta` folder to your GitHub repository. In Settings → Pages, choose **Deploy from a branch**, select the branch containing these files, and select **/(root)**. The page will be at your repository’s Pages URL followed by `/so-meta/` (for this repository: `https://atqahzn-lang.github.io/on/so-meta/`). GitHub Pages availability depends on the repository and account settings.
+## Validation
 
-For Wix, add an Embed a Site element pointing to the published HTTPS page URL. The page can also run independently of Wix. Future CSS updates are made in this folder, committed, and published through GitHub Pages.
-
-## Current experience and checks
-
-The upper display shows the original So Meta title, subtitle and cat. The lower display contains only the Play Game / Read Case Study experience menu, with no collection grid, movement buttons, or progress counter. Play Game shows In progress for 1.6 seconds and returns to the title/menu. Read Case Study shows the four-report selector on the upper console display; choosing a case opens its existing report popup. Existing report designs remain unchanged.
-
-Check the temporary notice and automatic return, all four reports, X/Escape to close, and mobile widths. Catch-game logic and assets remain in the repository for future work but the engine is not loaded or run.
-
-Case 04 uses `case-04.js` and `case-04.css` for the anonymised Malaysian financial-services report, retaining the government-employee audience description. No direct client names are included in that report.
-
-## Console controls and sound
-
-Tap either lower-screen option or use the console D-pad / keyboard arrow keys to highlight an option. A or Enter opens the selected option; B or Escape returns. In the upper-screen case selector, arrows cycle through the four reports and A/Enter opens the selected case. X opens the case selector and Y returns to the title/menu. The D-pad centre also activates the current selection.
-
-Short Web Audio tones play after interaction. The Sound on/off button and M shortcut mute or enable them; the preference is stored locally. There is no autoplay, external audio request, or dependency on sound for navigation.
-
-The original first case has been removed. The four remaining reports and their templates are renumbered 01–04: E-Commerce ROAS, Child Enrichment, Professional Services, and Financial Services.
+Check touch, D-pad and keyboard selection; the temporary game notice; sound/mute; all report navigation and X/Escape closing. Compare report frames, headings, body fonts and horizontal process disclosure against the e-commerce master (now case 04). Check evidence-specific charts, exact dot counts, caveats and mobile overflow at 320/390/768/1360px. Do not replace missing evidence with invented values.
