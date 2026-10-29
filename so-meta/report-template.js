@@ -28,6 +28,7 @@
           <h2 data-field="dot-title"></h2><p class="dot-scale" data-field="dot-scale"></p>
           <div class="dot-comparison"></div><p class="dot-note" data-field="dot-note"></p>
         </section>
+        <section class="economics-section" hidden></section>
         <section class="execution-section">
           <span class="execution-eyebrow">Execution</span>
           <h2 class="execution-heading" data-field="execution-heading"></h2>
@@ -240,6 +241,11 @@
       container.append(group);
     });
   }
+  function economics(data) {
+    const node=q('.economics-section');node.replaceChildren();node.hidden=!data;if(!data)return;
+    node.append(make('h2','',data.title),make('p','eyebrow',data.subtitle),make('p','',data.intro));
+    const wrap=make('div','economics-table-wrap'),table=make('table','economics-table');table.append(make('caption','',data.subtitle));const head=make('thead',''),header=make('tr','');['Illustrative CPP','Spend for 100 purchases','Purchase value','Corresponding ROAS'].forEach(label=>{const th=make('th','',label);th.scope='col';header.append(th);});head.append(header);table.append(head);const body=make('tbody','');data.rows.forEach(row=>{const tr=make('tr','');row.forEach((value,i)=>tr.append(make('td','',i<3?`₱${value.toLocaleString('en-US')}`:value)));body.append(tr);});table.append(body);wrap.append(table);wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','Illustrative purchase-cost economics');node.append(wrap,make('p','',data.takeaway),make('p','',data.units),make('p','comparison-note',data.note));const details=make('details','economics-allowance');details.append(make('summary','','How the 15% allowance fits'),make('p','',data.allowance));node.append(details);
+  }
   function renderStage(index) {
     if (!steps.length) return;
     stage = Math.max(0, Math.min(index, steps.length - 1));
@@ -264,11 +270,14 @@
       svg.append(group);
     });
     if(cases[current].id==='01'){q('.decision-labels')?.querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===stage)));}
+    q('.ecommerce-decision-labels')?.querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===stage)));
     if (focused) svg.querySelector('[aria-pressed="true"]')?.focus();
   }
   function execution() {
     const timeline = q('.process-timeline'); timeline.replaceChildren();
     q('.decision-labels')?.remove();
+    q('.ecommerce-decision-labels')?.remove();
+    if(steps.some(step=>step.dialLabel)){const labels=make('div','ecommerce-decision-labels');labels.setAttribute('aria-label','Select a campaign decision');steps.forEach((step,i)=>{const button=make('button','',`${pad(i+1)} · ${step.dialLabel??step.title}`);button.type='button';button.addEventListener('click',()=>renderStage(i));labels.append(button);});q('.execution-board').after(labels);}
     const financial=cases[current].id==='01';
     q('.process-summary-title').textContent=cases[current].report?.processTitle??(financial?'View all four decisions':'Skip the dial — view the complete process');
     if(financial){const controls=make('div','decision-labels');controls.setAttribute('aria-label','Select an execution decision');steps.forEach((step,i)=>{const button=make('button','',`${pad(i+1)} · ${step.title}`);button.type='button';button.addEventListener('click',()=>renderStage(i));controls.append(button);});q('.dial-viewport').after(controls);}
@@ -320,6 +329,7 @@
       ? options.objectiveOrder.map(index=>(data.objectives??[])[index]).filter(Boolean)
       : data.objectives??[];
     if(options.comparisons) evidenceComparisons(options.comparisons);else objectives(objectiveItems);
+    if(options.approachNote)q('.chart-panel .goal-card')?.append(make('p','comparison-note',options.approachNote));
     if(options.performanceHeading){const intro=make('div','performance-intro');intro.append(make('p','eyebrow','Campaign performance'),make('h2','',options.performanceHeading),make('p','comparison-note',options.performanceSummary),make('p','comparison-note',options.costGoalNote));q('.chart-panel').prepend(intro);}
     q('.chart-panel').hidden=!(options.comparisons?.length??objectiveItems.length)||hidden.has('objectives');
     q('.report-header').classList.toggle('narrative-only',q('.chart-panel').hidden);
@@ -327,6 +337,7 @@
     const evidence=q('.evidence-sections');evidence.replaceChildren();
     (options.evidenceSections??[]).forEach(section=>{const node=make('section','execution-section');node.append(make('h2','execution-heading',section.title),make('p','',section.intro));const grid=make('div','goals-grid');section.items.forEach(item=>{const card=make('article','goal-card');card.append(make('h3','',item.title),make('p','',item.detail));grid.append(card);});node.append(grid,make('p','comparison-note',section.note));evidence.append(node);});
     dots(data.dots);q('.dot-section').hidden=!data.dots||hidden.has('dots');
+    economics(options.economics);
     steps=data.execution??[];stage=0;dragX=null;q('.dial-viewport').classList.remove('dragging');execution();
     q('.execution-board').hidden=!steps.length;
     q('.process-disclosure').hidden=!steps.length;

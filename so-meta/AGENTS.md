@@ -1,9 +1,9 @@
 # So Meta requirements
 
-The original E-Commerce / ROAS report (now case 04) is the user's master format for every case study. This explicitly supersedes the earlier instruction treating the attached case-02/03/04 layouts as canonical. Read CASE-STUDY-FORMAT.md.
+The original E-Commerce / ROAS report (now case 02) is the user's master format for every case study. This explicitly supersedes the earlier instruction treating the attached case-02/03/04 layouts as canonical. Read CASE-STUDY-FORMAT.md.
 
 - Use the single renderer in report-template.js and single layout/typography stylesheet report.css for all reports. Do not create case-specific HTML/CSS layout families, standalone report pages, or resurrect MetaCaseTemplates/MetaCaseInitializers.
-- case-02.js, case-03.js and case-01.js provide only case-specific data/copy. Keep the same 1050px content frame, master typography, spacing, solution placement, dial, horizontal full-process disclosure, and outcome cards as the original e-commerce master (now case 04).
+- case-04.js, case-03.js and case-01.js provide only case-specific data/copy. Keep the same 1050px content frame, master typography, spacing, solution placement, dial, horizontal full-process disclosure, and outcome cards as the original e-commerce master (now case 02).
 - Preserve evidence-specific differences. CPR/CPL/ROAS need not be every report's main metric. Use report.comparisons rows for observations/ranges and dots.visualization=context for exact quantity illustrations, without changing the design.
 - Preserve reporting periods, lead definitions, units and measurement limits. Never invent baselines, averages, attribution, conversion outcomes or targets. Keep unknown eligibility distinct from ineligibility; financing values are not revenue.
 - Preserve anonymisation. Use a general Malaysian financial-services identifier; government-employee audience context is allowed. Uploaded examples containing client names do not authorise restoring them.

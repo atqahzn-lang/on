@@ -1,6 +1,6 @@
 # Master format: case 01
 
-**The original E-Commerce / ROAS report (now case 04), is the user's chosen master.** All other reports must replicate its visual and interaction details. This supersedes the earlier interpretation that the separately attached adapted layouts were the standard. Similar section order alone is insufficient.
+**The original E-Commerce / ROAS report (now case 02), is the user's chosen master.** All other reports must replicate its visual and interaction details. This supersedes the earlier interpretation that the separately attached adapted layouts were the standard. Similar section order alone is insufficient.
 
 ## What must be identical
 
@@ -22,8 +22,8 @@ There must not be separate swim-school, renovation or financial-services layout 
 
 | Case | Evidence-specific content inside the master |
 | --- | --- |
-| 04 — E-Commerce / ROAS | Existing baseline/goal charts, illustrative ₱1M budget → ₱6M revenue requirement, weekly achievement caveats |
-| 02 — Child Enrichment | 100 daily registrations target/result; monthly RM5–10 / RM10–13 / RM6–9 CPL ranges against RM10; 100 registration dots; five execution decisions |
+| 02 — E-Commerce / ROAS | Existing baseline/goal charts, illustrative ₱1M budget → ₱6M revenue requirement, weekly achievement caveats |
+| 04 — Child Enrichment | 100 daily registrations target/result; monthly RM5–10 / RM10–13 / RM6–9 CPL ranges against RM10; 100 registration dots; five execution decisions |
 | 03 — Professional Services | Up to 50 → 5 active ads; earlier creative-level peak $300 versus later daily $25–50 range; exact 50/5 dot illustration; four execution decisions |
 | 01 — Financial Services | RM30 historical benchmark and specified campaign comparisons; financing opportunity values RM68K → RM102K; 34/51 dots at RM2,000 per dot; five execution decisions |
 
@@ -31,7 +31,7 @@ Registrations are not enrolments. Ranges are not averages. A previous creative p
 
 ## Data model
 
-`cases.js` defines IDs, menu labels and base metadata. Load `case-02.js` / `case-03.js` / `case-01.js` after it; each updates that case's report data before the shared renderer loads.
+`cases.js` defines IDs, menu labels and base metadata. Load `case-04.js` / `case-03.js` / `case-01.js` after it; each updates that case's report data before the shared renderer loads.
 
 Common case fields: `title`, `industry`, `market`, `duration`, `problem`, `solution`, `execution`, `outcome`, `objectives`, `dots`, `weekly`.
 
@@ -48,7 +48,7 @@ For other quantity visuals, `dots.visualization = 'context'` uses the same case 
 
 ## Publishing and validation
 
-Test all reports in the shared popup. Compare content width, H1/body/stage fonts, padding, disclosure direction and outcome styles against the e-commerce master (now case 04). Check all navigation and dial controls, exact dot counts, qualifications and mobile overflow at 320/390/768/1360px. Maintain anonymisation, console navigation and mute behavior. See STYLE-GUIDE.md for editing locations.
+Test all reports in the shared popup. Compare content width, H1/body/stage fonts, padding, disclosure direction and outcome styles against the e-commerce master (now case 02). Check all navigation and dial controls, exact dot counts, qualifications and mobile overflow at 320/390/768/1360px. Maintain anonymisation, console navigation and mute behavior. See STYLE-GUIDE.md for editing locations.
 
 ## Latest case 01 exception
 
@@ -58,8 +58,12 @@ Latest case 01 content: distinguish historical submitted-lead CPL from October r
 
 Final user override: remove the three historical CPL columns until individual reporting periods and campaign scopes are confirmed. Keep their figures in a qualified reference note, with October prominent. Use the exact four execution descriptions consistently in the dial and “View all four decisions” disclosure. RM121,500 is October assessed opportunity value and is not established as all arising from the 119 leads. Baseline accepted financing value remains behind a scope-and-limitations disclosure.
 
-## Case 04 evidence update
+## Case 02 evidence update
 
 Reported February ROAS 3× and March ROAS 6× are not verified monthly averages. Keep the original bar/equation renderer, zero-based ROAS scale 0–6× and a common CPP scale ₱0–₱3,500 across broad/interest/retargeting. Audience outcomes are ₱1,300/₱1,600/₱1,800; only broad reached below ₱1,500. The dot illustration is 10/60 dots at ₱100,000 each and is a hypothetical full-capacity spend scenario, not revenue/profit. Weekly reporting is absent; do not show a placeholder chart.
 
 Stage 05 retains the consultant’s discretionary allowance of up to 15% above observed CPP when budget permitted, not a Meta requirement. Pending editorial context: the supplied ₱10,000 amount has no confirmed measurement definition, and ₱3,200–₱4,500 has no confirmed ad/period scope. Preserve these in this note for clarification; do not silently discard or publish them as comparable baselines.
+
+## E-commerce economics brief after renumbering
+
+The new brief called e-commerce case 04, but the user’s prior swap makes it case 02. Apply that brief to e-commerce, retain child enrichment as case 04. Add a secondary illustrative table below the unchanged 10/60 budget dots: one ₱10,800 bag/order, 100 purchases, CPP ₱3,200/₱2,100/₱1,800, ROAS 3.38×/5.14×/6.00×. Keep actual audience comparisons separate. 556 bags gives ₱6,004,800 hypothetical purchase value. Allowance example: ₱1,500 × 1.15 = ₱1,725; ₱10,800 ÷ ₱1,725 ≈ 6.26×. These are not actual sales or revenue. The latest brief authorises ₱3,200 and ₱4,500 as earlier cost-control context, not audience baselines or account averages. The ₱10,000 figure still awaits context.

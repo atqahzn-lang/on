@@ -1,6 +1,6 @@
 # So Meta
 
-The original E-Commerce / ROAS report (now case 04) is the master design for every report. See [CASE-STUDY-FORMAT.md](CASE-STUDY-FORMAT.md), [AGENTS.md](AGENTS.md), and [STYLE-GUIDE.md](STYLE-GUIDE.md).
+The original E-Commerce / ROAS report (now case 02) is the master design for every report. See [CASE-STUDY-FORMAT.md](CASE-STUDY-FORMAT.md), [AGENTS.md](AGENTS.md), and [STYLE-GUIDE.md](STYLE-GUIDE.md).
 
 ## Current experience
 
@@ -13,8 +13,8 @@ Tap the menu, use the physical D-pad, or use keyboard arrows to select. A / Ente
 - `index.html`: console structure, stylesheet/script order and font loading.
 - `styles.css`, `responsive.css`, `catch-game.css`: console appearance and menu sizing.
 - `app.js`, `console-sound.js`: console navigation and optional Web Audio sounds.
-- `cases.js`: base report metadata, menu labels and e-commerce content (case 04).
-- `case-02.js`, `case-03.js`, `case-01.js`: case-specific copy, comparisons, context quantities and outcomes; no custom report markup.
+- `cases.js`: base report metadata, menu labels and e-commerce content (case 02).
+- `case-04.js`, `case-03.js`, `case-01.js`: case-specific copy, comparisons, context quantities and outcomes; no custom report markup.
 - `report-template.js`: one shared report renderer and interactions for all cases.
 - `report.css`: one shared original e-commerce master layout and typography for all cases.
 - `case-02.css`, `case-03.css`, `case-04.css`: comments only; do not add divergent layouts here.
@@ -29,4 +29,4 @@ Push to `main` for the configured GitHub Pages deployment. Public URL: https://a
 
 ## Validation
 
-Check touch, D-pad and keyboard selection; the temporary game notice; sound/mute; all report navigation and X/Escape closing. Compare report frames, headings, body fonts and horizontal process disclosure against the e-commerce master (now case 04). Check evidence-specific charts, exact dot counts, caveats and mobile overflow at 320/390/768/1360px. Do not replace missing evidence with invented values.
+Check touch, D-pad and keyboard selection; the temporary game notice; sound/mute; all report navigation and X/Escape closing. Compare report frames, headings, body fonts and horizontal process disclosure against the e-commerce master (now case 02). Check evidence-specific charts, exact dot counts, caveats and mobile overflow at 320/390/768/1360px. Do not replace missing evidence with invented values.

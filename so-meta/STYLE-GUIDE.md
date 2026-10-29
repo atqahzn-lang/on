@@ -19,7 +19,7 @@ This guide maps the current styles without changing the design. CSS files now ha
 | [responsive.css](responsive.css) | Mobile console geometry at viewport widths of 480px or less |
 | [catch-game.css](catch-game.css) | Current console/menu overrides, group selectors, selection highlight, sound toggle |
 | [report.css](report.css) | Shared popup and original e-commerce master layout/typography for ALL reports |
-| [case-02.js](case-02.js) | Child Enrichment data/copy only; style it in report.css |
+| [case-04.js](case-04.js) | Child Enrichment data/copy only; style it in report.css |
 | [case-03.js](case-03.js) | Professional Services data/copy only; style it in report.css |
 | [case-01.js](case-01.js) | Financial Services data/copy only; style it in report.css |
 | [../site-notice.css](../site-notice.css) | Portfolio In progress notice above the console |
@@ -101,7 +101,7 @@ The **outer popup** and the **report content inside it** are separate containers
 | Case 01 content width | `.meta-report .case-report` | Maximum 1050px |
 | Case 01 content padding | `dialog.meta-report` → `--report-padding` | `26px 50px 60px`; smaller-screen overrides are later in the file |
 | Case 01 section spacing | `--section-gap` | 46px; some sections have their own margins |
-| Cases 02–04 content | Same `.case-report` and `--report-padding` as the original e-commerce master (now case 04) | Same 1050px maximum and responsive padding |
+| Cases 02–04 content | Same `.case-report` and `--report-padding` as the original e-commerce master (now case 02) | Same 1050px maximum and responsive padding |
 
 
 Changing the shared popup width affects all reports. Changing `--report-padding` affects all four cases. Inspect its mobile overrides too.
@@ -124,7 +124,7 @@ All four reports now use case 01's renderer and stylesheet. Edit `report.css` fo
 | Process direction | `.process-timeline` | Horizontal, scrollable |
 | Outcome qualification | `.conclusion-footnote` | 12px / line height 1.6 |
 
-Report-specific text and chart values belong in `cases.js` or `case-02.js` / `case-03.js` / `case-01.js`. See CASE-STUDY-FORMAT.md for data options. Changing a report font in `report.css` applies consistently to all four cases.
+Report-specific text and chart values belong in `cases.js` or `case-04.js` / `case-03.js` / `case-01.js`. See CASE-STUDY-FORMAT.md for data options. Changing a report font in `report.css` applies consistently to all four cases.
 
 ## Choose a different web font
 
@@ -154,7 +154,7 @@ max-width: 65ch;                         /* Approximate readable line length */
 - Page pink background: `styles.css` → `body { background: #F1CAD8; }` (currently a literal colour, not the shell variable).
 - Upper display sky/ground: `styles.css` → `.top-screen` → `linear-gradient(...)`.
 - Shared report palette: `report.css` → `.meta-report` variables. The chart/ROAS sections define some local overrides too.
-- Cases 02–04 use the same shared report variables as the original e-commerce master (now case 04).
+- Cases 02–04 use the same shared report variables as the original e-commerce master (now case 02).
 - All outcome panels use `.conclusion-section` and the shared palette.
 
 ## Why a CSS edit may appear to do nothing
@@ -193,4 +193,6 @@ Final case 01 presentation: `.summary-strip` has three compact context items. Hi
 
 Monthly actual advertising spend sits immediately below opportunity value in the August–October cards: RM7,070.94 / RM3,918.59 / RM5,330.70. `.timeline-spend` styles the smaller supporting labels. These are actual spend figures, separate from the available budget and scheduled daily-budget limits; do not derive ROAS from assessed opportunity values.
 
-Case 04 retains the original comparison bars and equation design. `cases.js` supplies result labels, takeaways and notes using `resultComparison`, `takeaway`, `note`, and the audience comparison scale. Optional fields affect only reports that set them. The dot visual uses configured purchase-value terminology and exact 10/60 counts. Execution stage `dialLabel` is the short SVG label; the full title and detail populate the selected stage and complete-process dropdown.
+Case 02 retains the original comparison bars and equation design. `cases.js` supplies result labels, takeaways and notes using `resultComparison`, `takeaway`, `note`, and the audience comparison scale. Optional fields affect only reports that set them. The dot visual uses configured purchase-value terminology and exact 10/60 counts. Execution stage `dialLabel` is the short SVG label; the full title and detail populate the selected stage and complete-process dropdown.
+
+E-commerce (now case 02) uses optional `report.economics` for the compact illustrative section beneath dots. `.economics-table-wrap` scrolls the table locally on small screens. Five short-label text controls complement the existing execution dial and use its same stage data. Child enrichment remains case 04.

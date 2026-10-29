@@ -1,6 +1,6 @@
 // Case-specific evidence and copy; all layout and interactions use the case 01 master.
 (() => {
-  const data=META_CONFIG.cases.find(item=>item.id==="02");
+  const data=META_CONFIG.cases.find(item=>item.id==="04");
   Object.assign(data, {
   "report": {
     "challengeTitle": "Growing registrations while keeping lead costs within target.",

@@ -1806,5 +1806,19 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 
 .meta-report .performance-intro {grid-column:1 / -1;}
 .meta-report .performance-intro h2 {font-size:24px;line-height:1.25;}
-/* March reaches the axis maximum; keep its label inside the case 04 chart. */
-.meta-report .case-report[data-case="04"] .goal-card:first-of-type .target-label {left:auto;right:0;transform:none;}
+/* March reaches the axis maximum; keep its label inside the case 02 chart. */
+.meta-report .case-report[data-case="02"] .goal-card:first-of-type .target-label {left:auto;right:0;transform:none;}
+
+/* Optional e-commerce illustration; no changes to other report layouts. */
+.meta-report .economics-section {margin:32px 0;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:13px;line-height:1.65;}
+.meta-report .economics-section h2 {font-size:21px;line-height:1.3;margin:0 0 12px;}
+.meta-report .economics-section p {margin:12px 0;}
+.meta-report .economics-table-wrap {overflow-x:auto;max-width:100%;margin:18px 0;}
+.meta-report .economics-table {width:100%;border-collapse:collapse;font-size:12px;text-align:left;}
+.meta-report .economics-table caption {text-align:left;color:var(--muted);padding-bottom:10px;}
+.meta-report .economics-table th,.meta-report .economics-table td {padding:10px;border-bottom:1px solid var(--border);}
+.meta-report .economics-table td {white-space:nowrap;}
+.meta-report .economics-allowance summary {cursor:pointer;color:var(--purple);font-weight:600;}
+.meta-report .ecommerce-decision-labels {display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 24px;}
+.meta-report .ecommerce-decision-labels button {font:inherit;font-size:12px;background:transparent;border:0;padding:6px 0;color:var(--purple);text-align:left;cursor:pointer;}
+.meta-report .ecommerce-decision-labels button[aria-pressed="true"] {font-weight:700;text-decoration:underline;text-underline-offset:4px;}
