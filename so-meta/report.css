@@ -1803,3 +1803,8 @@ dialog.meta-report[open] { display: flex; flex-direction: column; }
 .financial-layout .timeline-spend span,.financial-layout .timeline-spend strong {display:block;}
 .financial-layout .timeline-spend span {color:var(--muted);font-size:10px;}
 .financial-layout .timeline-spend strong {margin-top:4px;font-size:15px;font-weight:600;color:var(--ink);}
+
+.meta-report .performance-intro {grid-column:1 / -1;}
+.meta-report .performance-intro h2 {font-size:24px;line-height:1.25;}
+/* March reaches the axis maximum; keep its label inside the case 04 chart. */
+.meta-report .case-report[data-case="04"] .goal-card:first-of-type .target-label {left:auto;right:0;transform:none;}

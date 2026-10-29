@@ -176,129 +176,186 @@ const META_CONFIG = {
       "menuTitle": "E-Commerce • ROAS",
       "menuNiche": "E-Commerce",
       "report": {
-        "date": "February – March 2026",
-        "objectiveOrder": [
-          1,
-          0
-        ],
-        "problemPoints": [
-          "Sales slowed in Q1 after stronger Q3 and Q4 trading.",
-          "Popular colourways sold out while other options struggled."
-        ],
+        "date": "February–March 2026",
         "challengeTitle": "Demand slowed after the holiday peak.",
-        "outcomeHeading": "Were the objectives met?",
+        "problemPoints": [
+          "Sales softened in Q1 after stronger Q3 and Q4 trading.",
+          "Popular colourways sold out while other options struggled.",
+          "Some ads attracted reach and clicks without recorded purchases, requiring closer control of spend and stronger product-led creative."
+        ],
+        "outcomeHeading": "What changed?",
+        "performanceHeading": "Improve returns while controlling acquisition costs.",
+        "performanceSummary": "Reported CPP ranged from ₱1,300 to ₱1,800 across broad, interest-based and retargeting audiences.",
+        "costGoalNote": "Cost goals: ₱2,100 initial goal → ₱1,500 eventual target. These are goals, not achieved results.",
+        "processTitle": "View all five campaign decisions",
+        "footnote": "Complete period-level reporting is unavailable; sustained monthly performance cannot be verified. The reported ROAS increase does not establish that revenue doubled or isolate each intervention’s contribution. Client details withheld due to NDA.",
         "conclusions": [
           {
-            "label": "ROAS target · 6.00×",
-            "status": "MET*",
-            "tone": "met",
-            "description": "ROAS exceeded 6.00× during individual weeks of the campaign."
+            "label": "Reported ROAS",
+            "status": "3× → 6×",
+            "tone": "neutral",
+            "description": "A 100% increase between the reported February and March figures."
+          },
+          {
+            "label": "Reported CPP range",
+            "status": "₱1,300–₱1,800",
+            "tone": "neutral",
+            "description": "Broad: ₱1,300 · Interest-based: ₱1,600 · Retargeting: ₱1,800."
           },
           {
             "label": "CPP target · ₱1,500",
-            "status": "MET*",
-            "tone": "met",
-            "description": "The lowest recorded cost per purchase reached ₱1,300."
+            "status": "REACHED BY BROAD",
+            "tone": "neutral",
+            "description": "Broad reached ₱1,300. This does not establish that the overall campaign achieved a ₱1,500 average."
+          },
+          {
+            "label": "Budget management",
+            "status": "GUIDED BY PURCHASE COST",
+            "tone": "neutral",
+            "description": "Observed CPP provided a baseline for sales-linked budget increases rather than committing the full available budget upfront."
           }
-        ],
-        "footnote": "*Targets were reached at individual points, not established as campaign-period averages. Complete period-level reporting is unavailable, so sustained achievement cannot be verified."
+        ]
       },
-      "title": "Achieving Weekly ROAS Above 6",
+      "title": "From 3× to 6× Reported ROAS",
       "niche": "E-Commerce",
       "industry": "Meta Advertising · E-Commerce",
       "market": "Philippines",
-      "duration": "Q4 2025 – Q2 2026",
+      "duration": "February–March 2026",
       "budget": {
         "amount": 1000000,
         "currency": "PHP",
-        "period": "monthly"
+        "period": "available spending ceiling"
       },
       "nda": "Client details withheld due to NDA.",
-      "achievement": "6+ weekly ROAS",
-      "challengeTitle": "Sales slowed after the holiday peak.",
-      "problem": "After stronger Q3 and Q4 trading, sales slowed in Q1 2026. Popular colourways sold out while other options struggled. January ROAS averaged 3.00 and average cost per purchase was ₱2,600. Products were priced between ₱12,990 and ₱35,000.",
-      "solution": "Refine audience segmentation, cost controls, creative selection, pricing and promotional planning to improve returns outside the Christmas period.",
+      "achievement": "3× → 6× reported ROAS",
+      "challengeTitle": "Demand slowed after the holiday peak.",
+      "problem": "Sales softened in Q1 after stronger Q3 and Q4 trading. Popular colourways sold out while other options struggled. Some ads attracted reach and clicks without recorded purchases, requiring closer control of spend and stronger product-led creative.",
+      "solution": "Limit spend on ads without purchases while improving audience allocation, product-led creative and availability. Use recent purchase costs to guide cost goals and controlled budget increases.",
       "objectives": [
         {
           "title": "Return on ad spend",
           "baseline": 3,
-          "scaleMax": 7,
           "target": 6,
-          "baselineLabel": "January average",
-          "targetLabel": "Target",
+          "scaleMax": 6,
+          "baselineLabel": "February reported ROAS",
+          "targetLabel": "March reported ROAS",
           "suffix": "×",
           "decimals": 2,
-          "lowerIsBetter": false
+          "lowerIsBetter": false,
+          "resultComparison": true,
+          "takeaway": "100% increase in reported ROAS",
+          "note": "Reported February and March performance. Complete period-level reporting is unavailable; these figures are not presented as verified full-month averages."
         },
         {
-          "title": "Cost per purchase",
+          "title": "Broad · Cost per purchase",
           "baseline": 2600,
-          "scaleMax": 3000,
-          "target": 1500,
-          "baselineLabel": "January average",
-          "targetLabel": "Target",
+          "target": 1300,
+          "scaleMax": 3500,
+          "baselineLabel": "Initial CPP",
+          "targetLabel": "Subsequent CPP",
           "prefix": "₱",
-          "lowerIsBetter": true
+          "lowerIsBetter": true,
+          "resultComparison": true,
+          "takeaway": "50% lower",
+          "note": "Reported audience-level results, not a blended campaign-period average. Broad reached below the ₱1,500 target; interest-based and retargeting results remained above it."
+        },
+        {
+          "title": "Interest-based · Cost per purchase",
+          "baseline": 2400,
+          "target": 1600,
+          "scaleMax": 3500,
+          "baselineLabel": "Initial CPP",
+          "targetLabel": "Subsequent CPP",
+          "prefix": "₱",
+          "lowerIsBetter": true,
+          "resultComparison": true,
+          "takeaway": "33.3% lower",
+          "note": "Reported audience-level results, not a blended campaign-period average. Broad reached below the ₱1,500 target; interest-based and retargeting results remained above it."
+        },
+        {
+          "title": "Retargeting · Cost per purchase",
+          "baseline": 3000,
+          "target": 1800,
+          "scaleMax": 3500,
+          "baselineLabel": "Initial CPP",
+          "targetLabel": "Subsequent CPP",
+          "prefix": "₱",
+          "lowerIsBetter": true,
+          "resultComparison": true,
+          "takeaway": "40% lower",
+          "note": "Reported audience-level results, not a blended campaign-period average. Broad reached below the ₱1,500 target; interest-based and retargeting results remained above it."
         }
       ],
       "dots": {
         "visualization": "roas-waffle",
-        "title": "₱1M in. ₱6M in revenue at 6× ROAS.",
+        "title": "What does 6× look like?",
         "unit": 100000,
         "unitLabel": "₱100,000",
+        "description": "Every ₱1 spent needs to generate ₱6 in attributed purchase value.",
         "left": {
           "value": 1000000,
-          "display": "₱1M",
-          "label": "Monthly advertising budget"
+          "display": "₱1,000,000",
+          "label": "Available ad budget"
         },
         "right": {
           "value": 6000000,
-          "display": "₱6M",
-          "label": "Revenue required at 6.00 ROAS"
+          "display": "₱6,000,000",
+          "label": "Purchase value required at 6×"
         },
-        "note": "Illustrative revenue requirement assuming the full ₱1M monthly advertising budget is spent. This is a target illustration, not actual revenue."
+        "context": "The available budget was a spending ceiling, not a commitment to spend the full amount. Budget increases were guided by recorded sales and observed purchase costs.",
+        "note": "Illustrative scenario assuming the full available budget is spent; not actual spend or revenue. Purchase value is before business costs and is not profit."
       },
       "execution": [
         {
-          "title": "Audience Segmentation",
-          "detail": "Compare broad audiences, engaged-customer retargeting and lookalike audiences up to 5% to identify opportunities for stronger returns."
+          "title": "Compare audience performance",
+          "dialLabel": "Compare audiences",
+          "detail": "Compared broad, interest-based, engaged-customer retargeting and lookalike audiences up to 5% to inform allocation. Reviewed purchase costs and returns to guide subsequent decisions, with reported CPP later reaching ₱1,300 for broad, ₱1,600 for interest-based and ₱1,800 for retargeting."
         },
         {
-          "title": "Cost Controls",
-          "detail": "Gradually adjust cost-per-result goals alongside creative changes while monitoring delivery and purchase costs."
+          "title": "Limit spend without purchases",
+          "dialLabel": "Control unproductive spend",
+          "detail": "Discontinued ads generating spend without recorded purchases while improving the campaign’s ability to generate sales. One example was celebrity-led content that attracted strong reach and CTR but gave limited attention to product benefits and value. These ads were part of a broader review of non-converting spend."
         },
         {
-          "title": "Creative Optimisation",
-          "detail": "Use CTR and CPC to guide creative replacement, while evaluating purchase cost and ROAS for commercial performance."
+          "title": "Improve creative and product availability",
+          "dialLabel": "Refine creative and products",
+          "detail": "Replaced catalogue ads with reels following testing and refreshed the creative with current designs and colourways. Checked that the specific colours and designs advertised were available to purchase, reducing the risk of interested shoppers clicking through to unavailable products."
         },
         {
-          "title": "Pricing & Product Selection",
-          "detail": "Adjust pricing for popular colourways and feature those products more prominently in advertising."
+          "title": "Give promotions a clear product story",
+          "dialLabel": "Build promotional stories",
+          "detail": "Developed seasonal and campaign-specific promotions using a three-card carousel: the offer (promotion and price), the selection (products in popular colourways), and the styling (the product worn by a model). The sequence connected the purchase incentive with product choice and styling."
         },
         {
-          "title": "Promotional Planning",
-          "detail": "Introduce off-peak offers, including a Valentine's Day 2026 carousel highlighting discounts and popular colourways."
+          "title": "Adjust cost goals and budget progressively",
+          "dialLabel": "Guide costs and budget",
+          "detail": "Set an initial ₱2,100 cost-per-result goal before pursuing the ₱1,500 target. Used recent purchase performance to guide subsequent adjustments. With up to ₱1 million available, observed CPP provided a baseline for controlled budget increases. Following a sale at approximately ₱1,600 CPP, for example, a ₱1,600 budget increment kept expansion tied to recent purchase performance while the campaigns were refined. I used observed cost per purchase as a baseline, allowing up to 15% headroom where the budget permitted. This gave me flexibility while keeping spending decisions anchored to recent purchase performance. This discretionary buffer was my budgeting preference, not a Meta requirement."
         }
       ],
-      "outcome": "Weekly ROAS exceeded 6.00, while the lowest recorded cost per purchase reached ₱1,300.",
+      "outcome": "Reported ROAS increased from 3× in February to 6× in March. Purchase costs fell across the three reported audiences, supported by changes to spending controls, creative and product selection.",
       "results": [
         {
-          "value": "6+",
-          "label": "WEEKLY ROAS",
-          "description": "Weekly ROAS achieved above the 6.00 target. This is not presented as the campaign-period average."
+          "value": "3× → 6×",
+          "label": "Reported ROAS",
+          "description": "A 100% increase between the reported February and March figures."
         },
         {
-          "value": "₱1,300",
-          "label": "LOWEST RECORDED CPP",
-          "description": "The lowest recorded cost per purchase, 13.3% below the ₱1,500 target."
+          "value": "₱1,300–₱1,800",
+          "label": "Reported CPP range",
+          "description": "Broad: ₱1,300 · Interest-based: ₱1,600 · Retargeting: ₱1,800."
+        },
+        {
+          "value": "REACHED BY BROAD",
+          "label": "CPP target · ₱1,500",
+          "description": "Broad reached ₱1,300. This does not establish that the overall campaign achieved a ₱1,500 average."
+        },
+        {
+          "value": "GUIDED BY PURCHASE COST",
+          "label": "Budget management",
+          "description": "Observed CPP provided a baseline for sales-linked budget increases rather than committing the full available budget upfront."
         }
       ],
-      "weekly": {
-        "title": "Weekly ROAS",
-        "target": 6,
-        "data": [],
-        "note": "Weekly values will be plotted once the campaign's actual reporting data is available."
-      }
+      "weekly": null
     }
   ]
 };

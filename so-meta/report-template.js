@@ -148,10 +148,10 @@
         const current=valid(baseline)?baseline/max*100:0,goal=target/max*100;
         card.style.setProperty('--current',`${current}%`);card.style.setProperty('--target',`${goal}%`);
         card.style.setProperty('--gap-start',`${Math.min(current,goal)}%`);card.style.setProperty('--gap-width',`${Math.abs(current-goal)}%`);
-        chart.setAttribute('role','img');chart.setAttribute('aria-label',`${metric.title}: ${metric.baselineLabel??'Baseline'} ${format(baseline,metric)}; goal ${format(target,metric)}. Scale ${format(0,metric)} to ${format(max,metric)}.`);
+        chart.setAttribute('role','img');chart.setAttribute('aria-label',`${metric.title}: ${metric.baselineLabel??'Baseline'} ${format(baseline,metric)}; ${metric.targetLabel??'goal'} ${format(target,metric)}. Scale ${format(0,metric)} to ${format(max,metric)}.`);
         const track=make('div','chart-track');
         if(valid(baseline))track.append(make('div','current-bar'));
-        track.append(make('span','target-marker'),make('span','target-label',`Goal ${format(target,metric)}`));
+        track.append(make('span','target-marker'),make('span','target-label',`${metric.resultComparison?metric.targetLabel:"Goal"} ${format(target,metric)}`));
         const axis=make('div','chart-axis');axis.setAttribute('aria-hidden','true');axis.append(make('span','',format(0,metric)),make('span','',format(max,metric)));
         chart.append(track,axis);
         if(valid(baseline)) {
@@ -166,8 +166,9 @@
           if(i)equation.append(make('span','operator',i===1?(change<0?'−':'+'):'='));
           const item=make('div',`equation-item ${cls}`);item.append(make('span','equation-value',format(value,metric)),make('span','equation-label',label));equation.append(item);
         });card.append(equation);
-        if(baseline>0){const required=make('p','required-change');required.append(make('strong','',`${(Math.abs(change)/baseline*100).toLocaleString('en-US',{maximumFractionDigits:1})}% ${change<0?'reduction':'increase'}`),document.createTextNode(' needed'));card.append(required);}
+        if(baseline>0){const required=make('p','required-change');required.append(make('strong','',`${(Math.abs(change)/baseline*100).toLocaleString('en-US',{maximumFractionDigits:1})}% ${change<0?'reduction':'increase'}`),document.createTextNode(metric.resultComparison?'':' needed'));if(metric.takeaway)required.textContent=metric.takeaway;card.append(required);}
       }else card.append(make('p','missing-value',`${metric.baselineLabel??'Baseline'}: ${format(baseline,metric)}. ${metric.targetLabel??'Goal'}: ${format(target,metric)}.`));
+      if(metric.note)card.append(make('p','comparison-note',metric.note));
       panel.append(card);
     });
   }
@@ -213,17 +214,20 @@
       const copy=make('div','roas-copy'),ratio=data.right.value/data.left.value;
       copy.append(make('p','roas-number',`${ratio.toLocaleString('en-US',{maximumFractionDigits:2})}×`));
       const description=make('p','roas-description');description.append(document.createTextNode('Every ₱1 spent needs to generate '),make('strong','',`₱${ratio.toLocaleString('en-US',{maximumFractionDigits:2})} in revenue.`));
+      if(data.description)description.textContent=data.description;
       const key=make('p','roas-key');key.append(make('span','roas-key-dot'),document.createTextNode(`Each dot represents ${data.unitLabel}.`));copy.append(description,key);
       const figure=make('figure','roas-chart');figure.setAttribute('role','img');figure.setAttribute('aria-label',`${data.left.display} ad budget compared with ${data.right.display} required revenue. Each dot represents ${data.unitLabel}. Revenue before costs, not profit. Target illustration, not actual revenue.`);
       [data.left,data.right].forEach((item,i)=>{
         const group=make('div',`roas-group ${i?'roas-revenue':'roas-budget'}`),heading=make('div','roas-group-heading');
-        heading.append(make('h3','',i?'Revenue needed':'Ad budget'),make('strong','',`₱${item.value.toLocaleString('en-US')}`));
+        heading.append(make('h3','',item.label??(i?'Revenue needed':'Ad budget')),make('strong','',`₱${item.value.toLocaleString('en-US')}`));
         const grid=make('div','roas-dots');grid.setAttribute('aria-hidden','true');const count=Math.round(item.value/data.unit);
         if(Number.isFinite(count)&&count>=0&&count<=300)for(let j=0;j<count;j++)grid.append(make('span',''));else grid.append(make('p','','Visualization unavailable for this amount.'));
         group.append(heading,grid);figure.append(group);
       });
+      if(data.description)figure.setAttribute('aria-label',`${data.left.display} available ad budget and ${data.right.display} illustrative required purchase value. Each dot represents ${data.unitLabel}. Not actual spend or revenue; not profit.`);
+      if(data.context)copy.append(make('p','comparison-note',data.context));
       container.classList.add('roas-layout');container.append(copy,figure);
-      field('dot-note', 'Revenue before costs, not profit. Illustrative target assuming the full monthly ad budget is spent; not actual revenue.');
+      field('dot-note', data.note??'Revenue before costs, not profit. Illustrative target assuming the full monthly ad budget is spent; not actual revenue.');
       return;
     }
     [data.left, data.right].forEach((item, i) => {
@@ -254,6 +258,7 @@
       const circle = svgNode('circle',{cx:x,cy:y,r:active?25:21,fill:active?'var(--purple)':'var(--page)',stroke:'var(--purple)','stroke-width':1.5});
       const label = svgNode('text',{x,y:y+7,'text-anchor':'middle','font-size':active?21:18,'font-weight':700,fill:active?'var(--page)':'var(--purple)','pointer-events':'none'}); label.textContent=pad(i+1);
       group.append(circle,label);
+      if(step.dialLabel){const short=svgNode('text',{x:x+32,y:y+4,'font-size':10,fill:'var(--purple)'});short.textContent=step.dialLabel;group.append(short);}
       if(cases[current].id==='01'){const title=svgNode('text',{x:x+34,y:y+4,'font-size':11,'font-weight':active?700:500,fill:'var(--purple)',class:'dial-decision-title'});title.textContent=step.title;group.append(title);} group.addEventListener('click',()=>renderStage(i));
       group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();renderStage(i);}});
       svg.append(group);
@@ -265,7 +270,7 @@
     const timeline = q('.process-timeline'); timeline.replaceChildren();
     q('.decision-labels')?.remove();
     const financial=cases[current].id==='01';
-    q('.process-summary-title').textContent=financial?'View all four decisions':'Skip the dial — view the complete process';
+    q('.process-summary-title').textContent=cases[current].report?.processTitle??(financial?'View all four decisions':'Skip the dial — view the complete process');
     if(financial){const controls=make('div','decision-labels');controls.setAttribute('aria-label','Select an execution decision');steps.forEach((step,i)=>{const button=make('button','',`${pad(i+1)} · ${step.title}`);button.type='button';button.addEventListener('click',()=>renderStage(i));controls.append(button);});q('.dial-viewport').after(controls);}
 
     q('.process-disclosure').open = false;
@@ -315,6 +320,7 @@
       ? options.objectiveOrder.map(index=>(data.objectives??[])[index]).filter(Boolean)
       : data.objectives??[];
     if(options.comparisons) evidenceComparisons(options.comparisons);else objectives(objectiveItems);
+    if(options.performanceHeading){const intro=make('div','performance-intro');intro.append(make('p','eyebrow','Campaign performance'),make('h2','',options.performanceHeading),make('p','comparison-note',options.performanceSummary),make('p','comparison-note',options.costGoalNote));q('.chart-panel').prepend(intro);}
     q('.chart-panel').hidden=!(options.comparisons?.length??objectiveItems.length)||hidden.has('objectives');
     q('.report-header').classList.toggle('narrative-only',q('.chart-panel').hidden);
     disposeFinancialReport();disposeFinancialReport=()=>{};
